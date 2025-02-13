@@ -1,13 +1,10 @@
-import { useState } from 'react'
 import './App.css'
-
+import HeroSection from './components/homepage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-<h1>hi</h1>
+<HeroSection/>
     </>
   )
 }
