@@ -2,12 +2,11 @@ export default function HeroSection() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <nav className=" container relative mx-auto flex w-full items-center justify-between px-5 py-3 text-xl ">
-        <div>about</div>
+        <div ><a href="\src\pages\about.jsx">about</a></div>
         <div className="flex items-center justify-around">
           <ul className="mx-3 flex">
-            <li className="mx-3">Links</li>
-            <li className="mx-3">Links</li>
-            <li className="mx-3">Links</li>
+            <li className="mx-3"><a href="\src\pages\projects.jsx">project</a></li>
+            <li className="mx-3"><a href="\src\pages\blog.jsx">blog</a></li>
           </ul>
           <button className="hidden rounded-xl bg-white/20 px-4 py-2 text-[#FF00E5] sm:block">
             CTA Button
@@ -18,7 +17,7 @@ export default function HeroSection() {
       <div className="relative flex flex-col items-center justify-center">
         <div className="relative top-32 max-w-3xl font-Manrope">
           <h1 className="text-5xl font-extrabold sm:text-7xl">
-            Making bitcoin more than an investment.
+            this is my personal website
           </h1>
           <p className="my-4 font-medium">
             Bitcoin is the best money. It should defenitely be used like it. We
