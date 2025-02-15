@@ -6,10 +6,10 @@ export default function HeroSection() {
         <div className="flex items-center justify-around">
           <ul className="mx-3 flex">
             <li className="mx-3"><a href="\src\pages\projects.jsx">project</a></li>
-            <li className="mx-3"><a href="\src\pages\blog.jsx">blog</a></li>
+           
           </ul>
           <button className="hidden rounded-xl bg-white/20 px-4 py-2 text-[#FF00E5] sm:block">
-            CTA Button
+            blog
           </button>
         </div>
       </nav>
@@ -20,9 +20,12 @@ export default function HeroSection() {
             this is my personal website
           </h1>
           <p className="my-4 font-medium">
-            Bitcoin is the best money. It should defenitely be used like it. We
-            always build and fund free, open-source projects aimed at making
-            bitcoin the planet's preferred currency.
+          I am a second-year BCA student driven by a deep passion for computer science and technology.
+
+With a strong foundation in programming and problem-solving, I am actively honing my skills in web development, data structures, and algorithms.
+
+My vision is to create innovative solutions that combine technical expertise with creativity to address real-world challenges. Beyond academics, I enjoy exploring my creative side through painting.
+I am committed to continuous learning, personal growth, and working on impactful projects that contribute to the tech community
           </p>
           <div>
             <button className="m-1 rounded-xl  bg-[#FF00E5] px-16 py-3">
