@@ -1,59 +1,45 @@
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <nav className=" container relative mx-auto flex w-full items-center justify-between px-5 py-3 text-xl ">
-        <div ><a href="\src\pages\about.jsx">about</a></div>
-        <div className="flex items-center justify-around">
-          <ul className="mx-3 flex">
-            <li className="mx-3"><a href="\src\pages\projects.jsx">project</a></li>
-           
-          </ul>
-          <button className="hidden rounded-xl bg-white/20 px-4 py-2 text-[#FF00E5] sm:block">
-            blog
+    <div className="relative min-h-screen overflow-hidden bg-[#FAF7F2]">
+      {/* Navbar */}
+      <nav className="container mx-auto flex items-center justify-between px-5 py-4">
+        <div className="text-3xl font-bold">shreevatsa tg</div>
+        <div className="flex items-center gap-6">
+          <a href="#projects" className="text-lg font-medium">Projects</a>
+          <button className="bg-[#FF00E5] text-white px-5 py-2 rounded-xl font-medium">
+            Blog
           </button>
         </div>
       </nav>
 
-      <div className="flex justify-center items-center h-fit">
-  <div className="w-56 h-56 rounded-3xl overflow-hidden border-4 border-gray-300 shadow-lg">
-    <img 
-      src="/photo_2024-09-13_09-13-24.jpg" 
-      alt="picture"
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
+      {/* Hero Section */}
+      <div className="container mx-auto flex flex-col-reverse sm:flex-row items-center justify-between px-5 mt-10 sm:mt-20">
+        {/* Left - Image */}
+        <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg">
+          <img src="/photo_2024-09-13_09-13-24.jpg" alt="Profile" className="w-full h-full object-cover" />
+        </div>
 
-
-      <div className="relative flex flex-col items-center justify-center">
-        <div className="relative top-30 max-w-3xl font-Manrope">
-          <h1 className="text-5xl font-extrabold sm:text-7xl">
-            this is my personal website
+        {/* Right - Text Content */}
+        <div className="max-w-xl text-center sm:text-left">
+          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight underline decoration-[#00AEEF]">
+            Hey Friends! 
           </h1>
-          <p className="my-4 font-medium">
-          I am a second-year BCA student driven by a deep passion for computer science and technology.
-
-With a strong foundation in programming and problem-solving, I am actively honing my skills in web development, data structures, and algorithms.
-
-My vision is to create innovative solutions that combine technical expertise with creativity to address real-world challenges. Beyond academics, I enjoy exploring my creative side through painting.
-I am committed to continuous learning, personal growth, and working on impactful projects that contribute to the tech community
+          <br/>
+                    <p className="mt-4 text-lg text-gray-700">
+            I am a second-year BCA student driven by a passion for computer science.
+            Actively honing my skills in web development and DSA, I aspire to create innovative solutions that
+            blend technology with creativity.
           </p>
-          <div>
-            <button className="m-1 rounded-xl  bg-[#FF00E5] px-16 py-3">
-              Learn More
+          <div className="mt-6 flex gap-4 justify-center sm:justify-start">
+            <button className="bg-[#FF00E5] text-white px-6 py-3 rounded-xl font-semibold">
+              About Me
             </button>
-            <button className=" mx-1 rounded-xl bg-white px-16 py-3 text-black">
-              Learn More
+            <button className="bg-white border border-gray-300 px-6 py-3 rounded-xl font-semibold">
+              Contact
             </button>
           </div>
-        </div>
-      </div>
-      <div className="relative   top-[10vh] max-w-full sm:top-0 ">
-        <div className="absolute w-full object-contain">
-          <img src="circle.png" alt="" className="relative  object-fill" />
         </div>
       </div>
     </div>
   );
 }
-               
