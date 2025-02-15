@@ -1,5 +1,5 @@
 import './App.css'
-import HeroSection from './components/homepage'
+import HeroSection from './pages/homepage'
 
 function App() {
   return (
