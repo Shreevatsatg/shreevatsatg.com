@@ -1,12 +1,18 @@
-export default function HeroSection() {
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router";
+
+
+
+export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#FAF7F2]">
       {/* Navbar */}
       <nav className="container mx-auto flex items-center justify-between px-5 py-4">
         <div className="text-3xl font-bold">shreevatsa tg</div>
         <div className="flex items-center gap-6">
-          <a href="#projects" className="text-lg font-medium">Projects</a>
-          <button className="bg-[#FF00E5] text-white px-5 py-2 rounded-xl font-medium">
+          <Link to="/projects" className="text-lg font-medium">Projects</Link>
+          <button className="bg-[#FF00E5] text-white px-5 py-2 rounded-xl font-medium" onClick={() => navigate("/blog")}>
             Blog
           </button>
         </div>
@@ -31,10 +37,10 @@ export default function HeroSection() {
             blend technology with creativity.
           </p>
           <div className="mt-6 flex gap-4 justify-center sm:justify-start">
-            <button className="bg-[#FF00E5] text-white px-6 py-3 rounded-xl font-semibold">
+            <button className="bg-[#FF00E5] text-white px-6 py-3 rounded-xl font-semibold"onClick={() => navigate("/about")}>
               About Me
             </button>
-            <button className="bg-white border border-gray-300 px-6 py-3 rounded-xl font-semibold">
+            <button className="bg-white border border-gray-300 px-6 py-3 rounded-xl font-semibold" onClick={() => navigate("/contact")}>
               Contact
             </button>
           </div>
