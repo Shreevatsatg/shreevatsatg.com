@@ -14,8 +14,19 @@ export default function HeroSection() {
         </div>
       </nav>
 
+      <div className="flex justify-center items-center h-fit">
+  <div className="w-56 h-56 rounded-3xl overflow-hidden border-4 border-gray-300 shadow-lg">
+    <img 
+      src="/photo_2024-09-13_09-13-24.jpg" 
+      alt="picture"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+
+
       <div className="relative flex flex-col items-center justify-center">
-        <div className="relative top-32 max-w-3xl font-Manrope">
+        <div className="relative top-30 max-w-3xl font-Manrope">
           <h1 className="text-5xl font-extrabold sm:text-7xl">
             this is my personal website
           </h1>
