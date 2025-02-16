@@ -37,17 +37,24 @@ const Contact = () => {
   };
 
   return (
+
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+   
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-2xl w-full relative">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Contact Me</h2>
-
-        {/* Success Message Popup */}
+  
+        {/* Success Message Popup (Centered) */}
         {isSubmitted && (
-          <div className="absolute top-4 right-4 bg-green-500 text-white p-3 rounded-lg shadow-lg">
-            ✅ Message Sent Successfully!
+   
+           
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-green-500 text-white p-4 rounded-md shadow-lg text-center">
+             ✅ Message Sent Successfully!
+           </div>
           </div>
-        )}
-
+           )}
+       
+  
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 font-semibold">Name</label>
@@ -61,7 +68,7 @@ const Contact = () => {
               required
             />
           </div>
-
+  
           <div>
             <label className="block text-gray-700 font-semibold">Email</label>
             <input
@@ -74,7 +81,7 @@ const Contact = () => {
               required
             />
           </div>
-
+  
           <div>
             <label className="block text-gray-700 font-semibold">Message</label>
             <textarea
@@ -87,24 +94,31 @@ const Contact = () => {
               required
             />
           </div>
-
+  
           {/* FormSubmit Hidden Inputs */}
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_subject" value="New Contact Form Message" />
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
+  
+          {/* Button Section - Fixed Position */}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition w-full sm:w-auto px-6"
+            >
+              Send Message
+            </button>
+          </div>
         </form>
-
+  
         <div className="mt-6 text-center">
           <p className="text-gray-700">Or reach out via:</p>
-          <p className="text-gray-800 font-semibold">📧 Email: <a href="mailto:tgshreevatsa@gmail.com" className="text-blue-600">tgshreevatsa@gmail.com</a></p>
-          <p className="text-gray-800 font-semibold">📞 Phone: <a href="tel:+917019292082" className="text-blue-600">+91 7019292082</a></p>
-
+          <p className="text-gray-800 font-semibold">
+            📧 Email: <a href="mailto:tgshreevatsa@gmail.com" className="text-blue-600">tgshreevatsa@gmail.com</a>
+          </p>
+          <p className="text-gray-800 font-semibold">
+            📞 Phone: <a href="tel:+917019292082" className="text-blue-600">+91 7019292082</a>
+          </p>
+  
           <div className="flex justify-center space-x-4 mt-4">
             <a href="https://github.com/Shreevatsatg" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-500 text-xl">
               🔗 GitHub
@@ -120,6 +134,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}  
 
 export default Contact;

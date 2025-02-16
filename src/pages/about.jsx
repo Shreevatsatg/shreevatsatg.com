@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
@@ -24,9 +26,9 @@ const About = () => {
           </div>
   
           <div className="mt-8">
-            <a href="/" className="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">
+            <Link to="/" className="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </div>
