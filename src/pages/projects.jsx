@@ -2,19 +2,19 @@ const projects = [
     {
       title: "Personal Portfolio",
       description: "A responsive portfolio website showcasing my skills and projects.",
-      tech: ["React", "Tailwind CSS", "Framer Motion"],
+      tech: ["React", "Tailwind CSS", "Vercel"],
       link: "https://yourportfolio.com",
     },
     {
       title: "E-commerce App",
       description: "An online store with authentication, cart system, and payment integration.",
-      tech: ["Next.js", "MongoDB", "Stripe"],
+      tech: ["Next.js", "MongoDB",],
       link: "https://myecommerceapp.com",
     },
     {
       title: "Blog Platform",
       description: "A blog website with a custom CMS for creating and managing posts.",
-      tech: ["Django", "React", "PostgreSQL"],
+      tech: ["react", "mongodb", "express"],
       link: "https://myblog.com",
     },
   ];

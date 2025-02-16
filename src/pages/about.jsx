@@ -6,15 +6,18 @@ const About = () => {
             About me
           </h1>
           <p className="text-gray-600 text-lg">
-            Welcome to our blog! We are passionate about **web development**, **programming**, and **technology**.  
-            Our goal is to share **valuable knowledge** and **help developers** grow in their journey.
+          👋 Hi, I’m @Shreevatsa tg 
+          👀 I’m interested in coding ...
+          🌱 I’m currently learning bca ...
+          💞️ I’m looking to collaborate on development ...
+
           </p>
   
           <div className="mt-6">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-2">What We Do</h2>
+            <h2 className="text-2xl font-semibold text-gray-700 mb-2">What I Do</h2>
             <ul className="text-gray-600">
-              <li>✅ Web Development Tutorials</li>
-              <li>✅ Programming Guides</li>
+              <li>✅ Web Development </li>
+              <li>✅ Programming </li>
               <li>✅ Tech Insights & Trends</li>
               <li>✅ Open Source Contributions</li>
             </ul>
