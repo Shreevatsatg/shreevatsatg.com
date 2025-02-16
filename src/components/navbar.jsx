@@ -28,9 +28,9 @@ export default function Navbar() {
 
         {/* Navigation Links (Desktop & Mobile Dropdown) */}
         <div
-          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-[#FDF7F2] md:bg-transparent 
-          md:flex items-center text-center py-4 md:py-0 transition-all duration-300 shadow-md md:shadow-none
-          ${isOpen ? "block" : "hidden"}`}
+          className={` shadow-md md:shadow-none *
+          absolute md:static top-16 left-0 w-full md:w-auto bg-[#FDF7F2] md:bg-transparent md:flex items-center gap-6 text-center py-4 md:py-0 transition-all duration-300 ${isOpen ? "block z-50" : "hidden"
+          }`}
         >
           <ul className="md:flex flex-col md:flex-row items-center w-full md:w-auto">
             <li>
