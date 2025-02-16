@@ -17,7 +17,8 @@ export default function Home() {
         <div className="max-w-xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-[#191919]">
             Hey Friends!  
-            <span className="block text-[#9E6F21]">Welcome to my world.</span>
+            
+            <span className="block text-[#9E6F21] pt-4">Welcome to my world.</span>
           </h1>
           <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-700 leading-relaxed">
             I am a second-year BCA student driven by a passion for computer science.
