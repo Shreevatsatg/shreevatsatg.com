@@ -1,50 +1,47 @@
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router";
-
-
 
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#FAF7F2]">
-      {/* Navbar */}
-      <nav className="container mx-auto flex items-center justify-between px-5 py-4">
-        <div className="text-3xl font-bold">shreevatsa tg</div>
-        <div className="flex items-center gap-6">
-          <Link to="/projects" className="text-lg font-medium">Projects</Link>
-          <button className="bg-[#FF00E5] text-white px-5 py-2 rounded-xl font-medium" onClick={() => navigate("/blog")}>
-            Blog
-          </button>
-        </div>
-      </nav>
-
+    <div className="relative min-h-screen flex items-center justify-center bg-[#FDF7F2] text-[#191919] px-6 sm:px-12">
+      
       {/* Hero Section */}
-      <div className="container mx-auto flex flex-col-reverse sm:flex-row items-center justify-between px-5 mt-10 sm:mt-20">
-        {/* Left - Image */}
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left gap-10 sm:gap-16 md:gap-24">
+        
+        {/* Profile Image - Appears First on Mobile */}
+        <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 overflow-hidden border-4 border-[#E3B882] shadow-xl rounded-[25px]">
           <img src="/photo_2024-09-13_09-13-24.jpg" alt="Profile" className="w-full h-full object-cover" />
         </div>
 
-        {/* Right - Text Content */}
-        <div className="max-w-xl text-center sm:text-left">
-          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight underline decoration-[#00AEEF]">
-            Hey Friends! 
+        {/* Text Content */}
+        <div className="max-w-xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-[#191919]">
+            Hey Friends!  
+            <span className="block text-[#9E6F21]">Welcome to my world.</span>
           </h1>
-          <br/>
-                    <p className="mt-4 text-lg text-gray-700">
+          <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-700 leading-relaxed">
             I am a second-year BCA student driven by a passion for computer science.
-            Actively honing my skills in web development and DSA, I aspire to create innovative solutions that
-            blend technology with creativity.
+            Actively honing my skills in web development and DSA, I aspire to create
+            innovative solutions that blend technology with creativity.
           </p>
-          <div className="mt-6 flex gap-4 justify-center sm:justify-start">
-            <button className="bg-[#FF00E5] text-white px-6 py-3 rounded-xl font-semibold"onClick={() => navigate("/about")}>
+
+          {/* CTA Buttons */}
+          <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center md:items-start">
+            <button 
+              className="bg-[#FA9E67] text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-[#F38044] transition duration-300"
+              onClick={() => navigate("/about")}
+            >
               About Me
             </button>
-            <button className="bg-white border border-gray-300 px-6 py-3 rounded-xl font-semibold" onClick={() => navigate("/contact")}>
+            <button 
+              className="bg-white border-2 border-[#E3B882] px-6 py-3 rounded-full font-semibold shadow-md hover:bg-[#E3B882] hover:text-white transition duration-300"
+              onClick={() => navigate("/contact")}
+            >
               Contact
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );
