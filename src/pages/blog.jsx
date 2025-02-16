@@ -12,7 +12,7 @@ export default function Blog() {
       </header>
 
       {/* Featured Blog Post */}
-      <section className="container mx-auto max-w-4xl bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <section className="container mx-auto max-w-4xl bg-[#c3c0bc] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
         <img className="w-full h-64 object-cover rounded-xl" src="/featured-blog.jpg" alt="Featured Blog" />
         <h2 className="text-3xl font-bold mt-4 text-[#191919]">Featured Blog Post</h2>
         <p className="mt-2 text-[#5B4636]">An exciting post about my recent project and learnings.</p>
@@ -24,7 +24,7 @@ export default function Blog() {
         {[1, 2, 3, 4, 5, 6].map((post) => (
           <div 
             key={post} 
-            className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+            className="bg-[#c3c0bc] p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
             <img className="w-full h-40 object-cover rounded-lg" src={`/blog-thumbnail-${post}.jpg`} alt={`Blog ${post}`} />
             <h3 className="text-2xl font-bold mt-2 text-[#191919]">Blog Post {post}</h3>
             <p className="text-[#5B4636] mt-1">A short preview of the blog post content...</p>
