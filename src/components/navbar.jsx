@@ -1,16 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Import icons for menu toggle
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 
-export default function Navbar() {
+export default function Navbar({ darkMode, setDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to close menu on clicking a link
-  const handleLinkClick = () => setIsOpen(false);
+  useEffect(() => {
+    const closeMenu = (e) => {
+      if (!e.target.closest(".nav-menu")) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", closeMenu);
+    return () => document.removeEventListener("click", closeMenu);
+  }, []);
 
   return (
-    <nav className="bg-[#F5E1C8] text-[#191919] px-6 py-4 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="bg-[#F5E1C8] dark:bg-[#1E1E1E] text-[#191919] dark:text-white px-6 py-4 shadow-md">
+      <div className="container mx-auto flex items-center justify-between relative">
         
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide">
@@ -19,49 +26,74 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Hamburger Icon (Mobile View) */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-2xl">
+        {/* Desktop Navigation Links & Dark Mode Toggle */}
+        <div className="hidden md:flex items-center space-x-6">
+          <Link to="/projects" className="hover:text-[#9E6F21] dark:hover:text-[#F4A261] transition duration-300">
+            My Projects
+          </Link>
+          <Link to="/contact" className="hover:text-[#9E6F21] dark:hover:text-[#F4A261] transition duration-300">
+            Contact
+          </Link>
+          <Link to="/blog" className="bg-[#FA9E67] dark:bg-[#FF7F50] text-white px-5 py-2 rounded-full 
+            font-medium shadow-md hover:bg-[#F38044] dark:hover:bg-[#E76F51] transition duration-300">
+            My Blog
+          </Link>
+
+          {/* Dark Mode Toggle - Styled Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 ml-4 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition"
+          >
+            {darkMode ? (
+              <FiSun className="text-yellow-400 text-xl" />
+            ) : (
+              <FiMoon className="text-gray-800 dark:text-gray-200 text-xl" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(!isOpen);
+            }}
+            className="text-2xl"
+          >
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
 
-        {/* Navigation Links (Desktop & Mobile Dropdown) */}
+        {/* Mobile Navigation Menu */}
         <div
-          className={` shadow-md md:shadow-none *
-          absolute md:static top-16 left-0 w-full md:w-auto bg-[#FDF7F2] md:bg-transparent md:flex items-center gap-6 text-center py-4 md:py-0 transition-all duration-300 ${isOpen ? "block z-50" : "hidden"
-          }`}
+          className={`nav-menu fixed md:hidden top-16 left-0 w-full bg-[#FDF7F2] dark:bg-[#292929] 
+          flex flex-col items-center gap-6 text-center py-6 transition-all duration-300 shadow-md 
+          ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
         >
-          <ul className="md:flex flex-col md:flex-row items-center w-full md:w-auto">
-            <li>
-              <Link 
-                to="/projects" 
-                onClick={handleLinkClick}
-                className="block md:inline-block text-lg font-medium hover:text-[#9E6F21] transition duration-300 py-2 md:px-4"
-              >
-                My Projects
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/contact" 
-                onClick={handleLinkClick}
-                className="block md:inline-block text-lg font-medium hover:text-[#9E6F21] transition duration-300 py-2 md:px-4"
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/blog"
-                onClick={handleLinkClick}
-                className="block md:inline-block bg-[#FA9E67] text-white px-5 py-2 rounded-full 
-                font-medium shadow-md hover:bg-[#F38044] transition duration-300 mt-2 md:mt-0 md:ml-4"
-              >
-                My Blog
-              </Link>
-            </li>
-          </ul>
+          <Link to="/projects" onClick={() => setIsOpen(false)} className="text-lg font-medium">
+            My Projects
+          </Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)} className="text-lg font-medium">
+            Contact
+          </Link>
+          <Link to="/blog" onClick={() => setIsOpen(false)}
+            className="bg-[#FA9E67] dark:bg-[#FF7F50] text-white px-5 py-2 rounded-full 
+            font-medium shadow-md hover:bg-[#F38044] dark:hover:bg-[#E76F51] transition duration-300">
+            My Blog
+          </Link>
+
+          {/* Dark Mode Toggle - Mobile */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition"
+          >
+            {darkMode ? (
+              <FiSun className="text-yellow-400 text-xl" />
+            ) : (
+              <FiMoon className="text-gray-800 dark:text-gray-200 text-xl" />
+            )}
+          </button>
         </div>
       </div>
     </nav>
