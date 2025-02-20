@@ -6,6 +6,7 @@ import About from "./pages/about";
 import Projects from "./pages/projects";
 import Contact from "./pages/contact";
 import { useEffect, useState } from "react";
+import Drawings from "./pages/drawings";
 
 function App() {
   const [darkMode, setDarkMode] = useState(
@@ -32,6 +33,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/drawings" element={<Drawings />} />
       </Routes>
     </div>
   );
