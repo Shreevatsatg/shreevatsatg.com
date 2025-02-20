@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
+import { FiMenu, FiSun, FiMoon } from "react-icons/fi";
 
 export default function Navbar({ darkMode, setDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const closeMenu = (e) => {
-      if (!e.target.closest(".nav-menu")) {
+      if (!e.target.closest(".nav-menu, .menu-button")) {
         setIsOpen(false);
       }
     };
@@ -42,10 +42,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
             My Blog
           </Link>
 
-          {/* Dark Mode Toggle */}
+          {/* Dark Mode Toggle - Desktop */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2 ml-4 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition"
+            className="p-2 ml-4 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition flex items-center justify-center w-10 h-10"
           >
             {darkMode ? (
               <FiSun className="text-yellow-400 text-xl" />
@@ -55,53 +55,62 @@ export default function Navbar({ darkMode, setDarkMode }) {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        {/* Mobile Navigation (Dark Mode Button First, Menu Second) */}
+        <div className="md:hidden flex items-center gap-4 relative">
+          {/* Dark Mode Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition flex items-center justify-center w-10 h-10"
+          >
+            {darkMode ? (
+              <FiSun className="text-yellow-400 text-xl" />
+            ) : (
+              <FiMoon className="text-gray-800 dark:text-gray-200 text-xl" />
+            )}
+          </button>
+
+          {/* Hamburger Menu Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               setIsOpen(!isOpen);
             }}
-            className="text-2xl"
+            className="menu-button text-3xl p-2 rounded-md hover:bg-[#E6D3B5] dark:hover:bg-[#383838] transition"
           >
-            {isOpen ? <FiX /> : <FiMenu />}
+            <FiMenu />
           </button>
-        </div>
 
-        {/* Mobile Navigation Menu */}
-        <div
-          className={`nav-menu fixed md:hidden top-16 left-0 w-full bg-[#FDF7F2] dark:bg-[#292929] 
-          flex flex-col items-center gap-6 text-center py-6 transition-all duration-300 shadow-md 
-          ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
-        >
-          <Link to="/projects" onClick={() => setIsOpen(false)} className="text-lg font-medium">
-            My Projects
-          </Link>
-          <Link to="/drawings" onClick={() => setIsOpen(false)}
-            className="bg-[#FA9E67] dark:bg-[#FF7F50] text-white px-5 py-2 rounded-full 
-            font-medium shadow-md hover:bg-[#F38044] dark:hover:bg-[#E76F51] transition duration-300">
-            My Drawings
-          </Link>
-          <Link to="/blog" onClick={() => setIsOpen(false)}
-            className="bg-[#FA9E67] dark:bg-[#FF7F50] text-white px-5 py-2 rounded-full 
-            font-medium shadow-md hover:bg-[#F38044] dark:hover:bg-[#E76F51] transition duration-300">
-            My Blog
-          </Link>
-
-          {/* Dark Mode Toggle - Mobile */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-[#c3c0bc] dark:bg-[#292929] shadow-md hover:shadow-lg transition"
-          >
-            {darkMode ? (
-              <FiSun className="text-yellow-400 text-xl" />
-            ) : (
-              <FiMoon className="text-gray-800 dark:text-gray-200 text-xl" />
-            )}
-          </button>
+          {/* Dropdown Menu */}
+          {isOpen && (
+            <div
+              className="nav-menu absolute top-12 right-0 w-48 bg-[#FDF7F2] dark:bg-[#292929] 
+              rounded-lg shadow-lg flex flex-col text-center py-2 transition-all duration-300 z-50"
+            >
+              <Link
+                to="/projects"
+                onClick={() => setIsOpen(false)}
+                className="py-2 px-4 hover:bg-[#E6D3B5] dark:hover:bg-[#383838] transition"
+              >
+                My Projects
+              </Link>
+              <Link
+                to="/drawings"
+                onClick={() => setIsOpen(false)}
+                className="py-2 px-4 hover:bg-[#E6D3B5] dark:hover:bg-[#383838] transition"
+              >
+                My Drawings
+              </Link>
+              <Link
+                to="/blog"
+                onClick={() => setIsOpen(false)}
+                className="py-2 px-4 hover:bg-[#E6D3B5] dark:hover:bg-[#383838] transition"
+              >
+                My Blog
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
   );
 }
-
