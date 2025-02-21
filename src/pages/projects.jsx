@@ -3,7 +3,7 @@ const projects = [
     title: "Personal Portfolio",
     description: "A responsive portfolio website showcasing my skills and projects.",
     tech: ["React", "Tailwind CSS", "Vercel"],
-    link: "https://shreevatsatg-com.vercel.app/projects",
+    link: "https://shreevatsatg-com.vercel.app",
   },
   {
     title: "E-commerce App",

@@ -16,10 +16,10 @@ const About = () => {
           <div className="md:ml-6 mt-6 md:mt-0">
             <h1 className="text-4xl font-extrabold text-gray-800 dark:text-white">Shreevatsa TG</h1>
             <p className="text-lg text-[#5B4636] dark:text-gray-400 mt-2">
-              Web Developer | Software Engineer | Open Source Enthusiast
+              Artist | Software Engineer | Open Source Enthusiast
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
-              Passionate about full-stack development, problem-solving, and building creative digital solutions.
+              Passionate about full-stack development, problem-solving, and drawing & painting.
             </p>
           </div>
         </div>
@@ -30,8 +30,8 @@ const About = () => {
             <FaLaptopCode className="mr-2 text-[#9E6F21] dark:text-[#F38044]" /> About Me
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            I am a **BCA student (2023 - 2026)** with a strong passion for **full-stack web development** and **software engineering**.
-            I specialize in **MERN stack**, **React.js**, and **problem-solving using DSA**.
+            I am a BCA student (2023 - 2026) with a strong passion for art and full-stack web development  and  software Developer.
+            I specialize in MERN stack, React.js, and problem-solving using DSA.
             I love collaborating on open-source projects and staying up to date with the latest tech trends.
           </p>
         </div>
