@@ -6,16 +6,16 @@ import { X, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
 const drawings = [
   {
     id: 0,
-    src: "/src/assets/IMG_20240516_222754_288.jpg",
+    src: "/drawing/IMG_20240516_222754_288.jpg",
     alt: "Featured artwork",
     description: "This piece represents my artistic journey, exploring color and form through a contemporary lens."
   },
-  { id: 1, src: "/src/assets/IMG_20231028_090955.jpg", alt: "Drawing 1", description: "Watercolor exploration of natural forms" },
-  { id: 2, src: "/src/assets/IMG_20241105_102653.jpg", alt: "Drawing 2", description: "Abstract geometric composition" },
-  { id: 3, src: "/src/assets/IMG_20241110_165952.jpg", alt: "Drawing 3", description: "Portrait study in charcoal" },
-  { id: 4, src: "/src/assets/IMG-20220619-WA0005.jpg", alt: "Drawing 4", description: "Urban landscape sketch" },
-  { id: 5, src: "/src/assets/IMG-20220625-WA0013.jpg", alt: "Drawing 5", description: "Mixed media experimental piece" },
-  { id: 6, src: "/src/assets/IMG-20220625-WA0023.jpg", alt: "Drawing 6", description: "Digital illustration concept" },
+  { id: 1, src: "/drawing/IMG_20231028_090955.jpg", alt: "Drawing 1", description: "Watercolor exploration of natural forms" },
+  { id: 2, src: "/drawing/IMG_20241105_102653.jpg", alt: "Drawing 2", description: "Abstract geometric composition" },
+  { id: 3, src: "/drawing/IMG_20241110_165952.jpg", alt: "Drawing 3", description: "Portrait study in charcoal" },
+  { id: 4, src: "/drawing/IMG-20220619-WA0005.jpg", alt: "Drawing 4", description: "Urban landscape sketch" },
+  { id: 5, src: "/drawing/IMG-20220625-WA0013.jpg", alt: "Drawing 5", description: "Mixed media experimental piece" },
+  { id: 6, src: "/drawing/IMG-20220625-WA0023.jpg", alt: "Drawing 6", description: "Digital illustration concept" },
 ];
 
 export default function Drawings() {
