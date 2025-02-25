@@ -48,7 +48,7 @@ const Contact = () => {
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
-            Let's <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Connect</span>
+            <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Connect</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to reach out!
