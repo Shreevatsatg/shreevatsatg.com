@@ -3,8 +3,8 @@ const projects = [
     title: "Personal Portfolio",
     description: "A responsive portfolio website showcasing my skills and projects.",
     tech: ["React", "Tailwind CSS", "Vercel"],
-    link: "https://shreevatsatg-com.vercel.app",
-    github: "https://github.com/yourusername/portfolio"
+    link: "https://shreevatsatg.com",
+    github: "https://github.com/shreevatsatg/shreevatsatg.com"
   },
   {
     title: "E-commerce App",
@@ -83,7 +83,7 @@ const Projects = () => {
         
         <div className="mt-16 text-center">
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/shreevatsatg" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center py-3 px-6 bg-[#5B4636]/10 hover:bg-[#5B4636]/20 dark:bg-[#2a3246] dark:hover:bg-[#343e56] text-[#5B4636] dark:text-white font-medium rounded-md transition-colors duration-200"
