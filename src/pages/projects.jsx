@@ -7,18 +7,18 @@ const projects = [
     github: "https://github.com/shreevatsatg/shreevatsatg.com"
   },
   {
-    title: "E-commerce App",
-    description: "An online store with authentication, cart system, and payment integration.",
-    tech: ["Next.js", "MongoDB"],
-    link: "https://myecommerceapp.com",
-    github: "https://github.com/yourusername/ecommerce-app"
+    title: "stonepapperscissors game",
+    description: "simple game to practice html,css and javascript.",
+    tech: ["css", "html","javascript"],
+    link: "",
+    github: "https://github.com/Shreevatsatg/currencyconverter"
   },
   {
-    title: "Blog Platform",
-    description: "A blog website with a custom CMS for creating and managing posts.",
-    tech: ["React", "MongoDB", "Express"],
-    link: "https://myblog.com",
-    github: "https://github.com/yourusername/blog-platform"
+    title: "currencyconverter",
+    description: "currency converter useing real time api integration to calculate the live pricing .",
+    tech: ["api", "html", "javascript"],
+    link: "",
+    github: "https://github.com/Shreevatsatg/currencyconverter"
   },
 ];
 
