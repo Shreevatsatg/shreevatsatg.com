@@ -38,7 +38,7 @@ export default function Home() {
           {/* Enhanced Profile Image - Positioned higher */}
           <div className="relative group order-first md:order-none mx-auto md:mx-0 mt-6 md:mt-0">
             {/* Outer glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl blur-l opacity-75 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
             
             {/* Main container */}
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-112 md:h-112 rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl">
