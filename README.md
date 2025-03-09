@@ -1,6 +1,6 @@
 # Portfolio Website
 
-![Portfolio Preview](https://www.shreevatsatg.com/)
+![Portfolio Preview](https://www.shreevatsatg.com)
 
 ## 🚀 About the Project
 
