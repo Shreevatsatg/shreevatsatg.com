@@ -7,6 +7,10 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Shreevatsa TG',
   description: 'Personal website of Shreevatsa TG',
+  icons: {
+    icon: '/favcon.png',
+    apple: '/favcon.png',
+  },
 };
 
 export default function RootLayout({
