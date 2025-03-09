@@ -1,8 +1,12 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FiMenu, FiSun, FiMoon, FiX } from "react-icons/fi";
+'use client';
 
-export default function Navbar({ darkMode, setDarkMode }) {
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { FiMenu, FiSun, FiMoon, FiX } from "react-icons/fi";
+import { useTheme } from "./theme-provider";
+
+export default function Navbar() {
+  const { darkMode, setDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   // Close menu when clicking outside
@@ -21,15 +25,15 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+      <nav className={`fixed top-0 z-50 w-full ${darkMode ? "bg-gradient-to-r from-gray-900/80 to-gray-800/80 text-white" : "bg-gradient-to-r from-slate-50/80 to-slate-100/80 text-gray-800"} backdrop-blur-md shadow-sm`}>
         <div className="container mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link 
-            to="/" 
+            href="/" 
             className="text-xl md:text-2xl font-bold tracking-tight text-gray-800 dark:text-white transition-transform duration-300 hover:scale-105"
           >
             <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
-              shreevatsa
+              Shreevatsa
             </span>
             <span> tg</span>
           </Link>
@@ -37,7 +41,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link 
-              to="/projects" 
+              href="/projects" 
               className="text-gray-700 dark:text-gray-200 hover:text-amber-500 dark:hover:text-amber-400 font-medium transition-all duration-300 relative group"
             >
               My Projects
@@ -45,14 +49,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </Link>
             
             <Link 
-              to="/drawings"
+              href="/drawings"
               className="px-5 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               My Drawings
             </Link>
             
             <Link 
-              to="/blog"
+              href="/blog"
               className="px-5 py-2 bg-gray-100 dark:bg-gray-800 border border-amber-500 dark:border-amber-400 text-amber-600 dark:text-amber-400 rounded-full font-medium hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
             >
               My Blog
@@ -110,27 +114,27 @@ export default function Navbar({ darkMode, setDarkMode }) {
       {/* Mobile Menu */}
       {isOpen && (
         <div 
-          className="nav-menu md:hidden fixed top-16 left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-lg"
+          className="nav-menu md:hidden fixed top-16 left-0 right-0 z-40 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 shadow-lg"
           style={{ maxHeight: 'calc(100vh - 64px)', overflowY: 'auto' }}
         >
           <div className="container mx-auto px-4 py-2">
             <div className="flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
               <Link
-                to="/projects"
+                href="/projects"
                 onClick={() => setIsOpen(false)}
                 className="py-4 text-gray-700 dark:text-gray-200 font-medium transition-colors duration-300 hover:text-amber-500 dark:hover:text-amber-400"
               >
                 My Projects
               </Link>
               <Link
-                to="/drawings"
+                href="/drawings"
                 onClick={() => setIsOpen(false)}
                 className="py-4 text-gray-700 dark:text-gray-200 font-medium transition-colors duration-300 hover:text-amber-500 dark:hover:text-amber-400"
               >
                 My Drawings
               </Link>
               <Link
-                to="/blog"
+                href="/blog"
                 onClick={() => setIsOpen(false)}
                 className="py-4 text-gray-700 dark:text-gray-200 font-medium transition-colors duration-300 hover:text-amber-500 dark:hover:text-amber-400"
               >
