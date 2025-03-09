@@ -49,10 +49,10 @@ export default function AboutPage() {
               About Me
             </h2>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-4 leading-relaxed">
-              I'm a passionate developer and artist based in Bangalore, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging web applications and digital art.
+              I&apos;m a passionate developer and artist based in Bangalore, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging web applications and digital art.
             </p>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me painting, exploring new technologies, or contributing to open-source projects. I believe in continuous learning and pushing the boundaries of what's possible with technology and art.
+              When I&apos;m not coding, you can find me painting, exploring new technologies, or contributing to open-source projects. I believe in continuous learning and pushing the boundaries of what&apos;s possible with technology and art.
             </p>
           </div>
           

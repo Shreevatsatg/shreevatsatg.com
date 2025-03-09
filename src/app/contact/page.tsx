@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -13,12 +13,12 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -126,7 +126,7 @@ export default function ContactPage() {
               
               {isSubmitted && (
                 <div className="mt-4 p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg">
-                  Thank you for your message! I'll get back to you soon.
+                  Thank you for your message! I&apos;ll get back to you soon.
                 </div>
               )}
             </form>
