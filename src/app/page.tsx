@@ -185,7 +185,7 @@ export default function HomePage() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
                 <img 
-                  src={featuredContent.blog.image} 
+                  src="" 
                   alt={featuredContent.blog.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
