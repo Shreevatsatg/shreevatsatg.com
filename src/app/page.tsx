@@ -2,9 +2,18 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function HomePage() {
   const router = useRouter();
+  const [ballClicked, setBallClicked] = useState(false);
+  
+  // Handle ball click
+  const handleBallClick = () => {
+    setBallClicked(true);
+    // Add a  navigating to show the drawings page
+      router.push("/drawings");
+  };
   
   // Sample featured content (in a real app, you would fetch this data)
   const featuredContent = {
@@ -223,7 +232,22 @@ export default function HomePage() {
       
       {/* Floating Decorative Elements */}
       <div className="hidden lg:block absolute bottom-10 left-10 w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 opacity-60 animate-pulse"></div>
-      <div className="hidden lg:block absolute top-20 right-20 w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 opacity-40 animate-bounce"></div>
+      
+      {/* Clickable Bouncing Ball */}
+      <button 
+        onClick={handleBallClick}
+        className={`hidden lg:block absolute top-20 right-20 w-12 h-12 rounded-full 
+          bg-gradient-to-br from-amber-400 to-orange-500 
+          opacity-40 hover:opacity-100 animate-bounce 
+          cursor-pointer transition-all duration-300
+          hover:shadow-lg hover:shadow-amber-300/50
+          focus:outline-none focus:ring-2 focus:ring-amber-500
+          ${ballClicked ? 'scale-150 opacity-0' : ''}
+          z-50`}
+        aria-label="Contact me"
+      >
+        <span className="sr-only">Click me</span>
+      </button>
     </div>
   );
 } 
