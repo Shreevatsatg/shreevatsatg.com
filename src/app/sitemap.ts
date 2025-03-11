@@ -1,5 +1,8 @@
-export default function sitemap() {
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.shreevatsatg.com';
+  const currentDate = new Date();
   
   // Define all your routes here
   const routes = [
@@ -11,10 +14,13 @@ export default function sitemap() {
     '/contact',
   ];
 
-  return routes.map(route => ({
+  // Create the standard sitemap entries
+  const standardEntries = routes.map(route => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: route === '' ? 1 : 0.8,
+    lastModified: currentDate,
+    changeFrequency: route === '/blog' ? 'weekly' : 'monthly' as 'weekly' | 'monthly',
+    priority: route === '' ? 1.0 : 0.8,
   }));
+
+  return standardEntries;
 } 

@@ -1,4 +1,6 @@
-export default function robots() {
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
@@ -6,5 +8,6 @@ export default function robots() {
       disallow: ['/api/', '/_next/'],
     },
     sitemap: 'https://www.shreevatsatg.com/sitemap.xml',
+    host: 'https://www.shreevatsatg.com',
   };
 } 

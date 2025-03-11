@@ -1,13 +1,15 @@
+import { Metadata } from "next";
+
 const metadata = {
   title: {
-    default: 'Shreevatsa TG | Developer & Artist',
-    template: '%s | Shreevatsa TG'
+    default: 'Shreevatsa TG | Shreevatsatg | Developer & Artist',
+    template: '%s | Shreevatsa TG | Shreevatsatg'
   },
-  description: 'Personal website of Shreevatsa TG - BCA student, web developer, and digital artist based in Bangalore, India.',
-  keywords: ['Shreevatsa TG', 'web developer', 'artist', 'BCA student', 'portfolio', 'Bangalore', 'India', 'web development', 'digital art'],
-  authors: [{ name: 'Shreevatsa TG', url: 'https://www.shreevatsatg.com' }],
-  creator: 'Shreevatsa TG',
-  publisher: 'Shreevatsa TG',
+  description: 'Personal website of Shreevatsa TG (Shreevatsatg) - BCA student, web developer, and digital artist based in Bangalore, India.',
+  keywords: ['Shreevatsa', 'Shreevatsatg', 'Shreevatsa TG', 'web developer', 'artist', 'BCA student', 'portfolio', 'Bangalore', 'India', 'web development', 'digital art'],
+  authors: [{ name: 'Shreevatsa TG (Shreevatsatg)', url: 'https://www.shreevatsatg.com' }],
+  creator: 'Shreevatsa TG (Shreevatsatg)',
+  publisher: 'Shreevatsa TG (Shreevatsatg)',
   formatDetection: {
     email: false,
     address: false,
@@ -36,22 +38,22 @@ const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.shreevatsatg.com',
-    title: 'Shreevatsa TG | Developer & Artist',
-    description: 'Personal website of Shreevatsa TG - BCA student, web developer, and digital artist based in Bangalore, India.',
-    siteName: 'Shreevatsa TG',
+    title: 'Shreevatsa TG | Shreevatsatg | Developer & Artist',
+    description: 'Personal website of Shreevatsa TG (Shreevatsatg) - BCA student, web developer, and digital artist based in Bangalore, India.',
+    siteName: 'Shreevatsa TG | Shreevatsatg',
     images: [
       {
         url: '/photo_2024-09-13_09-13-24.jpg',
         width: 1200,
         height: 630,
-        alt: 'Shreevatsa TG',
+        alt: 'Shreevatsa TG (Shreevatsatg)',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shreevatsa TG | Developer & Artist',
-    description: 'Personal website of Shreevatsa TG - BCA student, web developer, and digital artist based in Bangalore, India.',
+    title: 'Shreevatsa TG | Shreevatsatg | Developer & Artist',
+    description: 'Personal website of Shreevatsa TG (Shreevatsatg) - BCA student, web developer, and digital artist based in Bangalore, India.',
     images: ['/photo_2024-09-13_09-13-24.jpg'],
     creator: '@shreevatsatg',
   },
