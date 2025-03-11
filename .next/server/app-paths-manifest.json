@@ -1,1 +1,11 @@
-{}
+{
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/drawings/page": "app/drawings/page.js",
+  "/page": "app/page.js",
+  "/projects/page": "app/projects/page.js"
+}

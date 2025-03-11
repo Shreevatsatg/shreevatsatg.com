@@ -1,14 +1,6 @@
-import Link from 'next/link';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Page Not Found | Shreevatsa TG',
-  description: 'Sorry, the page you are looking for does not exist.',
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
