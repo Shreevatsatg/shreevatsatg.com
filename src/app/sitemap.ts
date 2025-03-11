@@ -1,6 +1,4 @@
-import { MetadataRoute } from 'next';
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
   const baseUrl = 'https://www.shreevatsatg.com';
   
   // Define all your routes here

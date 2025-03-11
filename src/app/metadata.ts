@@ -1,6 +1,4 @@
-import { Metadata } from "next";
-
-const metadata: Metadata = {
+const metadata = {
   title: {
     default: 'Shreevatsa TG | Developer & Artist',
     template: '%s | Shreevatsa TG'
