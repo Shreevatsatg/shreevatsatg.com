@@ -77,8 +77,8 @@ export default function HomePage() {
             </h1>
             
             <p className="mt-6 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I am a second-year BCA student driven by a passion for computer science and art.
-              Actively honing my skills in web development and DSA, I aspire to create
+              I am a BCA student driven by a passion for computer science and art.
+              Actively honing my skills in web development and painting, I aspire to create
               innovative solutions that blend technology with creativity.
             </p>
             
