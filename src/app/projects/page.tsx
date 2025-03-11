@@ -26,8 +26,8 @@ const projects = [
     title: "Weather App",
     description: "A weather application that provides real-time weather information for any location.",
     tech: ["React", "OpenWeather API", "Tailwind CSS"],
-    link: "https://weather-app-demo.vercel.app",
-    github: "https://github.com/yourusername/weather-app"
+    link: "https://wheatherapp-wheat-beta.vercel.app/",
+    github: "https://github.com/Shreevatsatg/wheatherapp"
   }
 ];
 
