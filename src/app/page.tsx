@@ -3,20 +3,6 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { Metadata } from "next";
-
-// Export metadata for this page
-export const metadata: Metadata = {
-  title: 'Shreevatsa TG | Developer & Artist Portfolio',
-  description: 'Welcome to the portfolio of Shreevatsa TG, a BCA student and web developer specializing in creative digital solutions and artwork.',
-  alternates: {
-    canonical: 'https://www.shreevatsatg.com',
-  },
-  openGraph: {
-    title: 'Shreevatsa TG | Developer & Artist Portfolio',
-    description: 'Welcome to the portfolio of Shreevatsa TG, a BCA student and web developer specializing in creative digital solutions and artwork.',
-  }
-};
 
 export default function HomePage() {
   const router = useRouter();
@@ -25,8 +11,10 @@ export default function HomePage() {
   // Handle ball click
   const handleBallClick = () => {
     setBallClicked(true);
-    // Add a  navigating to show the drawings page
-      router.push("/drawings");
+    // Add a small delay before navigating to show the animation
+    setTimeout(() => {
+      router.push("/contact");
+    }, 300);
   };
   
   // Sample featured content (in a real app, you would fetch this data)
