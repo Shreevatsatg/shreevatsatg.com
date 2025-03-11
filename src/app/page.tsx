@@ -3,6 +3,20 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import { Metadata } from "next";
+
+// Export metadata for this page
+export const metadata: Metadata = {
+  title: 'Shreevatsa TG | Developer & Artist Portfolio',
+  description: 'Welcome to the portfolio of Shreevatsa TG, a BCA student and web developer specializing in creative digital solutions and artwork.',
+  alternates: {
+    canonical: 'https://www.shreevatsatg.com',
+  },
+  openGraph: {
+    title: 'Shreevatsa TG | Developer & Artist Portfolio',
+    description: 'Welcome to the portfolio of Shreevatsa TG, a BCA student and web developer specializing in creative digital solutions and artwork.',
+  }
+};
 
 export default function HomePage() {
   const router = useRouter();
@@ -185,7 +199,7 @@ export default function HomePage() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
                 <img 
-                  src="" 
+                  src="null" 
                   alt={featuredContent.blog.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
