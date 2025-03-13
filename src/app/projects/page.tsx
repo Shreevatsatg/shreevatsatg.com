@@ -9,14 +9,14 @@ const projects = [
     github: "https://github.com/shreevatsatg/shreevatsatg.com"
   },
   {
-    title: "stonepapperscissors game",
+    title: "stone papper scissors game",
     description: "simple game to practice html,css and javascript.",
     tech: ["css", "html","javascript"],
     link: "",
     github: "https://github.com/Shreevatsatg/currencyconverter"
   },
   {
-    title: "currencyconverter",
+    title: "currency converter",
     description: "currency converter useing real time api integration to calculate the live pricing .",
     tech: ["React", "API Integration", "CSS"],
     link: "https://currencyconverter-shreevatsatg.vercel.app/",

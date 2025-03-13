@@ -99,7 +99,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Creative Skills</h3>
                 </div>
                 <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Digital Art,drawing , Traditional Painting, Photography
+                  Digital Art ,drawing , Traditional Painting, Photography
                 </p>
               </div>
             </div>
