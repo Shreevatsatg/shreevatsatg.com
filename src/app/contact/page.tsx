@@ -24,17 +24,17 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setError("");
     
+    // We'll let the form submit naturally to Formspree
+    const form = e.target as HTMLFormElement;
+    
     try {
-      //  Formspree form ID
-      const response = await fetch("https://formspree.io/f/xdkeovry", {
-        method: "POST",
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `New message from ${formData.name} via shreevatsatg.com`,
-        }),
+          Accept: 'application/json'
+        }
       });
       
       if (response.ok) {
@@ -74,7 +74,12 @@ export default function ContactPage() {
               Send a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form 
+              action="https://formspree.io/f/xdkeovry" 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className="space-y-5"
+            >
               <div>
                 <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Name</label>
                 <input
@@ -113,6 +118,9 @@ export default function ContactPage() {
                   placeholder="Hello, I'd like to talk about..."
                 ></textarea>
               </div>
+              
+              {/* Hidden field for subject line */}
+              <input type="hidden" name="_subject" value="New message from shreevatsatg.com" />
               
               <button
                 type="submit"
