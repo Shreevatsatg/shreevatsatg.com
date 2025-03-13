@@ -24,16 +24,12 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setError("");
     
-    // We'll let the form submit naturally to Formspree
-    const form = e.target as HTMLFormElement;
-    
     try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
+      const response = await fetch("https://formspree.io/f/xdkeovry", {
+        method: "POST",
+        body: new FormData(e.currentTarget),
         headers: {
-          Accept: 'application/json'
+          Accept: "application/json"
         }
       });
       
@@ -75,14 +71,13 @@ export default function ContactPage() {
             </h2>
 
             <form 
-              action="https://formspree.io/f/xdkeovry" 
-              method="POST"
               onSubmit={handleSubmit} 
               className="space-y-5"
             >
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Name</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -94,8 +89,9 @@ export default function ContactPage() {
               </div>
               
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email Address</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -107,8 +103,9 @@ export default function ContactPage() {
               </div>
               
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Message</label>
+                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Message</label>
                 <textarea
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
