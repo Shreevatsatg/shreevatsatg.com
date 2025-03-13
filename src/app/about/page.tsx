@@ -49,10 +49,10 @@ export default function AboutPage() {
               About Me
             </h2>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-4 leading-relaxed">
-              I&apos;m a passionate developer and artist based in Bangalore, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging web applications and digital art.
+              I&apos;m a passionate developer and artist based in karnataka, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging  applications and  art.
             </p>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 leading-relaxed">
-              When I&apos;m not coding, you can find me painting, exploring new technologies, or contributing to open-source projects. I believe in continuous learning and pushing the boundaries of what&apos;s possible with technology and art.
+              When I&apos;m not coding, you can find me painting,or exploring new technologies. I believe in continuous learning and pushing the boundaries of what&apos;s possible with technology and art.
             </p>
           </div>
           
@@ -89,7 +89,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Other Technical Skills</h3>
                 </div>
                 <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Git, GitHub, VS Code, Figma, Adobe Creative Suite, Vercel, Netlify
+                  Git, GitHub, VS Code, Vercel, Netlify
                 </p>
               </div>
               
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Creative Skills</h3>
                 </div>
                 <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Digital Art, UI/UX Design, Traditional Painting, Photography
+                  Digital Art,drawing , Traditional Painting, Photography
                 </p>
               </div>
             </div>
