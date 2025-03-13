@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -12,46 +12,44 @@ export default function ContactPage() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
   
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    try {
+      //  Formspree form ID
+      const response = await fetch("https://formspree.io/f/xdkeovry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `New message from ${formData.name} via shreevatsatg.com`,
+        }),
+      });
       
-      // In a real app, you would send this data to your backend
-      // fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // })
-      // .then(response => {
-      //   setIsSubmitting(false);
-      //   if (response.ok) {
-      //     setIsSubmitted(true);
-      //     setFormData({ name: "", email: "", message: "" });
-      //     setTimeout(() => setIsSubmitted(false), 3000);
-      //   } else {
-      //     alert("Something went wrong. Please try again.");
-      //   }
-      // })
-      // .catch((error) => {
-      //   setIsSubmitting(false);
-      //   alert("Error: " + error.message);
-      // });
-      
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An unexpected error occurred");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1000);
+    }
   };
   
   return (
@@ -124,6 +122,12 @@ export default function ContactPage() {
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               
+              {error && (
+                <div className="mt-4 p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg">
+                  {error}
+                </div>
+              )}
+              
               {isSubmitted && (
                 <div className="mt-4 p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg">
                   Thank you for your message! I&apos;ll get back to you soon.
@@ -147,7 +151,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Email</h3>
-                    <a href="mailto:your.email@example.com" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                    <a href="mailto:tgshreevatsa@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                       tgshreevatsa@gmail.com
                     </a>
                   </div>
@@ -159,7 +163,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Phone</h3>
-                    <a href="tel:+1234567890" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                    <a href="tel:+917019292083" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                       +91 7019292083
                     </a>
                   </div>
