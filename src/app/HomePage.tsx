@@ -117,11 +117,12 @@ export default function HomePage() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
+
             {/* Featured Project Card */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
                 <img 
-                  src={featuredContent.project.image} 
+                  src="\photo_2024-09-13_09-13-24.jpg"
                   alt={featuredContent.project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
