@@ -19,7 +19,7 @@ const projects = [
     title: "currency converter",
     description: "currency converter useing real time api integration to calculate the live pricing .",
     tech: ["React", "API Integration", "CSS"],
-    link: "https://currencyconverter-shreevatsatg.vercel.app/",
+    link: "",
     github: "https://github.com/Shreevatsatg/currencyconverter"
   },
   {
