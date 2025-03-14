@@ -35,7 +35,7 @@ export default function HomePage() {
       title: "The Future of Web Development",
       description: "Exploring upcoming trends and technologies shaping the future of web development in 2025.",
       date: "January 15, 2025",
-      image: "/featured-blog.jpg",
+      image: "null",
       link: "/blog/future-web-development"
     }
   };
@@ -186,11 +186,6 @@ export default function HomePage() {
             {/* Featured Blog Card */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
-                <img 
-                  src={featuredContent.blog.image}
-                  alt={featuredContent.blog.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                   <span className="text-white text-sm md:text-base font-semibold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 rounded-tr-lg">
                     Blog
