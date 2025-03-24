@@ -161,18 +161,6 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-full mr-4">
-                    <FaPhone className="text-amber-500 dark:text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Phone</h3>
-                    <a href="tel:+917019292083" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                      +91 7019292083
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
             
