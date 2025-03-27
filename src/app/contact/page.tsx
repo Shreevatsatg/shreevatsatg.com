@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -14,6 +14,16 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
   
+  // Email obfuscation
+  const [displayEmail, setDisplayEmail] = useState("");
+
+  useEffect(() => {
+    // Decode and split email to prevent direct scraping
+    const user = ["tgshreevatsa"].join('');
+    const domain = ["gmail", "com"].join('.');
+    setDisplayEmail(`${user}@${domain}`);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -156,8 +166,15 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Email</h3>
-                    <a href="mailto:tgshreevatsa@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                      tgshreevatsa@gmail.com
+                    <a 
+                      href="#" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `mailto:${displayEmail}`;
+                      }} 
+                      className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                    >
+                      {displayEmail}
                     </a>
                   </div>
                 </div>
@@ -204,4 +221,4 @@ export default function ContactPage() {
       </div>
     </div>
   );
-} 
+}
