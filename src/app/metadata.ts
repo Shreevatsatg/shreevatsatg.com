@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 const metadata = {
   title: {
-    default: 'Shreevatsa TG | Shreevatsatg | Developer & Artist',
+    default: 'Shreevatsa TG | Shreevatsatg |shreevatsa | Developer & Artist',
     template: '%s | Shreevatsa TG | Shreevatsatg'
   },
   description: 'Personal website of Shreevatsa TG (Shreevatsatg) - BCA student, web developer, and digital artist based in Bangalore, India.',
