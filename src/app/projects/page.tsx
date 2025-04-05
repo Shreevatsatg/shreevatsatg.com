@@ -26,7 +26,7 @@ const projects = [
     title: "Weather App",
     description: "A weather application that provides real-time weather information for any location.",
     tech: ["React", "OpenWeather API", "Tailwind CSS"],
-    link: "https://shreevatsaswheatherapps.netlify.app/",
+    link: "http://wheatherapp.shreevatsatg.com/",
     github: "https://github.com/Shreevatsatg/wheatherapp"
   }
 ];
