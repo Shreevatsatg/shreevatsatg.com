@@ -31,8 +31,8 @@ const metadata = {
     },
   },
   icons: {
-    icon: '/favcon.png',
-    apple: '/favcon.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     type: 'website',
