@@ -19,8 +19,8 @@ export default function ContactPage() {
 
   useEffect(() => {
     // Decode and split email to prevent direct scraping
-    const user = ["tgshreevatsa"].join('');
-    const domain = ["gmail", "com"].join('.');
+    const user = ["shreevatsa"].join('');
+    const domain = ["shreevatsatg", "com"].join('.');
     setDisplayEmail(`${user}@${domain}`);
   }, []);
 
@@ -35,7 +35,7 @@ export default function ContactPage() {
     setError("");
     
     try {
-      const response = await fetch("https://formspree.io/f/xdkeovry", {
+      const response = await fetch("https://formspree.io/f/xzzekbdy", {
         method: "POST",
         body: new FormData(e.currentTarget),
         headers: {
