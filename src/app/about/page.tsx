@@ -34,7 +34,7 @@ export default function AboutPage() {
               <a href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
                 <FaLinkedin size={24} />
               </a>
-              <a href="tgshreevatsa@gmail.com" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
+              <a href="shreevatsa@shreevatsatg.com" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
                 <FaEnvelope size={24} />
               </a>
             </div>
