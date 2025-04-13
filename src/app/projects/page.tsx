@@ -9,18 +9,19 @@ const projects = [
     github: "https://github.com/shreevatsatg/shreevatsatg.com"
   },
   {
-    title: "stone papper scissors game",
-    description: "simple game to practice html,css and javascript.",
-    tech: ["css", "html","javascript"],
-    link: "",
-    github: "https://github.com/Shreevatsatg/currencyconverter"
-  },
-  {
     title: "e-commerce website",
     description: "A fully functional e-commerce website with product listings, cart functionality, and user authentication.",
     tech: ["React", "express", "mongodb"],
     link: "",
     github: "https://github.com/Shreevatsatg/mern-ecommerce"
+    
+  },
+  {
+    title: "stone papper scissors game",
+    description: "simple game to practice html,css and javascript.",
+    tech: ["css", "html","javascript"],
+    link: "",
+    github: "https://github.com/Shreevatsatg/currencyconverter"
   },
   {
     title: "Weather App",
