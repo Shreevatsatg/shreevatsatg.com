@@ -16,11 +16,11 @@ const projects = [
     github: "https://github.com/Shreevatsatg/currencyconverter"
   },
   {
-    title: "currency converter",
-    description: "currency converter useing real time api integration to calculate the live pricing .",
-    tech: ["React", "API Integration", "CSS"],
+    title: "e-commerce website",
+    description: "A fully functional e-commerce website with product listings, cart functionality, and user authentication.",
+    tech: ["React", "express", "mongodb"],
     link: "",
-    github: "https://github.com/Shreevatsatg/currencyconverter"
+    github: "https://github.com/Shreevatsatg/mern-ecommerce"
   },
   {
     title: "Weather App",
