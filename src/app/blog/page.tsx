@@ -82,7 +82,7 @@ const featuredPostData: FeaturedPost = {
   date: "Apr 14, 2025",
   category: "FEATURED",
   excerpt: "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective is a blog post that explores the impact of clothing billboards on the local market and community.",
-  headerImage: "/blog/jaylaxmi.jpg", // Optional header image
+  headerImage: "/blog/peter england.jpg", // Optional header image
   headerImageAlt: "Clothing billboard in Udupi",
   contentSections: [
     {
@@ -99,9 +99,9 @@ This blog aims to explore the visual appeal, marketing strategies, and consumer 
     },
     {
       type: 'image',
-      content: '/blog/jaylaxmi.jpg',
-      alt: 'Billboard in Manipal city center',
-      caption: 'A prominent clothing billboard in Manipal city center featuring the latest fashion trends'
+      content: 'blog/geethanjali1.jpg',
+      alt: 'Billboard in Manipal city ',
+      caption: 'A prominent clothing billboard in Manipal city  featuring geethanjali silks'
     },
     {
       type: 'text',
@@ -150,7 +150,7 @@ In conclusion, the strategic placement of clothing billboards in Udupi and Manip
     },
     {
       type: 'image',
-      content: '/blog/jaylaxmi.jpg',
+      content: 'blog/jaylaxmi2.jpg',
       alt: 'Manyavar billboard with vibrant red color scheme',
       caption: 'Manyavar billboard using vibrant red color psychology to create excitement and cultural connection'
     },
@@ -202,7 +202,7 @@ The design elements employed in clothing billboards across Udupi and Manipal—b
     },
     {
       type: 'image',
-      content: '/blog/jaylaxmi.jpg',
+      content: '/blog/siyarams.jpg',
       alt: 'Student-targeted billboard in Manipal',
       caption: 'United Colors of Benetton billboard near Manipal University targeting student demographics'
     },
@@ -238,7 +238,7 @@ Aspirational imagery creates desire and a sense of belonging, particularly effec
     },
     {
       type: 'image',
-      content: '/blog/jaylaxmi.jpg',
+      content: 'blog/satyanatha.jpg',
       alt: 'Heritage zone in Udupi with limited billboard advertising',
       caption: 'Heritage zone in Udupi with restricted billboard placements to preserve historical character'
     },
@@ -288,9 +288,9 @@ Addressing these challenges requires innovative marketing strategies, including 
 },
 {
   type: 'image',
-  content: '/blog/jaylaxmi.jpg',
-  alt: 'Heritage zone in Udupi with limited billboard advertising',
-  caption: 'Heritage zone in Udupi with restricted billboard placements to preserve historical character'
+  content: '/blog/zudio.jpg',
+  alt: 'zudio billboard advertising',
+  caption: 'zudio billboard placements in Udupi and Manipal'
 },
 {
   type: 'text',
