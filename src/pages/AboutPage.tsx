@@ -1,137 +1,213 @@
 'use client';
 
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FaReact, FaCode, FaLaptopCode, FaCertificate, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-tertiary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4 md:p-8">
-      <div className="container mx-auto max-w-4xl bg-[var(--bg-secondary)] dark:bg-gray-800 shadow-xl rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="py-12 md:py-16">
+      <div className="container mx-auto px-4 max-w-5xl">
+        {/* Page header with animated title */}
+        <motion.div 
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="gradient-text">About Me</span>
+          </h1>
+        </motion.div>
         
-        {/* Header with Accent Background */}
-        <div className="w-full h-32 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] dark:from-amber-600 dark:to-orange-700 relative">
-          <div className="absolute -bottom-16 left-8 md:left-12">
-            <img 
-              src="\photo_2024-09-22_11-28-31.jpg" 
-              alt="Shreevatsa TG"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-[var(--bg-secondary)] dark:border-gray-800 shadow-lg object-cover"
+        {/* Profile card with glass morphism */}
+        <motion.div 
+          className="mb-20 gradient-border relative overflow-hidden rounded-2xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="glass p-8 md:p-10 md:flex items-start gap-12">
+            {/* Profile image with floating animation */}
+            <motion.div 
+              className="relative mb-8 md:mb-0 w-48 h-48 md:w-64 md:h-64 mx-auto md:mx-0 animate-float"
+              style={{ animationDelay: '1s' }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-third)] rounded-2xl blur-md opacity-70 scale-105 animate-pulse-glow"></div>
+              <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl">
+                <img 
+                  src="/photo_2024-09-22_11-28-31.jpg" 
+                  alt="Shreevatsa TG"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Floating badges */}
+              <motion.div 
+                className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-lg glass"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 3 }}
+              >
+                <span className="text-sm font-medium gradient-text">Developer</span>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-lg glass"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
+              >
+                <span className="text-sm font-medium gradient-text">Artist</span>
+              </motion.div>
+            </motion.div>
+            
+            {/* Bio content */}
+            <div className="flex-1">
+              <div className="mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold mb-2">Shreevatsa TG</h2>
+                <p className="text-lg text-[var(--text-secondary)]">Creative Developer & Artist</p>
+              </div>
+              
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+                I'm a passionate developer and artist based in Karnataka, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging applications and art.
+              </p>
+              
+              <p className="text-[var(--text-secondary)] mb-8 leading-relaxed">
+                When I'm not coding, you can find me painting, or exploring new technologies. I believe in continuous learning and pushing the boundaries of what's possible with technology and art.
+              </p>
+              
+              {/* Social links */}
+              <div className="flex gap-4">
+                <SocialLink href="https://github.com/Shreevatsatg" icon={<FaGithub size={20} />} label="GitHub" />
+                <SocialLink href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314" icon={<FaLinkedin size={20} />} label="LinkedIn" />
+                <SocialLink href="mailto:shreevatsa@shreevatsatg.com" icon={<FaEnvelope size={20} />} label="Email" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        
+        {/* Skills section */}
+        <motion.section 
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h2 className="section-title mb-10">My Skills</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SkillCard 
+              icon={<FaReact className="text-[var(--accent-primary)]" size={24} />}
+              title="Frontend Development"
+              skills="React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Responsive Design"
+              delay={0}
+            />
+            
+            <SkillCard 
+              icon={<FaCode className="text-[var(--accent-secondary)]" size={24} />}
+              title="Backend Development"
+              skills="Node.js, Express, MongoDB, RESTful APIs, Authentication"
+              delay={0.1}
+            />
+            
+            <SkillCard 
+              icon={<FaLaptopCode className="text-[var(--accent-primary)]" size={24} />}
+              title="Other Technical Skills"
+              skills="Git, GitHub, VS Code, Vercel, Netlify"
+              delay={0.2}
+            />
+            
+            <SkillCard 
+              icon={<FaCertificate className="text-[var(--accent-third)]" size={24} />}
+              title="Creative Skills"
+              skills="Digital Art, Drawing, Traditional Painting, Photography"
+              delay={0.3}
             />
           </div>
-        </div>
+        </motion.section>
         
-        {/* Content */}
-        <div className="pt-20 p-8 md:p-12">
-          {/* Name and Social Links - Added margin-left on medium screens and above */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
-            <div className="md:ml-44">
-              <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] dark:text-white mb-2">Shreevatsa TG</h1>
-              <p className="text-[var(--text-secondary)] dark:text-gray-300">Creative Developer & Artist</p>
-            </div>
-            <div className="flex space-x-3 mt-4 md:mt-0">
-              <a href="https://github.com/Shreevatsatg" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
-                <FaGithub size={24} />
-              </a>
-              <a href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
-                <FaLinkedin size={24} />
-              </a>
-              <a href="mailto:shreevatsa@shreevatsatg.com" className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors">
-                <FaEnvelope size={24} />
-              </a>
-            </div>
-          </div>
+        {/* Education section */}
+        <motion.section 
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2 className="section-title mb-10">Education</h2>
           
-          <div className="border-b border-[var(--bg-tertiary)] dark:border-gray-700 mb-8"></div>
-          
-          {/* About Me Section */}
-          <div className="mb-10">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-4 flex items-center">
-              <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
-              About Me
-            </h2>
-            <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-4 leading-relaxed">
-              I'm a passionate developer and artist based in karnataka, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging  applications and  art.
-            </p>
-            <p className="text-[var(--text-secondary)] dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me painting,or exploring new technologies. I believe in continuous learning and pushing the boundaries of what's possible with technology and art.
-            </p>
-          </div>
-          
-          {/* Skills Section */}
-          <div className="mb-10">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-4 flex items-center">
-              <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
-              Skills
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[var(--bg-tertiary)] dark:bg-gray-700 p-6 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <FaReact className="text-[var(--accent-primary)] mr-3" size={24} />
-                  <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Frontend Development</h3>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Responsive Design
-                </p>
+          <motion.div 
+            className="card p-8"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div>
+                <h3 className="text-xl font-bold mb-2">Bachelor of Computer Applications</h3>
+                <p className="text-[var(--text-secondary)] mb-1">Mangalore University, Udupi</p>
               </div>
-              
-              <div className="bg-[var(--bg-tertiary)] dark:bg-gray-700 p-6 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <FaCode className="text-[var(--accent-secondary)] mr-3" size={24} />
-                  <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Backend Development</h3>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Node.js, Express, MongoDB, RESTful APIs, Authentication
-                </p>
-              </div>
-              
-              <div className="bg-[var(--bg-tertiary)] dark:bg-gray-700 p-6 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <FaLaptopCode className="text-[var(--accent-primary)] mr-3" size={24} />
-                  <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Other Technical Skills</h3>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Git, GitHub, VS Code, Vercel, Netlify
-                </p>
-              </div>
-              
-              <div className="bg-[var(--bg-tertiary)] dark:bg-gray-700 p-6 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <FaCertificate className="text-[var(--accent-secondary)] mr-3" size={24} />
-                  <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white">Creative Skills</h3>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-gray-300">
-                  Digital Art ,drawing , Traditional Painting, Photography
-                </p>
+              <div className="mt-4 md:mt-0">
+                <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 text-[var(--accent-primary)] font-medium">
+                  2023 - 2026
+                </span>
               </div>
             </div>
-          </div>
-          
-          {/* Education Section */}
-          <div className="mb-10">
-            <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-4 flex items-center">
-              <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
-              Education
-            </h2>
-            <div className="bg-[var(--bg-tertiary)] dark:bg-gray-700 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-[var(--text-primary)] dark:text-white mb-2">Bachelor of Computer Applications</h3>
-              <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-1">Manglore univercity, Udupi</p>
-              <p className="text-[var(--text-secondary)]/70 dark:text-gray-400">2023 - 2026</p>
-            </div>
-          </div>
-          
-          {/* Call to Action */}
-          <div className="text-center">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-medium rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]"
-            >
-              Back to Home
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </motion.div>
+        </motion.section>
+        
+        {/* CTA section */}
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Link 
+            to="/contact" 
+            className="btn-primary group inline-flex items-center"
+          >
+            <span className="relative z-10 flex items-center">
+              Get in Touch
+              <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
-            </Link>
-          </div>
-        </div>
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </div>
+  );
+}
+
+// Skill Card Component
+function SkillCard({ icon, title, skills, delay }) {
+  return (
+    <motion.div 
+      className="card p-6 md:p-8"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <div className="flex items-center mb-4">
+        {icon}
+        <h3 className="text-xl font-semibold ml-3">{title}</h3>
+      </div>
+      <p className="text-[var(--text-secondary)]">{skills}</p>
+    </motion.div>
+  );
+}
+
+// Social Link Component
+function SocialLink({ href, icon, label }) {
+  return (
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="p-3 glass rounded-full flex items-center justify-center hover:text-[var(--accent-primary)] transition-colors"
+    >
+      {icon}
+    </a>
   );
 } 

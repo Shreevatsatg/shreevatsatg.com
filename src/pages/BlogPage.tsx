@@ -295,7 +295,7 @@ export default function BlogPage() {
       blogPosts={blogPosts} 
       featuredPost={featuredPostData}
       title="My Blog"
-      description="Thoughts, stories, and ideas about programming, art and personal growth."
+      description="Thoughts, stories, and ideas about programming, art, and personal growth."
     />
   );
 }
