@@ -1,5 +1,7 @@
 'use client';
 
+import { Link } from "react-router-dom";
+
 const projects = [
   {
     title: "Personal Portfolio",
@@ -34,14 +36,14 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 py-24 px-4 md:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-tertiary)] dark:from-gray-900 dark:to-gray-800 py-24 px-4 md:px-8">
       <div className="container mx-auto max-w-5xl">
         {/* Page Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
-            <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Projects</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] dark:text-white mb-4">
+            <span className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent">Projects</span>
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-[var(--text-secondary)] dark:text-gray-300 max-w-2xl mx-auto">
             A collection of my recent work, showcasing my skills in web development, design, and problem-solving.
           </p>
         </div>
@@ -51,17 +53,17 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]"
+              className="bg-[var(--bg-secondary)] dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]"
             >
               <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">{project.title}</h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-3">{project.title}</h2>
+                <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-[var(--accent-primary)]/10 dark:bg-amber-900/30 text-[var(--accent-primary)] dark:text-amber-400 rounded-full text-sm font-medium"
                     >
                       {tech}
                     </span>
@@ -74,7 +76,7 @@ export default function ProjectsPage() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg"
+                      className="px-4 py-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg"
                     >
                       View Live
                     </a>
@@ -85,7 +87,7 @@ export default function ProjectsPage() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 border border-amber-500 text-amber-500 rounded-lg font-medium hover:bg-amber-500 hover:text-white transition-colors"
+                      className="px-4 py-2 border border-[var(--accent-primary)] text-[var(--accent-primary)] rounded-lg font-medium hover:bg-[var(--accent-primary)] hover:text-white transition-colors"
                     >
                       GitHub
                     </a>
@@ -98,15 +100,15 @@ export default function ProjectsPage() {
         
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-6">
             Interested in working together? Let's build something amazing!
           </p>
-          <a 
-            href="/contact"
-            className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-medium hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg inline-block"
+          <Link 
+            to="/contact"
+            className="px-8 py-4 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white rounded-full font-medium hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg inline-block"
           >
             Get in Touch
-          </a>
+          </Link>
         </div>
       </div>
     </div>

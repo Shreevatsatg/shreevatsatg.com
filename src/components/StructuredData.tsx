@@ -1,48 +1,57 @@
-export default function StructuredData() {
-  const personData = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Shreevatsa TG',
-    alternateName: ['Shreevatsatg', 'Shreevatsa'],
-    url: 'https://www.shreevatsatg.com',
-    image: 'https://www.shreevatsatg.com/photo_2024-09-13_09-13-24.jpg',
-    sameAs: [
-      'https://github.com/Shreevatsatg',
-      'https://www.linkedin.com/in/shreevatsa-t-g-7b6509314',
-      'https://www.instagram.com/shreevatsa_tg'
-    ],
-    jobTitle: 'Student & Web Developer',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'BCA Program'
-    },
-    description: 'BCA student, web developer, and digital artist based in Bangalore, India.'
-  };
+import { useEffect } from 'react';
 
-  const websiteData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Shreevatsa TG | Shreevatsatg',
-    alternateName: ['Shreevatsa TG Portfolio', 'Shreevatsatg Portfolio', 'Shreevatsa Portfolio'],
-    url: 'https://www.shreevatsatg.com',
-    description: 'Personal website of Shreevatsa TG (Shreevatsatg) - BCA student, web developer, and digital artist',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://www.shreevatsatg.com/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    }
-  };
+const StructuredData = () => {
+  useEffect(() => {
+    // Create and inject JSON-LD structured data into the document head
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shreevatsa TG",
+      "alternateName": "Shreevatsatg",
+      "url": "https://www.shreevatsatg.com",
+      "image": "https://www.shreevatsatg.com/photo_2024-09-13_09-13-24.jpg",
+      "description": "BCA student, web developer, and digital artist based in Bangalore, India.",
+      "sameAs": [
+        "https://twitter.com/shreevatsatg",
+        "https://github.com/shreevatsatg",
+        "https://www.instagram.com/shreevatsatg",
+        "https://www.linkedin.com/in/shreevatsatg"
+      ],
+      "knowsAbout": [
+        "Web Development",
+        "Frontend Development",
+        "UI/UX Design",
+        "Digital Art",
+        "Traditional Painting",
+        "React",
+        "Vite",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "jobTitle": "Student & Web Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "India"
+      }
+    });
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
-      />
-    </>
-  );
-} 
+    document.head.appendChild(script);
+
+    return () => {
+      // Clean up the script when component unmounts
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return null; // This component doesn't render anything
+};
+
+export default StructuredData; 

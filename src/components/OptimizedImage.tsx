@@ -1,6 +1,3 @@
-'use client';
-
-import Image from 'next/image';
 import { useState } from 'react';
 
 interface OptimizedImageProps {
@@ -29,13 +26,12 @@ export default function OptimizedImage({
         <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" />
       )}
       
-      <Image
+      <img
         src={src}
         alt={alt}
         width={width}
         height={height}
-        priority={priority}
-        quality={90}
+        loading={priority ? "eager" : "lazy"}
         className={`transition-opacity duration-500 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         } object-cover w-full h-full`}

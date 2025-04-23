@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
@@ -59,14 +60,14 @@ export default function ContactPage() {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 py-24 px-4 md:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-tertiary)] dark:from-gray-900 dark:to-gray-800 py-24 px-4 md:px-8">
       <div className="container mx-auto max-w-5xl">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
-            <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Connect</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] dark:text-white mb-4">
+            <span className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent">Connect</span>
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-[var(--text-secondary)] dark:text-gray-300 max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to reach out!
           </p>
         </div>
@@ -74,9 +75,9 @@ export default function ContactPage() {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-              <span className="w-8 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mr-3"></span>
+          <div className="bg-[var(--bg-secondary)] dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+            <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-6 flex items-center">
+              <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
               Send a Message
             </h2>
 
@@ -85,7 +86,7 @@ export default function ContactPage() {
               className="space-y-5"
             >
               <div>
-                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-[var(--text-secondary)] dark:text-gray-300 font-medium mb-2">Your Name</label>
                 <input
                   id="name"
                   type="text"
@@ -93,13 +94,13 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-amber-400"
+                  className="w-full px-4 py-3 rounded-lg border border-[var(--bg-tertiary)] dark:border-gray-600 bg-[var(--bg-secondary)] dark:bg-gray-700 text-[var(--text-primary)] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] dark:focus:ring-amber-400"
                   placeholder="John Doe"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-[var(--text-secondary)] dark:text-gray-300 font-medium mb-2">Email Address</label>
                 <input
                   id="email"
                   type="email"
@@ -107,13 +108,13 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-amber-400"
+                  className="w-full px-4 py-3 rounded-lg border border-[var(--bg-tertiary)] dark:border-gray-600 bg-[var(--bg-secondary)] dark:bg-gray-700 text-[var(--text-primary)] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] dark:focus:ring-amber-400"
                   placeholder="john@example.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Your Message</label>
+                <label htmlFor="message" className="block text-[var(--text-secondary)] dark:text-gray-300 font-medium mb-2">Your Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -121,7 +122,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-amber-400 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-[var(--bg-tertiary)] dark:border-gray-600 bg-[var(--bg-secondary)] dark:bg-gray-700 text-[var(--text-primary)] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] dark:focus:ring-amber-400 resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 ></textarea>
               </div>
@@ -132,7 +133,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:translate-y-[-2px]'}`}
+                className={`w-full py-3 px-6 rounded-lg bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:translate-y-[-2px]'}`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -153,26 +154,26 @@ export default function ContactPage() {
           
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                <span className="w-8 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mr-3"></span>
+            <div className="bg-[var(--bg-secondary)] dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+              <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-6 flex items-center">
+                <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
                 Contact Information
               </h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-full mr-4">
-                    <FaEnvelope className="text-amber-500 dark:text-amber-400" />
+                  <div className="bg-[var(--accent-primary)]/10 dark:bg-amber-900/30 p-3 rounded-full mr-4">
+                    <FaEnvelope className="text-[var(--accent-primary)] dark:text-amber-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Email</h3>
+                    <h3 className="text-lg font-semibold text-[var(--text-primary)] dark:text-white">Email</h3>
                     <a 
                       href="#" 
                       onClick={(e) => {
                         e.preventDefault();
                         window.location.href = `mailto:${displayEmail}`;
                       }} 
-                      className="text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
+                      className="text-[var(--text-secondary)] dark:text-gray-300 hover:text-[var(--accent-primary)] dark:hover:text-amber-400 transition-colors"
                     >
                       {displayEmail}
                     </a>
@@ -181,9 +182,9 @@ export default function ContactPage() {
               </div>
             </div>
             
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                <span className="w-8 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mr-3"></span>
+            <div className="bg-[var(--bg-secondary)] dark:bg-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+              <h2 className="text-2xl font-bold text-[var(--text-primary)] dark:text-white mb-6 flex items-center">
+                <span className="w-8 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-3"></span>
                 Follow Me
               </h2>
               
@@ -192,7 +193,7 @@ export default function ContactPage() {
                   href="https://github.com/Shreevatsatg" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-amber-100 dark:bg-amber-900/30 p-4 rounded-full text-amber-500 dark:text-amber-400 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
+                  className="bg-[var(--accent-primary)]/10 dark:bg-amber-900/30 p-4 rounded-full text-[var(--accent-primary)] dark:text-amber-400 hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
                 >
                   <FaGithub size={24} />
                 </a>
@@ -201,7 +202,7 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-amber-100 dark:bg-amber-900/30 p-4 rounded-full text-amber-500 dark:text-amber-400 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
+                  className="bg-[var(--accent-primary)]/10 dark:bg-amber-900/30 p-4 rounded-full text-[var(--accent-primary)] dark:text-amber-400 hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
                 >
                   <FaLinkedin size={24} />
                 </a>
@@ -210,7 +211,7 @@ export default function ContactPage() {
                   href="https://www.instagram.com/shreevatsa_tg" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-amber-100 dark:bg-amber-900/30 p-4 rounded-full text-amber-500 dark:text-amber-400 hover:bg-amber-500 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
+                  className="bg-[var(--accent-primary)]/10 dark:bg-amber-900/30 p-4 rounded-full text-[var(--accent-primary)] dark:text-amber-400 hover:bg-[var(--accent-primary)] hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-300"
                 >
                   <FaInstagram size={24} />
                 </a>
@@ -221,4 +222,4 @@ export default function ContactPage() {
       </div>
     </div>
   );
-}
+} 

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Dialog } from "@headlessui/react";
 import { X, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
 import { FaPalette, FaImage } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Define types for artwork
 interface Artwork {

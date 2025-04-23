@@ -105,4 +105,4 @@ body {
   .gradient-text {
     @apply bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent;
   }
-}
+} 

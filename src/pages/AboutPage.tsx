@@ -1,6 +1,6 @@
 'use client';
 
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { FaReact, FaCode, FaLaptopCode, FaCertificate, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function AboutPage() {
@@ -49,10 +49,10 @@ export default function AboutPage() {
               About Me
             </h2>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 mb-4 leading-relaxed">
-              I&apos;m a passionate developer and artist based in karnataka, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging  applications and  art.
+              I'm a passionate developer and artist based in karnataka, with a strong interest in creating beautiful, functional digital experiences. With a background in Computer Applications, I combine technical knowledge with creative thinking to build engaging  applications and  art.
             </p>
             <p className="text-[var(--text-secondary)] dark:text-gray-300 leading-relaxed">
-              When I&apos;m not coding, you can find me painting,or exploring new technologies. I believe in continuous learning and pushing the boundaries of what&apos;s possible with technology and art.
+              When I'm not coding, you can find me painting,or exploring new technologies. I believe in continuous learning and pushing the boundaries of what's possible with technology and art.
             </p>
           </div>
           
@@ -121,7 +121,7 @@ export default function AboutPage() {
           {/* Call to Action */}
           <div className="text-center">
             <Link 
-              href="/" 
+              to="/" 
               className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-medium rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]"
             >
               Back to Home
