@@ -11,7 +11,7 @@ export default function HomePage() {
     project: {
       title: "Personal Portfolio",
       description: "A responsive portfolio website showcasing my skills and projects.",
-      image: "/profile.jpg",
+      image: "/website.png",
       link: "/projects"
     },
     art: {
