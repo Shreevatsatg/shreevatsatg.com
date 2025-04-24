@@ -21,8 +21,8 @@ export default function HomePage() {
       link: "/drawings"
     },
     blog: {
-      title: "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective",
-      description: "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective is a blog post that explores the impact of clothing billboards on the local market and community.",
+      title: "Clothing Billboards in Udupi & Manipal",
+      description: "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective ",
       image: "/blog/peter england.jpg",   
       link: "/blog"
     }
