@@ -98,7 +98,7 @@ export default function AboutPage() {
             <SkillCard 
               icon={<FaReact className="text-[var(--accent-primary)]" size={24} />}
               title="Frontend Development"
-              skills="React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Responsive Design"
+              skills="React, Next.js, TypeScript, Tailwind CSS, Bootstrap css, Framer Motion, Responsive Design"
               delay={0}
             />
             
