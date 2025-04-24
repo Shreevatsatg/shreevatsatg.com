@@ -69,7 +69,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section with 3D and parallax effects */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative  overflow-hidden">
         <motion.div
           className="container mx-auto px-4"
           style={{ opacity, y: y1 }}
