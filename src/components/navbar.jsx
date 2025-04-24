@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import { Home, User, Briefcase, PenTool, FileText, Send, SunMedium, Moon, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./theme-provider";
 
 export default function Navbar() {
@@ -34,111 +35,132 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${
-        scrolled 
-          ? "py-3 backdrop-blur-xl" 
-          : "py-5"
-      } ${
-        darkMode 
-          ? isMenuOpen 
-            ? "bg-gray-900/95" 
-            : scrolled ? "bg-gray-900/80" : "bg-transparent"
-          : isMenuOpen 
-            ? "bg-white/95" 
-            : scrolled ? "bg-white/80" : "bg-transparent"
-      }`}>
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+      <motion.nav 
+        className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+          scrolled ? "py-3" : "py-5"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      >
+        <div className={`absolute inset-0 ${
+          scrolled ? "glass backdrop-blur-xl" : "bg-transparent"
+        } ${isMenuOpen ? "backdrop-blur-3xl" : ""}`}></div>
+        
+        <div className="container mx-auto px-4 flex items-center justify-between relative z-10">
           {/* Logo */}
           <Link 
             to="/" 
             className="relative group z-10"
             onClick={closeMenu}
           >
-            <span className="text-2xl md:text-3xl font-extrabold tracking-tight">
+            <motion.span 
+              className="text-2xl md:text-3xl font-bold tracking-tight font-display"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               <span className="gradient-text">Shreevatsa</span>
-              <span className="text-gray-800 dark:text-white">TG</span>
-            </span>
+              <span className="text-[var(--text-primary)]">TG</span>
+            </motion.span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--accent-primary)] via-[var(--accent-secondary)] to-[var(--accent-third)] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {/* Navigation Links */}
-            <div className="flex items-center gap-6">
-              
-              <NavLink to="/projects" isActive={isActive("/projects")}>Projects</NavLink>
-              <NavLink to="/drawings" isActive={isActive("/drawings")}>Drawings</NavLink>
-              <NavLink to="/blog" isActive={isActive("/blog")}>Blog</NavLink>
-              
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-8">
+              <NavLink to="/" isActive={isActive("/")} icon={<Home size={18} />}>Home</NavLink>
+              <NavLink to="/about" isActive={isActive("/about")} icon={<User size={18} />}>About</NavLink>
+              <NavLink to="/projects" isActive={isActive("/projects")} icon={<Briefcase size={18} />}>Projects</NavLink>
+              <NavLink to="/drawings" isActive={isActive("/drawings")} icon={<PenTool size={18} />}>Drawings</NavLink>
+              <NavLink to="/blog" isActive={isActive("/blog")} icon={<FileText size={18} />}>Blog</NavLink>
+              <NavLink to="/contact" isActive={isActive("/contact")} icon={<Send size={18} />}>Contact</NavLink>
             </div>
 
-            {/* Dark Mode Toggle */}
-            <button
+            {/* Dark Mode Toggle - Desktop */}
+            <motion.button
               onClick={() => setDarkMode(!darkMode)}
-              className="relative p-2 rounded-full overflow-hidden group"
+              className="relative p-2 rounded-full overflow-hidden spotlight-container"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative">
+              <div className="spotlight"></div>
+              <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full glass">
                 {darkMode ? (
-                  <FiSun className="text-[var(--accent-secondary)] group-hover:text-white text-xl" />
+                  <SunMedium className="text-[var(--accent-third)] transition-all" size={18} />
                 ) : (
-                  <FiMoon className="text-gray-700 group-hover:text-white text-xl" />
+                  <Moon className="text-[var(--accent-primary)] transition-all" size={18} />
                 )}
-              </span>
-            </button>
+              </div>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             onClick={toggleMenu}
-            className="md:hidden p-2 text-gray-800 dark:text-white focus:outline-none z-20"
+            className="md:hidden relative p-2 rounded-full overflow-hidden spotlight-container"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? (
-              <FiX className="text-2xl" />
-            ) : (
-              <FiMenu className="text-2xl" />
-            )}
-          </button>
+            <div className="spotlight"></div>
+            <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full glass">
+              {isMenuOpen ? (
+                <X className="text-[var(--accent-third)]" size={20} />
+              ) : (
+                <Menu className="text-[var(--text-primary)]" size={20} />
+              )}
+            </div>
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
-        <div 
-          className={`fixed inset-0 z-10 flex flex-col justify-center items-center p-8 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl transition-transform duration-500 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } md:hidden`}
-        >
-          <div className="flex flex-col items-center gap-8 w-full">
-            <MobileNavLink to="/" onClick={closeMenu} isActive={isActive("/")}>Home</MobileNavLink>
-            <MobileNavLink to="/about" onClick={closeMenu} isActive={isActive("/about")}>About</MobileNavLink>
-            <MobileNavLink to="/projects" onClick={closeMenu} isActive={isActive("/projects")}>Projects</MobileNavLink>
-            <MobileNavLink to="/drawings" onClick={closeMenu} isActive={isActive("/drawings")}>Drawings</MobileNavLink>
-            <MobileNavLink to="/blog" onClick={closeMenu} isActive={isActive("/blog")}>Blog</MobileNavLink>
-            <MobileNavLink to="/contact" onClick={closeMenu} isActive={isActive("/contact")}>Contact</MobileNavLink>
-            
-            <button
-              onClick={() => {
-                setDarkMode(!darkMode);
-                closeMenu();
-              }}
-              className="mt-4 flex items-center justify-center gap-2 p-3 w-full rounded-xl bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-medium"
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="fixed inset-x-0 top-[4.5rem] z-40 flex flex-col p-5 glass backdrop-blur-2xl border-t border-[var(--border-color)] border-opacity-20 md:hidden"
             >
-              {darkMode ? (
-                <>
-                  <FiSun className="text-xl" />
-                  <span>Light Mode</span>
-                </>
-              ) : (
-                <>
-                  <FiMoon className="text-xl" />
-                  <span>Dark Mode</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </nav>
+              <div className="glass-card p-6 flex flex-col items-center gap-6 w-full">
+                <div className="spotlight"></div>
+                <MobileNavLink to="/" onClick={closeMenu} isActive={isActive("/")} icon={<Home size={20} />}>Home</MobileNavLink>
+                <MobileNavLink to="/about" onClick={closeMenu} isActive={isActive("/about")} icon={<User size={20} />}>About</MobileNavLink>
+                <MobileNavLink to="/projects" onClick={closeMenu} isActive={isActive("/projects")} icon={<Briefcase size={20} />}>Projects</MobileNavLink>
+                <MobileNavLink to="/drawings" onClick={closeMenu} isActive={isActive("/drawings")} icon={<PenTool size={20} />}>Drawings</MobileNavLink>
+                <MobileNavLink to="/blog" onClick={closeMenu} isActive={isActive("/blog")} icon={<FileText size={20} />}>Blog</MobileNavLink>
+                <MobileNavLink to="/contact" onClick={closeMenu} isActive={isActive("/contact")} icon={<Send size={20} />}>Contact</MobileNavLink>
+                
+                {/* Dark Mode Toggle - Mobile */}
+                <motion.button
+                  onClick={() => {
+                    setDarkMode(!darkMode);
+                    closeMenu();
+                  }}
+                  className="mt-4 w-full py-3 rounded-xl glass-card border border-[var(--glass-border)] flex items-center justify-center gap-2 text-[var(--text-primary)]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="spotlight"></div>
+                  {darkMode ? (
+                    <>
+                      <SunMedium className="text-[var(--accent-third)]" size={18} />
+                      <span className="font-medium">Light Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="text-[var(--accent-primary)]" size={18} />
+                      <span className="font-medium">Dark Mode</span>
+                    </>
+                  )}
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
 
       {/* Spacer that adjusts with scroll state */}
       <div className={`transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}></div>
@@ -147,20 +169,28 @@ export default function Navbar() {
 }
 
 // Desktop Navigation Link Component
-function NavLink({ to, children, isActive }) {
+function NavLink({ to, children, isActive, icon }) {
   return (
     <Link 
       to={to} 
-      className={`relative px-2 py-1 text-base font-medium transition-all duration-300 ${
-        isActive 
-          ? "text-[var(--accent-primary)]" 
-          : "text-gray-700 dark:text-gray-200 hover:text-[var(--accent-primary)] dark:hover:text-[var(--accent-primary)]"
-      } overflow-hidden group`}
+      className="relative overflow-hidden group"
     >
-      {children}
+      <motion.div 
+        className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition-all ${
+          isActive 
+            ? "text-[var(--accent-primary)]"
+            : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+        }`}
+        whileHover={{ y: -2 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      >
+        {icon && <span className={`${isActive ? "text-[var(--accent-primary)]" : "text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)]"} transition-colors`}>{icon}</span>}
+        <span>{children}</span>
+      </motion.div>
+      
       <span 
-        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] transform origin-left transition-all duration-300 ${
-          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-1 rounded-full bg-[var(--accent-primary)] transition-all duration-300 ${
+          isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
         }`}
       ></span>
     </Link>
@@ -168,18 +198,25 @@ function NavLink({ to, children, isActive }) {
 }
 
 // Mobile Navigation Link Component
-function MobileNavLink({ to, children, onClick, isActive }) {
+function MobileNavLink({ to, children, onClick, isActive, icon }) {
   return (
     <Link 
       to={to} 
       onClick={onClick}
-      className={`w-full text-center py-3 text-lg font-medium ${
-        isActive 
-          ? "gradient-text" 
-          : "text-gray-800 dark:text-white"
-      } transition-all`}
+      className="w-full"
     >
-      {children}
+      <motion.div
+        className={`flex items-center gap-3 py-2.5 px-4 rounded-xl transition-all ${
+          isActive 
+            ? "bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]" 
+            : "text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]"
+        }`}
+        whileHover={{ x: 5 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {icon && <span className={isActive ? "text-[var(--accent-primary)]" : "text-[var(--text-secondary)]"}>{icon}</span>}
+        <span className="font-medium">{children}</span>
+      </motion.div>
     </Link>
   );
 }

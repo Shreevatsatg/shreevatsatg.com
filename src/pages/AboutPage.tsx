@@ -36,7 +36,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-third)] rounded-2xl blur-md opacity-70 scale-105 animate-pulse-glow"></div>
               <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl">
                 <img 
-                  src="/photo_2024-09-22_11-28-31.jpg" 
+                  src="/profile2.jpg" 
                   alt="Shreevatsa TG"
                   className="w-full h-full object-cover"
                 />

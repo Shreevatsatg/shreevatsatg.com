@@ -19,16 +19,16 @@ interface Artwork {
 const artworks: Artwork[] = [
   {
     id: 0,
-    src: "/drawing/IMG_20240516_222754_288.jpg",
+    src: "/drawing/krishna.jpg",
     alt: "Featured Artwork - Color Exploration",
     description: "This piece represents my artistic journey, exploring color and form through a contemporary lens."
   },
-  { id: 1, src: "/drawing/IMG_20231028_090955.jpg", alt: "Oil painting", description: "Oil painting exploration of natural forms" },
-  { id: 2, src: "/drawing/IMG_20241105_102653.jpg", alt: "Geometric Abstraction", description: "Abstract geometric composition" },
-  { id: 3, src: "/drawing/IMG_20241110_165952.jpg", alt: "Acrylic painting", description: "Portrait study of krishna in acrylic" },
-  { id: 4, src: "/drawing/IMG-20220619-WA0005.jpg", alt: "Pencil sketch", description: "Realistic pencil sketch" },
-  { id: 5, src: "/drawing/IMG-20220625-WA0013.jpg", alt: "Mandala", description: "Mandala art experimental piece" },
-  { id: 6, src: "/drawing/IMG-20220625-WA0023.jpg", alt: "Portrait study", description: "Portrait study in pencil" },
+  { id: 1, src: "/drawing/krishna.jpg", alt: "Oil painting", description: "Oil painting exploration of natural forms" },
+  { id: 2, src: "/drawing/abstract.jpg", alt: "Geometric Abstraction", description: "Abstract geometric composition" },
+  { id: 3, src: "/drawing/krishna2.jpg", alt: "Acrylic painting", description: "Portrait study of krishna in acrylic" },
+  { id: 4, src: "/drawing/pencilhorse.jpg", alt: "Pencil sketch", description: "Realistic pencil sketch" },
+  { id: 5, src: "/drawing/mandala.jpg", alt: "Mandala", description: "Mandala art experimental piece" },
+  { id: 6, src: "/drawing/potrait.jpg", alt: "Portrait study", description: "Portrait study in pencil" },
 ];
 
 // Define props for OptimizedImage component
