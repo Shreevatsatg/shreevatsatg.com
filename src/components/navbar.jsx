@@ -68,12 +68,10 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-8">
-              <NavLink to="/" isActive={isActive("/")} icon={<Home size={18} />}>Home</NavLink>
-              <NavLink to="/about" isActive={isActive("/about")} icon={<User size={18} />}>About</NavLink>
               <NavLink to="/projects" isActive={isActive("/projects")} icon={<Briefcase size={18} />}>Projects</NavLink>
               <NavLink to="/drawings" isActive={isActive("/drawings")} icon={<PenTool size={18} />}>Drawings</NavLink>
               <NavLink to="/blog" isActive={isActive("/blog")} icon={<FileText size={18} />}>Blog</NavLink>
-              <NavLink to="/contact" isActive={isActive("/contact")} icon={<Send size={18} />}>Contact</NavLink>
+             
             </div>
 
             {/* Dark Mode Toggle - Desktop */}
@@ -126,12 +124,10 @@ export default function Navbar() {
             >
               <div className="glass-card p-6 flex flex-col items-center gap-6 w-full">
                 <div className="spotlight"></div>
-                <MobileNavLink to="/" onClick={closeMenu} isActive={isActive("/")} icon={<Home size={20} />}>Home</MobileNavLink>
-                <MobileNavLink to="/about" onClick={closeMenu} isActive={isActive("/about")} icon={<User size={20} />}>About</MobileNavLink>
                 <MobileNavLink to="/projects" onClick={closeMenu} isActive={isActive("/projects")} icon={<Briefcase size={20} />}>Projects</MobileNavLink>
                 <MobileNavLink to="/drawings" onClick={closeMenu} isActive={isActive("/drawings")} icon={<PenTool size={20} />}>Drawings</MobileNavLink>
                 <MobileNavLink to="/blog" onClick={closeMenu} isActive={isActive("/blog")} icon={<FileText size={20} />}>Blog</MobileNavLink>
-                <MobileNavLink to="/contact" onClick={closeMenu} isActive={isActive("/contact")} icon={<Send size={20} />}>Contact</MobileNavLink>
+                
                 
                 {/* Dark Mode Toggle - Mobile */}
                 <motion.button
