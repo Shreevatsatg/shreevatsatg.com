@@ -129,17 +129,11 @@ export default function HomePage() {
               >
                 <Link to="/about" className="btn-primary group">
                   <span className="relative z-10 flex items-center">
-                    About Me
+                    About Me & contact
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
 
-                <Link to="/contact" className="btn-outline group">
-                  <span className="relative z-10 flex items-center">
-                    Contact
-                    <Send className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                </Link>
               </motion.div>
 
               {/* Social media */}

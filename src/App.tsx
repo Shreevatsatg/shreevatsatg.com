@@ -7,7 +7,6 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import DrawingsPage from './pages/DrawingsPage';
 import BlogPage from './pages/BlogPage';
-import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -163,7 +162,6 @@ function App() {
                     <Route path="/projects" element={<ProjectsPage />} />
                     <Route path="/drawings" element={<DrawingsPage />} />
                     <Route path="/blog" element={<BlogPage />} />
-                    <Route path="/contact" element={<ContactPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </main>
