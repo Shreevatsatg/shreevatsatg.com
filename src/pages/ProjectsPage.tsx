@@ -6,32 +6,35 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Personal Portfolio",
-    description: "A responsive portfolio website showcasing my skills and projects.",
+    description:
+      "A responsive portfolio website showcasing my skills and projects.",
     tech: ["nextjs", "Tailwind CSS", "Vercel"],
     link: "https://shreevatsatg.com",
-    github: "https://github.com/shreevatsatg/shreevatsatg.com"
+    github: "https://github.com/shreevatsatg/shreevatsatg.com",
   },
   {
     title: "E-Commerce Website",
-    description: "A fully functional e-commerce website with product listings, cart functionality, and user authentication.",
+    description:
+      "A fully functional e-commerce website with product listings, cart functionality, and user authentication.",
     tech: ["React", "Express", "MongoDB"],
     link: "",
-    github: "https://github.com/Shreevatsatg/mern-ecommerce"
+    github: "https://github.com/Shreevatsatg/mern-ecommerce",
   },
   {
     title: "Stone Paper Scissors Game",
     description: "Simple game to practice HTML, CSS and JavaScript.",
     tech: ["CSS", "HTML", "JavaScript"],
     link: "",
-    github: "https://github.com/Shreevatsatg/currencyconverter"
+    github: "https://github.com/Shreevatsatg/rock-paper-scissor-game",
   },
   {
     title: "Weather App",
-    description: "A weather application that provides real-time weather information for any location.",
+    description:
+      "A weather application that provides real-time weather information for any location.",
     tech: ["React", "OpenWeather API", "Tailwind CSS"],
     link: "http://wheatherapp.shreevatsatg.com/",
-    github: "https://github.com/Shreevatsatg/wheatherapp"
-  }
+    github: "https://github.com/Shreevatsatg/wheatherapp",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -116,7 +119,7 @@ export default function ProjectsPage() {
               Interested in working together or have a project in mind? Let's connect and create something amazing!
             </p>
             <Link 
-              to="/contact"
+              to="/about"
               className="btn-primary group inline-flex items-center"
             >
               <span className="relative z-10 flex items-center">

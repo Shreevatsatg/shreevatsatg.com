@@ -133,7 +133,6 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
-
               </motion.div>
 
               {/* Social media */}
@@ -153,7 +152,7 @@ export default function HomePage() {
                   <Github className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/shreevatsatg"
+                  href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
@@ -162,7 +161,7 @@ export default function HomePage() {
                   <Linkedin className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
                 </a>
                 <a
-                  href="https://twitter.com/shreevatsatg"
+                  href="https://x.com/Shreevatsatg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
