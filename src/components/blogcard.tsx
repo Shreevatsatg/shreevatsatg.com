@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -282,7 +283,7 @@ export default function Blog({ blogPosts, featuredPost, title = "Blog", descript
         {!selectedPost ? (
           <>
             {/* Page header with animated title */}
-            <motion.div 
+            <motion.div
               className="mb-16 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -295,59 +296,67 @@ export default function Blog({ blogPosts, featuredPost, title = "Blog", descript
                 {description}
               </p>
             </motion.div>
-            
+
             {/* Animated decorative elements */}
             <div className="relative">
-              <motion.div 
+              <motion.div
                 className="absolute top-20 right-[10%] w-3 h-3 rounded-full bg-[var(--accent-primary)]"
-                animate={{ 
+                animate={{
                   y: [0, 15, 0],
-                  opacity: [0.5, 1, 0.5]
+                  opacity: [0.5, 1, 0.5],
                 }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 4,
-                  ease: "easeInOut" 
+                  ease: "easeInOut",
                 }}
               />
-              <motion.div 
+              <motion.div
                 className="absolute bottom-40 left-[5%] w-5 h-5 rounded-full bg-[var(--accent-secondary)]"
-                animate={{ 
+                animate={{
                   y: [0, -20, 0],
-                  opacity: [0.3, 0.7, 0.3]
+                  opacity: [0.3, 0.7, 0.3],
                 }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 6,
                   ease: "easeInOut",
-                  delay: 1
+                  delay: 1,
                 }}
               />
-              <motion.div 
+              <motion.div
                 className="absolute top-1/3 left-[2%] w-4 h-4 rounded-full bg-[var(--accent-third)]"
-                animate={{ 
+                animate={{
                   y: [0, 10, 0],
-                  opacity: [0.2, 0.6, 0.2]
+                  opacity: [0.2, 0.6, 0.2],
                 }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 5,
                   ease: "easeInOut",
-                  delay: 0.5
+                  delay: 0.5,
                 }}
               />
-            
-              <FeaturedPostComponent post={featuredPost} onReadMore={handleReadMore} />
-              
+
+              <FeaturedPostComponent
+                post={featuredPost}
+                onReadMore={handleReadMore}
+              />
+
               {/* Blog Posts Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                 {blogPosts.map((post, index) => (
-                  <BlogPostCard key={post.id} post={post} onReadMore={handleReadMore} index={index} />
+                  <BlogPostCard
+                    key={post.id}
+                    post={post}
+                    onReadMore={handleReadMore}
+                    index={index}
+                  />
                 ))}
               </div>
-              
+
               {/* CTA section */}
-              <motion.div 
+              <motion.div
                 className="mt-20 gradient-border relative overflow-hidden rounded-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -355,21 +364,35 @@ export default function Blog({ blogPosts, featuredPost, title = "Blog", descript
                 transition={{ duration: 0.8 }}
               >
                 <div className="glass p-8 md:p-12 text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">Have a Topic to Discuss?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                    Have a Topic to Discuss?
+                  </h2>
                   <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
-                    Interested in collaborating on a blog post or have thoughts about the topics covered? I'd love to hear from you!
+                    Interested in collaborating on a blog post or have thoughts
+                    about the topics covered? I'd love to hear from you!
                   </p>
-                  <a 
-                    href="mailto:shreevatsa@shreevatsatg.com"
+                  <Link
+                     to="/contact"
                     className="btn-primary group inline-flex items-center"
                   >
                     <span className="relative z-10 flex items-center">
                       Get in Touch
-                      <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                      <svg
+                        className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        ></path>
                       </svg>
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </div>

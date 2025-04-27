@@ -1,31 +1,50 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Twitter, ChevronDown, Sparkles, Code, PencilRuler, Send } from 'lucide-react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+  ChevronDown,
+  Sparkles,
+  Code,
+  PencilRuler,
+  Send,
+} from "lucide-react";
 
 export default function HomePage() {
   // Sample featured content
   const featuredContent = {
     project: {
       title: "Personal Portfolio",
-      description: "A responsive portfolio website showcasing my skills and projects.",
+      description:
+        "A responsive portfolio website showcasing my skills and projects.",
       image: "/website.png",
-      link: "/projects"
+      link: "/projects",
     },
     art: {
       title: "Krishna Painting",
       description: "Oil painting of Krishna",
-      image: "/drawing/krishna.jpg", 
-      link: "/drawings"
+      image: "/drawing/krishna.jpg",
+      link: "/drawings",
     },
     blog: {
       title: "Clothing Billboards in Udupi & Manipal",
-      description: "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective ",
-      image: "/blog/peter england.jpg",   
-      link: "/blog"
-    }
+      description:
+        "Clothing Billboards in Udupi & Manipal: A Visual and Market Perspective ",
+      image: "/blog/peter england.jpg",
+      link: "/blog",
+    },
   };
 
   // Scroll animations
@@ -33,35 +52,35 @@ export default function HomePage() {
   const y1 = useTransform(scrollY, [0, 300], [0, -100]);
   const y2 = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
-  
+
   // 3D card tilt effect
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
-  
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const middleX = rect.width / 2;
     const middleY = rect.height / 2;
-    
+
     // Calculate rotation based on mouse position
     const offsetX = ((x - middleX) / middleX) * 10;
     const offsetY = ((y - middleY) / middleY) * 10;
-    
+
     setRotateX(-1 * offsetY);
     setRotateY(offsetX);
   };
-  
+
   const handleMouseLeave = () => {
     setRotateX(0);
     setRotateY(0);
   };
-  
+
   // Smooth spring animations for rotation
   const springX = useSpring(rotateX, { damping: 15, stiffness: 150 });
   const springY = useSpring(rotateY, { damping: 15, stiffness: 150 });
@@ -168,13 +187,23 @@ export default function HomePage() {
                   <Linkedin className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
                 </a>
                 <a
-                  href="https://twitter.com/shreevatsatg"
+                  href="https://x.com/Shreevatsatg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
                   aria-label="Twitter"
                 >
                   <Twitter className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/shreevatsa_tg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                  aria-label="Twitter"
+                >
+                  <Instagram className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
                 </a>
               </motion.div>
             </motion.div>
@@ -433,7 +462,15 @@ export default function HomePage() {
   );
 }
 
-function FeaturedCard({ title, description, image, category, link, date, index }) {
+function FeaturedCard({
+  title,
+  description,
+  image,
+  category,
+  link,
+  date,
+  index,
+}) {
   return (
     <motion.div
       className="group spotlight-container glass-card relative overflow-hidden"
@@ -443,27 +480,35 @@ function FeaturedCard({ title, description, image, category, link, date, index }
       transition={{ duration: 0.6, delay: 0.2 * index }}
     >
       <div className="spotlight"></div>
-      
+
       {/* Category tag */}
       <div className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-medium text-white bg-[var(--accent-primary)] rounded-full">
         {category}
       </div>
-      
+
       {/* Card content */}
       <Link to={link} className="block h-full">
         <div className="p-6 h-full flex flex-col">
           {image && (
             <div className="mb-6 rounded-xl overflow-hidden aspect-video">
-              <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
           )}
-          
+
           <h3 className="text-xl font-bold mb-2 font-display">{title}</h3>
-          
-          {date && <p className="text-sm text-[var(--text-secondary)] mb-2">{date}</p>}
-          
-          <p className="text-[var(--text-secondary)] flex-grow">{description}</p>
-          
+
+          {date && (
+            <p className="text-sm text-[var(--text-secondary)] mb-2">{date}</p>
+          )}
+
+          <p className="text-[var(--text-secondary)] flex-grow">
+            {description}
+          </p>
+
           <div className="mt-6 text-[var(--accent-primary)] font-medium flex items-center">
             <span>Read more</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -472,4 +517,4 @@ function FeaturedCard({ title, description, image, category, link, date, index }
       </Link>
     </motion.div>
   );
-} 
+}
