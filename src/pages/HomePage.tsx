@@ -134,7 +134,7 @@ export default function HomePage() {
                 <span className="text-[var(--accent-primary)]">
                   web development
                 </span>{" "}
-                and <span className="text-[var(--accent-third)]">painting</span>
+                and <span className="text-[var(--accent-primary)]">painting</span>
                 , I aspire to create innovative solutions that blend technology
                 with creativity.
               </motion.p>
