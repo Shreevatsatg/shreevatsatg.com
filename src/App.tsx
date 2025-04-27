@@ -133,7 +133,7 @@ function App() {
             
             {/* Custom cursor effect */}
             <motion.div 
-              className="hidden lg:block fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference"
+              className="hidden lg:block fixed w-4 h-4 rounded-full pointer-events-none z-50 mix-blend-difference"
               animate={{
                 x: mousePosition.x - 16,
                 y: mousePosition.y - 16,
