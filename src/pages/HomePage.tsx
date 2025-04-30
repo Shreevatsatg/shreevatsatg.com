@@ -134,8 +134,9 @@ export default function HomePage() {
                 <span className="text-[var(--accent-primary)]">
                   web development
                 </span>{" "}
-                and <span className="text-[var(--accent-primary)]">painting</span>
-                , I aspire to create innovative solutions that blend technology
+                and{" "}
+                <span className="text-[var(--accent-primary)]">painting</span>,
+                I aspire to create innovative solutions that blend technology
                 with creativity.
               </motion.p>
 
@@ -178,7 +179,7 @@ export default function HomePage() {
                   <Github className="w-6 h-6 text-[var(--text-secondary)] transition-all duration-300 group-hover:text-[var(--accent-primary)] group-hover:scale-110" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/shreevatsatg"
+                  href="https://www.linkedin.com/in/shreevatsa-t-g-7b6509314"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
