@@ -35,7 +35,7 @@ export default function HomePage() {
     art: {
       title: "Krishna Painting",
       description: "Oil painting of Krishna",
-      image: "/drawing/krishna.jpg",
+      image: "/drawing/krishna.webp",
       link: "/drawings",
     },
     blog: {
