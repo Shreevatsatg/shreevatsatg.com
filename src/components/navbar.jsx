@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
+      <motion.nav
         className={`fixed top-0 z-50 w-full transition-all duration-500 ${
           scrolled ? "py-3" : "py-5"
         }`}
@@ -43,23 +43,23 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
-        <div className={`absolute inset-0 ${
-          scrolled ? "glass backdrop-blur-xl" : "bg-transparent"
-        } ${isMenuOpen ? "backdrop-blur-3xl" : ""}`}></div>
-        
+        <div
+          className={`absolute inset-0 ${
+            scrolled ? "glass backdrop-blur-xl" : "bg-transparent"
+          } ${isMenuOpen ? "backdrop-blur-3xl" : ""}`}
+        ></div>
+
         <div className="container mx-auto px-4 flex items-center justify-between relative z-10">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="relative group z-10"
-            onClick={closeMenu}
-          >
-            <motion.span 
+          <Link to="/" className="relative group z-10" onClick={closeMenu}>
+            <motion.span
               className="text-2xl md:text-3xl font-bold tracking-tight font-display"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <span className="gradient-text">Shreevatsa</span>
+              <span className="gradient-text">
+                Shreevatsa <t />
+              </span>
               <span className="text-[var(--text-primary)]">TG</span>
             </motion.span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--accent-primary)] via-[var(--accent-secondary)] to-[var(--accent-third)] transition-all duration-300 group-hover:w-full"></span>
@@ -68,10 +68,27 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-8">
-              <NavLink to="/projects" isActive={isActive("/projects")} icon={<Briefcase size={18} />}>Projects</NavLink>
-              <NavLink to="/drawings" isActive={isActive("/drawings")} icon={<PenTool size={18} />}>Drawings</NavLink>
-              <NavLink to="/blog" isActive={isActive("/blog")} icon={<FileText size={18} />}>Blog</NavLink>
-             
+              <NavLink
+                to="/projects"
+                isActive={isActive("/projects")}
+                icon={<Briefcase size={18} />}
+              >
+                Projects
+              </NavLink>
+              <NavLink
+                to="/drawings"
+                isActive={isActive("/drawings")}
+                icon={<PenTool size={18} />}
+              >
+                Drawings
+              </NavLink>
+              <NavLink
+                to="/blog"
+                isActive={isActive("/blog")}
+                icon={<FileText size={18} />}
+              >
+                Blog
+              </NavLink>
             </div>
 
             {/* Dark Mode Toggle - Desktop */}
@@ -80,14 +97,22 @@ export default function Navbar() {
               className="relative p-2 rounded-full overflow-hidden spotlight-container"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
               <div className="spotlight"></div>
               <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full glass">
                 {darkMode ? (
-                  <SunMedium className="text-[var(--accent-third)] transition-all" size={18} />
+                  <SunMedium
+                    className="text-[var(--accent-third)] transition-all"
+                    size={18}
+                  />
                 ) : (
-                  <Moon className="text-[var(--accent-primary)] transition-all" size={18} />
+                  <Moon
+                    className="text-[var(--accent-primary)] transition-all"
+                    size={18}
+                  />
                 )}
               </div>
             </motion.button>
@@ -115,7 +140,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -124,11 +149,31 @@ export default function Navbar() {
             >
               <div className="glass-card p-6 flex flex-col items-center gap-6 w-full">
                 <div className="spotlight"></div>
-                <MobileNavLink to="/projects" onClick={closeMenu} isActive={isActive("/projects")} icon={<Briefcase size={20} />}>Projects</MobileNavLink>
-                <MobileNavLink to="/drawings" onClick={closeMenu} isActive={isActive("/drawings")} icon={<PenTool size={20} />}>Drawings</MobileNavLink>
-                <MobileNavLink to="/blog" onClick={closeMenu} isActive={isActive("/blog")} icon={<FileText size={20} />}>Blog</MobileNavLink>
-                
-                
+                <MobileNavLink
+                  to="/projects"
+                  onClick={closeMenu}
+                  isActive={isActive("/projects")}
+                  icon={<Briefcase size={20} />}
+                >
+                  Projects
+                </MobileNavLink>
+                <MobileNavLink
+                  to="/drawings"
+                  onClick={closeMenu}
+                  isActive={isActive("/drawings")}
+                  icon={<PenTool size={20} />}
+                >
+                  Drawings
+                </MobileNavLink>
+                <MobileNavLink
+                  to="/blog"
+                  onClick={closeMenu}
+                  isActive={isActive("/blog")}
+                  icon={<FileText size={20} />}
+                >
+                  Blog
+                </MobileNavLink>
+
                 {/* Dark Mode Toggle - Mobile */}
                 <motion.button
                   onClick={() => {
@@ -142,12 +187,18 @@ export default function Navbar() {
                   <div className="spotlight"></div>
                   {darkMode ? (
                     <>
-                      <SunMedium className="text-[var(--accent-third)]" size={18} />
+                      <SunMedium
+                        className="text-[var(--accent-third)]"
+                        size={18}
+                      />
                       <span className="font-medium">Light Mode</span>
                     </>
                   ) : (
                     <>
-                      <Moon className="text-[var(--accent-primary)]" size={18} />
+                      <Moon
+                        className="text-[var(--accent-primary)]"
+                        size={18}
+                      />
                       <span className="font-medium">Dark Mode</span>
                     </>
                   )}
@@ -159,7 +210,9 @@ export default function Navbar() {
       </motion.nav>
 
       {/* Spacer that adjusts with scroll state */}
-      <div className={`transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}></div>
+      <div
+        className={`transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}
+      ></div>
     </>
   );
 }
