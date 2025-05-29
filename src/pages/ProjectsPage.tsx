@@ -38,6 +38,13 @@ const projects = [
     tech: ["css", "ExchangeRate API", "javascript"],
     link: "",
     github: "https://github.com/Shreevatsatg/currencyconverter"
+  },
+  {
+    title: "Social Media app with realtime communication",
+    description: "A social media application that allows users to communicate with each other in real-time. useing websockets and video and audio call useing webrtc.",
+    tech: ["Node.js", "react", "Socket.io", "Tailwind CSS"],
+    link: "https://ai-thought-client.vercel.app/",
+    github: ""
   }
 ];
 
