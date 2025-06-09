@@ -45,6 +45,13 @@ const projects = [
     tech: ["Node.js", "react", "Socket.io", "WebRTC"],
     link: "https://ai-thought-client.vercel.app/",
     github: ""
+  },
+  {
+    title: "bitcoinwala.ai landing page",
+    description: "a landing page for bitcoinwala.ai, a platform that provides AI-powered insights and tools for Bitcoin trading.",
+    tech: [ "react", "tailwind css", "framer motion"],
+    link: "https://www.bitcoinwala.ai/",
+    github: ""
   }
 ];
 
