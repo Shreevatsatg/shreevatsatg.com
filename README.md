@@ -1,75 +1,54 @@
-# Shreevatsa TG Portfolio Website
+# React + TypeScript + Vite
 
-This is my personal portfolio website, showcasing my projects, drawings, and blog content.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Visit Website
+Currently, two official plugins are available:
 
-[Visit shreevatsatg.com](https://shreevatsatg.com)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## Expanding the ESLint configuration
 
-- Responsive design for all device sizes
-- Dark/light theme support
-- Structured data for SEO optimization
-- Optimized image rendering
-- Blog section with detailed articles
-- Projects showcase
-- Art/drawings gallery
-- Contact information
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Tech Stack
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- React Router for navigation
-- Framer Motion for animations
-- Headless UI components
-- Lucide React icons
-- Vite for fast development and building
-
-## Project Structure
-
-```
-shreevatsatg.com/
-├── public/                # Static assets
-│   ├── blog/              # Blog images
-│   ├── drawing/           # Drawing/artwork images
-│   ├── favicon.png        # Site favicon
-│   └── sitemap.xml        # XML sitemap for SEO
-├── src/
-│   ├── components/        # Reusable UI components
-│   │   ├── blogcard.tsx   # Blog card component
-│   │   ├── navbar.jsx     # Navigation component
-│   │   ├── OptimizedImage.tsx  # Image optimization component
-│   │   ├── StructuredData.tsx  # SEO structured data component
-│   │   └── ThemeProvider.tsx   # Theme context provider
-│   ├── pages/             # Page components for routes
-│   │   ├── AboutPage.tsx  # About page
-│   │   ├── BlogPage.tsx   # Blog listing page
-│   │   ├── ContactPage.tsx # Contact information
-│   │   ├── DrawingsPage.tsx # Artwork gallery
-│   │   ├── HomePage.tsx   # Landing page
-│   │   ├── NotFoundPage.tsx # 404 page
-│   │   └── ProjectsPage.tsx # Projects showcase
-│   ├── globals.css        # Global styles and Tailwind directives
-│   ├── App.tsx            # Main App component with routing
-│   └── main.tsx           # Entry point
-├── .eslintrc.json         # ESLint configuration
-├── .gitignore             # Git ignore rules
-├── index.html             # HTML entry point
-├── package.json           # Dependencies and scripts
-├── postcss.config.js      # PostCSS configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-├── tsconfig.json          # TypeScript configuration
-├── tsconfig.node.json     # TypeScript Node configuration
-└── vite.config.ts         # Vite configuration
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-### Theme Support
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-The site supports both light and dark themes via the ThemeProvider component.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Author
-
-Shreevatsa TG
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
