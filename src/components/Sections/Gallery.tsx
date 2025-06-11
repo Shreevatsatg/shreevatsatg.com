@@ -28,7 +28,6 @@ const ImageWithLoading = ({
   alt, 
   className, 
   onClick, 
-  loading = "lazy" 
 }: { 
   src: string; 
   alt: string; 
@@ -66,7 +65,6 @@ const ImageWithLoading = ({
           onClick={onClick}
           onLoad={handleLoad}
           onError={handleError}
-          loading={loading}
           decoding="async"
           style={{ 
             opacity: isLoading ? 0 : 1,
