@@ -9,7 +9,7 @@ import Contact from '../components/Sections/Contact';
 
 const Index = () => {
   return (
-    <div className="min-h-screen items-center justify-center flex flex-col">
+    <div className="min-h-screen items-center justify-center flex flex-col ">
       <Header />
         <Hero />
         <About />

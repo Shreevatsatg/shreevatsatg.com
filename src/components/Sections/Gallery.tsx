@@ -1,6 +1,7 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Paintbrush, Image as ImageIcon } from 'lucide-react';
+import { X, Paintbrush, ImageIcon } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 interface Artwork {
   id: number;
@@ -17,12 +18,76 @@ interface Category {
   name: string;
 }
 
+const LoadingSpinner = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-slate-800/50 backdrop-blur-sm">
+    <div className="relative">
+      <div className="w-8 h-8 border-2 border-slate-600 border-t-slate-200 rounded-full animate-spin"></div>
+      <div className="absolute inset-0 w-8 h-8 border-2 border-transparent border-t-slate-400 rounded-full animate-spin opacity-60" style={{ animationDelay: '0.3s', animationDuration: '1.2s' }}></div>
+    </div>
+  </div>
+);
+
+const ImageWithLoading = ({ 
+  src, 
+  alt, 
+  className, 
+  onClick, 
+  loading = "lazy" 
+}: { 
+  src: string; 
+  alt: string; 
+  className: string; 
+  onClick?: () => void; 
+  loading?: "eager" | "lazy";
+}) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  return (
+    <div className="relative">
+      {isLoading && <LoadingSpinner />}
+      {hasError ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-slate-400">
+          <div className="text-center">
+            <ImageIcon size={32} className="mx-auto mb-2 opacity-50" />
+            <p className="text-sm">Failed to load</p>
+          </div>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className={className}
+          onClick={onClick}
+          onLoad={handleLoad}
+          onError={handleError}
+          loading={loading}
+          decoding="async"
+          style={{ 
+            opacity: isLoading ? 0 : 1,
+            transition: 'opacity 0.3s ease-in-out'
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [filter, setFilter] = useState<string>('all');
   const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
 
-  const artworks: Artwork[] = [
+  const artworks: Artwork[] = useMemo(() => [
     {
       id: 1,
       title: 'Oil painting ',
@@ -77,24 +142,49 @@ const Gallery = () => {
       description: 'A realistic pencil drawing study of a human face, focusing on light and shadow to create depth and emotion.',
       year: 2022,
     }
-  ];
+  ], []);
 
-  const categories: Category[] = [
+  const categories: Category[] = useMemo(() => [
     { id: 'all', name: 'All Artworks' },
     { id: 'painting', name: 'Paintings' },
     { id: 'drawing', name: 'Drawings' }
-  ];
+  ], []);
 
-  const filteredArtworks = filter === 'all' 
-    ? artworks 
-    : artworks.filter(artwork => artwork.category === filter || artwork.medium === filter);
+  const filteredArtworks = useMemo(() => 
+    filter === 'all' 
+      ? artworks 
+      : artworks.filter(artwork => artwork.category === filter || artwork.medium === filter),
+    [artworks, filter]
+  );
 
-  const selectedArtwork = selectedImage ? artworks.find(artwork => artwork.id === selectedImage) : null;
+  const selectedArtwork = useMemo(() => 
+    selectedImage ? artworks.find(artwork => artwork.id === selectedImage) : null,
+    [selectedImage, artworks]
+  );
 
   const handleFilterChange = useCallback((categoryId: string) => {
     setFilter(categoryId);
     setSelectedImage(null);
   }, []);
+
+  // Optimized image preloading for faster performance
+  useEffect(() => {
+    // Immediate preload of first 3 critical images
+    artworks.slice(0, 3).forEach(artwork => {
+      const img = new Image();
+      img.src = artwork.image;
+    });
+    
+    // Lazy preload remaining images after initial render
+    const timeoutId = setTimeout(() => {
+      artworks.slice(3).forEach(artwork => {
+        const img = new Image();
+        img.src = artwork.image;
+      });
+    }, 500); // Reduced delay for faster loading
+
+    return () => clearTimeout(timeoutId);
+  }, [artworks]);
 
   // Disable body scroll when modal is open
   useEffect(() => {
@@ -131,6 +221,9 @@ const Gallery = () => {
       }
     }
   };
+
+  // Modal portal root
+  const modalRoot = typeof window !== 'undefined' ? document.getElementById('modal-root') : null;
 
   return (
     <section id="gallery" className="w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 py-20 pt-24">
@@ -201,23 +294,25 @@ const Gallery = () => {
           initial="hidden"
           animate="visible"
         >
-          {filteredArtworks.map((artwork) => (
+          {filteredArtworks.map((artwork, index) => (
             <motion.div
               key={artwork.id}
               layout
               variants={itemVariants}
               className="group cursor-pointer relative bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl transition-all duration-300 hover:shadow-slate-700/20"
+              style={{ willChange: 'transform, opacity' }}
               onClick={() => setSelectedImage(artwork.id)}
               onMouseEnter={() => setHoveredArtwork(artwork.id)}
               onMouseLeave={() => setHoveredArtwork(null)}
               whileHover={{ y: -5, scale: 1.01 }}
             >
-              <div className="relative overflow-hidden">
-                <img
+              <div className="relative overflow-hidden" style={{ willChange: 'transform, opacity' }}>
+                <ImageWithLoading
                   src={artwork.image}
                   alt={artwork.title}
                   className="w-full h-96 md:h-[24rem] object-cover transition-transform duration-500 group-hover:scale-110 contrast-110 brightness-110"
-                  loading="lazy"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  onClick={() => setSelectedImage(artwork.id)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
@@ -242,69 +337,74 @@ const Gallery = () => {
           ))}
         </motion.div>
 
-        {/* Modal */}
-        <AnimatePresence>
-          {selectedImage && selectedArtwork && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[999] flex items-center justify-center p-4 overflow-y-auto"
-              onClick={() => setSelectedImage(null)}
-            >
+        {/* Modal Portal */}
+        {modalRoot && createPortal(
+          <AnimatePresence>
+            {selectedImage && selectedArtwork && (
               <motion.div
-                initial={{ scale: 0.8, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.8, opacity: 0, y: 20 }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="bg-slate-800 rounded-2xl max-w-5xl w-full flex flex-col lg:flex-row border border-slate-700 shadow-2xl my-8 max-h-[90vh] overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[999] flex items-center justify-center p-4 overflow-y-auto"
+                style={{ willChange: 'opacity' }}
+                onClick={() => setSelectedImage(null)}
               >
-                <div className="relative lg:w-3/5 flex-shrink-0">
-                  <img
-                    src={selectedArtwork.image}
-                    alt={selectedArtwork.title}
-                    className="w-full h-64 sm:h-80 lg:h-full object-cover lg:object-contain rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl contrast-110 brightness-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2 left-2 bg-slate-800/90 backdrop-blur-sm text-slate-200 px-2 py-1 rounded-full text-xs flex items-center gap-1 border border-slate-600">
-                    <ImageIcon size={14} />
-                    {selectedArtwork.category}
-                  </div>
-                </div>
-                
-                <div className="lg:w-2/5 p-6 flex flex-col justify-between min-h-0 overflow-y-auto">
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-2xl font-medium bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent pr-8">
-                        {selectedArtwork.title}
-                      </h3>
-                      <motion.button
-                        onClick={() => setSelectedImage(null)}
-                        className="text-slate-400 hover:text-slate-200 p-2 rounded-full hover:bg-slate-700 transition-colors duration-300 flex-shrink-0"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <X size={20} />
-                      </motion.button>
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.8, opacity: 0, y: 20 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-800 rounded-2xl max-w-5xl w-full flex flex-col lg:flex-row border border-slate-700 shadow-2xl my-8 max-h-[90vh] overflow-hidden"
+                  style={{ willChange: 'transform, opacity' }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="relative lg:w-3/5 flex-shrink-0">
+                    <ImageWithLoading
+                      src={selectedArtwork.image}
+                      alt={selectedArtwork.title}
+                      className="w-full h-64 sm:h-80 lg:h-full object-cover lg:object-contain rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl contrast-110 brightness-110"
+                      loading="eager"
+                    />
+                    <div className="absolute top-2 left-2 bg-slate-800/90 backdrop-blur-sm text-slate-200 px-2 py-1 rounded-full text-xs flex items-center gap-1 border border-slate-600">
+                      <ImageIcon size={14} />
+                      {selectedArtwork.category}
                     </div>
-                    <p className="text-slate-200 font-medium mb-2 flex items-center gap-2">
-                      <Paintbrush size={16} />
-                      {selectedArtwork.medium}
-                    </p>
-                    <p className="text-slate-400 text-sm mb-4 font-light">
-                      {selectedArtwork.year} 
-                    </p>
-                    <p className="text-slate-400 mb-6 font-light leading-relaxed">
-                      {selectedArtwork.description}
-                    </p>
                   </div>
-                </div>
+                  
+                  <div className="lg:w-2/5 p-6 flex flex-col justify-between min-h-0 overflow-y-auto">
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <h3 className="text-2xl font-medium bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent pr-8">
+                          {selectedArtwork.title}
+                        </h3>
+                        <motion.button
+                          onClick={() => setSelectedImage(null)}
+                          className="text-slate-400 hover:text-slate-200 p-2 rounded-full hover:bg-slate-700 transition-colors duration-300 flex-shrink-0"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <X size={20} />
+                        </motion.button>
+                      </div>
+                      <p className="text-slate-200 font-medium mb-2 flex items-center gap-2">
+                        <Paintbrush size={16} />
+                        {selectedArtwork.medium}
+                      </p>
+                      <p className="text-slate-400 text-sm mb-4 font-light">
+                        {selectedArtwork.year} 
+                      </p>
+                      <p className="text-slate-400 mb-6 font-light leading-relaxed">
+                        {selectedArtwork.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            )}
+          </AnimatePresence>,
+          modalRoot
+        )}
       </div>
 
       <style>{`
