@@ -74,7 +74,7 @@ const Gallery = () => {
       medium: 'oil paint',
       category: 'painting',
       image: '/drawing/budha.webp',
-      description: 'A vibrant oil painting capturing the essence of nature with a modern twist, blending traditional techniques with modern aesthetics.',
+      description: 'A vibrant oil painting capturing the essence of buddha with a modern twist, blending traditional techniques with modern aesthetics.',
       year: 2023,
     },
   ];
