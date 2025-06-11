@@ -88,7 +88,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
-          className="md:hidden absolute top-full  -translate-x-1/2 w-full mt-2 bg-slate-900 backdrop-blur-xl shadow-2xl border border-slate-700/50 rounded-2xl"
+          className="md:hidden absolute top-full   w-full mt-2 bg-slate-900 backdrop-blur-xl shadow-2xl border border-slate-700/50 rounded-2xl"
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
