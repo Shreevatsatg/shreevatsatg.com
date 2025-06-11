@@ -77,8 +77,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Karnataka, India',
-      link: '#'
+      value: 'Karnataka, India'
     }
   ];
 
