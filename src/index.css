@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+/* Prevent white flashes on fast scroll or route change */
 html, body {
-  background: linear-gradient(to bottom right, #1e3a8a, #1e40af);
+  background-color: #0f172a; /* Tailwind's slate-900 */
+  background-image: linear-gradient(to bottom right, #0f172a, #111827); /* from-slate-900 to-gray-900 */
   min-height: 100vh;
-  /* Optional: Prevent background from detaching on scroll */
-  background-attachment: fixed;
+  color-scheme: dark;
+}
+
+#root {
+  min-height: 100vh;
+  background: transparent;
 }
