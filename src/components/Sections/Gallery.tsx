@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Paintbrush, ImageIcon } from 'lucide-react';
-import { createPortal } from 'react-dom';
 
 interface Artwork {
   id: number;
@@ -222,9 +221,6 @@ const Gallery = () => {
     }
   };
 
-  // Modal portal root
-  const modalRoot = typeof window !== 'undefined' ? document.getElementById('modal-root') : null;
-
   return (
     <section id="gallery" className="w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 py-20 pt-24">
       {/* Background */}
@@ -300,13 +296,12 @@ const Gallery = () => {
               layout
               variants={itemVariants}
               className="group cursor-pointer relative bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl transition-all duration-300 hover:shadow-slate-700/20"
-              style={{ willChange: 'transform, opacity' }}
               onClick={() => setSelectedImage(artwork.id)}
               onMouseEnter={() => setHoveredArtwork(artwork.id)}
               onMouseLeave={() => setHoveredArtwork(null)}
               whileHover={{ y: -5, scale: 1.01 }}
             >
-              <div className="relative overflow-hidden" style={{ willChange: 'transform, opacity' }}>
+              <div className="relative overflow-hidden">
                 <ImageWithLoading
                   src={artwork.image}
                   alt={artwork.title}
@@ -337,74 +332,69 @@ const Gallery = () => {
           ))}
         </motion.div>
 
-        {/* Modal Portal */}
-        {modalRoot && createPortal(
-          <AnimatePresence>
-            {selectedImage && selectedArtwork && (
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedImage && selectedArtwork && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[999] flex items-center justify-center p-4 overflow-y-auto"
+              onClick={() => setSelectedImage(null)}
+            >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[999] flex items-center justify-center p-4 overflow-y-auto"
-                style={{ willChange: 'opacity' }}
-                onClick={() => setSelectedImage(null)}
+                initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.8, opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="bg-slate-800 rounded-2xl max-w-5xl w-full flex flex-col lg:flex-row border border-slate-700 shadow-2xl my-8 max-h-[90vh] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
               >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0, y: 20 }}
-                  animate={{ scale: 1, opacity: 1, y: 0 }}
-                  exit={{ scale: 0.8, opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                  className="bg-slate-800 rounded-2xl max-w-5xl w-full flex flex-col lg:flex-row border border-slate-700 shadow-2xl my-8 max-h-[90vh] overflow-hidden"
-                  style={{ willChange: 'transform, opacity' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="relative lg:w-3/5 flex-shrink-0">
-                    <ImageWithLoading
-                      src={selectedArtwork.image}
-                      alt={selectedArtwork.title}
-                      className="w-full h-64 sm:h-80 lg:h-full object-cover lg:object-contain rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl contrast-110 brightness-110"
-                      loading="eager"
-                    />
-                    <div className="absolute top-2 left-2 bg-slate-800/90 backdrop-blur-sm text-slate-200 px-2 py-1 rounded-full text-xs flex items-center gap-1 border border-slate-600">
-                      <ImageIcon size={14} />
-                      {selectedArtwork.category}
-                    </div>
+                <div className="relative lg:w-3/5 flex-shrink-0">
+                  <ImageWithLoading
+                    src={selectedArtwork.image}
+                    alt={selectedArtwork.title}
+                    className="w-full h-64 sm:h-80 lg:h-full object-cover lg:object-contain rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl contrast-110 brightness-110"
+                    loading="eager"
+                  />
+                  <div className="absolute top-2 left-2 bg-slate-800/90 backdrop-blur-sm text-slate-200 px-2 py-1 rounded-full text-xs flex items-center gap-1 border border-slate-600">
+                    <ImageIcon size={14} />
+                    {selectedArtwork.category}
                   </div>
-                  
-                  <div className="lg:w-2/5 p-6 flex flex-col justify-between min-h-0 overflow-y-auto">
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-2xl font-medium bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent pr-8">
-                          {selectedArtwork.title}
-                        </h3>
-                        <motion.button
-                          onClick={() => setSelectedImage(null)}
-                          className="text-slate-400 hover:text-slate-200 p-2 rounded-full hover:bg-slate-700 transition-colors duration-300 flex-shrink-0"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <X size={20} />
-                        </motion.button>
-                      </div>
-                      <p className="text-slate-200 font-medium mb-2 flex items-center gap-2">
-                        <Paintbrush size={16} />
-                        {selectedArtwork.medium}
-                      </p>
-                      <p className="text-slate-400 text-sm mb-4 font-light">
-                        {selectedArtwork.year} 
-                      </p>
-                      <p className="text-slate-400 mb-6 font-light leading-relaxed">
-                        {selectedArtwork.description}
-                      </p>
+                </div>
+                
+                <div className="lg:w-2/5 p-6 flex flex-col justify-between min-h-0 overflow-y-auto">
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-2xl font-medium bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent pr-8">
+                        {selectedArtwork.title}
+                      </h3>
+                      <motion.button
+                        onClick={() => setSelectedImage(null)}
+                        className="text-slate-400 hover:text-slate-200 p-2 rounded-full hover:bg-slate-700 transition-colors duration-300 flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <X size={20} />
+                      </motion.button>
                     </div>
+                    <p className="text-slate-200 font-medium mb-2 flex items-center gap-2">
+                      <Paintbrush size={16} />
+                      {selectedArtwork.medium}
+                    </p>
+                    <p className="text-slate-400 text-sm mb-4 font-light">
+                      {selectedArtwork.year} 
+                    </p>
+                    <p className="text-slate-400 mb-6 font-light leading-relaxed">
+                      {selectedArtwork.description}
+                    </p>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
-            )}
-          </AnimatePresence>,
-          modalRoot
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <style>{`
