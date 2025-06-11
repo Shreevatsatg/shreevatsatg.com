@@ -6,66 +6,69 @@ const Projects = () => {
   const [filter, setFilter] = useState('all');
 
   const projects = [
-    {
+      {
       id: 1,
-      title: "Personal Portfolio",
-      description: "A responsive portfolio website showcasing my skills and projects.",
-      image: '/project/website.png',
-      tags: ["Next.js", "Tailwind CSS", "Vercel"],
+      title: "A Full-stack(MERN) Social Media app with realtime communication",
+      description: "A Full-stack(MERN) A social media application that allows users to communicate with each other in real-time. using websockets and video and audio call using webrtc and storing user data in supabase database, it includes features like user authentication, profile management, and real-time chat functionality, frontend deployed on vercel and backend on Render.",
+      image: '/project/aithought.png',
+      tags: ["Node.js", "React.js", "Socket.io", "WebRTC"],
       category: 'web',
-      demo: "https://shreevatsatg.com",
-      github: "https://github.com/shreevatsatg/shreevatsatg.com"
+      demo: "https://ai-thought-client.vercel.app/",
+      github: ""
     },
     {
       id: 2,
-      title: "Stone Paper Scissors Game",
-      description: "Simple game to practice HTML, CSS and JavaScript.",
-      image: '/project/stonepapperscessor.png',
-      tags: ["CSS", "HTML", "JavaScript"],
+      title: "bitcoinwala.ai landing page",
+      description: "A landing page for bitcoinwala.ai, created pixel perfect UI/UX as in figma design provided by client as a freelance project, it's a platform that provides AI-powered insights and tools for Bitcoin trading.",
+      image: '/project/bitcoinwala.png',
+      tags: ["React.js", "Tailwind CSS", "Framer Motion","Figma"],
       category: 'web',
-      demo: "",
-      github: "https://github.com/Shreevatsatg/currencyconverter"
+      demo: "https://www.bitcoinwala.ai/",
+      github: ""
     },
     {
       id: 3,
       title: "Weather App",
-      description: "A weather application that provides real-time weather information for any location.",
+      description: "A Real-Time weather application using React and Tailwind CSS  deployed on vercel that provides real-time weather information for any location using Weather API.",
       image: '/project/wheatherapp.png',
-      tags: ["React", "OpenWeather API", "Tailwind CSS"],
+      tags: ["React.js", "OpenWeather API", "Tailwind CSS"],
       category: 'web',
       demo: "http://wheatherapp.shreevatsatg.com",
       github: "https://github.com/Shreevatsatg/wheatherapp"
     },
     {
       id: 4,
+      title: "Personal Portfolio",
+      description: "A responsive portfolio website showcasing my skills and projects, built with React.js and Tailwind CSS. It features a clean design, smooth animations, and is optimized for performance.",
+      image: '/project/website.png',
+      tags: ["React.js", "Tailwind CSS", "Vercel"],
+      category: 'web',
+      demo: "https://shreevatsatg.com",
+      github: "https://github.com/shreevatsatg/shreevatsatg.com"
+    },
+    {
+      id: 5,
+      title: "Stone Paper Scissors Game",
+      description: "Simple Stone Paper Scissors Game to practice HTML, CSS and JavaScript.",
+      image: '/project/stonepapperscessor.png',
+      tags: ["CSS", "HTML", "JavaScript"],
+      category: 'web',
+      demo: "",
+      github: "https://github.com/Shreevatsatg/currencyconverter"
+    },
+    
+    {
+      id: 6,
       title: "Currency Converter",
-      description: "A currency converter application that allows users to convert between different currencies.",
+      description: "A currency converter application built with HTML, CSS, and JavaScript and Free API that allows users to convert between different currencies.",
       image: '/project/currencyconverter.png',
       tags: ["CSS", "ExchangeRate API", "JavaScript"],
       category: 'web',
       demo: "",
       github: "https://github.com/Shreevatsatg/currencyconverter"
     },
-    {
-      id: 5,
-      title: "Social Media app with realtime communication",
-      description: "A social media application that allows users to communicate with each other in real-time. using websockets and video and audio call using webrtc.",
-      image: '/project/aithought.png',
-      tags: ["Node.js", "React", "Socket.io", "WebRTC"],
-      category: 'web',
-      demo: "https://ai-thought-client.vercel.app/",
-      github: ""
-    },
-    {
-      id: 6,
-      title: "bitcoinwala.ai landing page",
-      description: "A landing page for bitcoinwala.ai, a platform that provides AI-powered insights and tools for Bitcoin trading.",
-      image: '/project/bitcoinwala.png',
-      tags: ["React", "Tailwind CSS", "Framer Motion"],
-      category: 'web',
-      demo: "https://www.bitcoinwala.ai/",
-      github: ""
-    }
+  
+    
   ];
 
   const categories = [

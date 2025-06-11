@@ -38,7 +38,7 @@ const Gallery = () => {
       medium: 'pencil',
       category: 'drawing',
       image: '/drawing/abstract.webp',
-      description: 'An abstract representation of human emotions through bold colors and Abstract geometric composition.',
+      description: 'An abstract representation of human emotions through bold colors and Abstract geometric composition,What lies beneath the surface? What masks do we wear to hide our true selves? What lies beneath the surface of your own personality? What masks do you wear to hide your true self from others or even from yourself,Answers might be defferent for everyone but it\'s important for you to find your answers',
       year: 2022,
     },
     {
@@ -47,7 +47,7 @@ const Gallery = () => {
       medium: 'oil paint',
       category: 'painting',
       image: '/drawing/krishna.webp',
-      description: 'A serene oil painting depicting the divine figure of Krishna, blending traditional Indian art styles with contemporary techniques.',
+      description: 'A serene oil painting depicting the divine figure of Krishna, blending traditional Indian art styles with contemporary techniques,🎨✨ Captivated by the divine beauty of Krishna ✨🌿 Embracing the colors of spirituality in this oil painting. 🙏',
       year: 2024,
     },
     {
@@ -56,7 +56,7 @@ const Gallery = () => {
       medium: 'Oil Paint',
       category: 'painting',
       image: '/drawing/krishna2.webp',
-      description: 'A captivating oil painting of Krishna, showcasing intricate details and vibrant colors that bring the divine figure to life.',
+      description: 'A captivating oil painting of Krishna, showcasing intricate details and vibrant colors that bring the divine figure to life,Even gods need a moment to relax and recharge ✨',
       year: 2023,
     },
     {
