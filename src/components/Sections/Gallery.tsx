@@ -86,24 +86,6 @@ const Gallery = () => {
   const artworks: Artwork[] = useMemo(() => [
     {
       id: 1,
-      title: 'Oil painting ',
-      medium: 'oil paint',
-      category: 'painting',
-      image: '/drawing/butterfly.webp',
-      description: 'A vibrant oil painting capturing the essence of nature with a modern twist, blending traditional techniques with modern aesthetics.',
-      year: 2023,
-    },
-    {
-      id: 2,
-      title: 'Abstract ',
-      medium: 'pencil',
-      category: 'drawing',
-      image: '/drawing/abstract.webp',
-      description: 'An abstract representation of human emotions through bold colors and Abstract geometric composition,What lies beneath the surface? What masks do we wear to hide our true selves? What lies beneath the surface of your own personality? What masks do you wear to hide your true self from others or even from yourself,Answers might be defferent for everyone but it\'s important for you to find your answers',
-      year: 2022,
-    },
-    {
-      id: 3,
       title: 'Oil painting of krishna',
       medium: 'oil paint',
       category: 'painting',
@@ -112,7 +94,7 @@ const Gallery = () => {
       year: 2024,
     },
     {
-      id: 4,
+      id: 2,
       title: 'krishna painting',
       medium: 'Oil Paint',
       category: 'painting',
@@ -121,7 +103,7 @@ const Gallery = () => {
       year: 2023,
     },
     {
-      id: 5,
+      id: 3,
       title: 'horse drawing',
       medium:'Pencil',
       category: 'drawing',
@@ -130,14 +112,32 @@ const Gallery = () => {
       year: 2024,
     },
     {
-      id: 6,
+      id: 4,
       title: 'potrait study',
       medium: 'pencil',
       category: 'drawing',
       image: '/drawing/potrait.webp',
       description: 'A realistic pencil drawing study of a human face, focusing on light and shadow to create depth and emotion.',
       year: 2022,
-    }
+    },
+      {
+      id: 5,
+      title: 'Abstract ',
+      medium: 'pencil',
+      category: 'drawing',
+      image: '/drawing/abstract.webp',
+      description: 'An abstract representation of human emotions through bold colors and Abstract geometric composition,What lies beneath the surface? What masks do we wear to hide our true selves? What lies beneath the surface of your own personality? What masks do you wear to hide your true self from others or even from yourself,Answers might be defferent for everyone but it\'s important for you to find your answers',
+      year: 2022,
+    },
+      {
+      id: 6,
+      title: 'Oil painting ',
+      medium: 'oil paint',
+      category: 'painting',
+      image: '/drawing/butterfly.webp',
+      description: 'A vibrant oil painting capturing the essence of nature with a modern twist, blending traditional techniques with modern aesthetics.',
+      year: 2023,
+    },
   ], []);
 
   const categories: Category[] = useMemo(() => [
