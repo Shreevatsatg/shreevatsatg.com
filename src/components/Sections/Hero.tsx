@@ -121,7 +121,7 @@ const Hero = () => {
               >
                 <div className="w-full h-full flex items-center justify-center">
                   <img 
-                    src="/profile.JPG" 
+                    src="/profile.jpg" 
                     alt="Shreevatsa Tg" 
                     className="w-full h-full object-cover rounded-2xl contrast-110 brightness-110" 
                   />
