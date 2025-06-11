@@ -199,6 +199,7 @@ const Contact = () => {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
                     variants={itemVariants}
                     className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-slate-200 border border-slate-700 transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
