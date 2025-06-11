@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Code, Palette, ChevronDown } from 'lucide-react';
+import { Heart, Code, } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Thank You Message */}
           <motion.div
             variants={itemVariants}
-            className="text-xl sm:text-2xl md:text-2xl text-slate-200 font-medium tracking-tight bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent px-4"
+            className="text-xl sm:text-2xl md:text-2xl  font-medium tracking-tight bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent px-4"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >

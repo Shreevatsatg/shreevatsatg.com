@@ -1,13 +1,28 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Heart, Eye, Paintbrush, Image as ImageIcon, ChevronDown } from 'lucide-react';
+import { X, Paintbrush, Image as ImageIcon } from 'lucide-react';
+
+interface Artwork {
+  id: number;
+  title: string;
+  medium: string;
+  category: string;
+  image: string;
+  description: string;
+  year: number;
+}
+
+interface Category {
+  id: string;
+  name: string;
+}
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [filter, setFilter] = useState('all');
-  const [hoveredArtwork, setHoveredArtwork] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [filter, setFilter] = useState<string>('all');
+  const [hoveredArtwork, setHoveredArtwork] = useState<number | null>(null);
 
-  const artworks = [
+  const artworks: Artwork[] = [
     {
       id: 1,
       title: 'Digital Landscape',
@@ -65,7 +80,7 @@ const Gallery = () => {
     }
   ];
 
-  const categories = [
+  const categories: Category[] = [
     { id: 'all', name: 'All Artworks' },
     { id: 'painting', name: 'Paintings' },
     { id: 'drawing', name: 'Drawings' }
@@ -75,7 +90,7 @@ const Gallery = () => {
     ? artworks 
     : artworks.filter(artwork => artwork.category === filter || artwork.medium === filter);
 
-  const handleFilterChange = useCallback((categoryId) => {
+  const handleFilterChange = useCallback((categoryId: string) => {
     setFilter(categoryId);
     setSelectedImage(null);
   }, []);
@@ -172,7 +187,7 @@ const Gallery = () => {
           initial="hidden"
           animate="visible"
         >
-          {filteredArtworks.map((artwork, index) => (
+          {filteredArtworks.map((artwork) => (
             <motion.div
               key={artwork.id}
               layout

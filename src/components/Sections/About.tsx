@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Coffee, Heart, Globe, Database, GitBranch, Layers, Figma, ChevronDown } from 'lucide-react';
+import { Code, Palette, Coffee, Heart, Globe, Database, GitBranch, Layers, Figma } from 'lucide-react';
 
 const About = () => {
   const technologies = [
@@ -117,7 +117,7 @@ const About = () => {
             animate="visible"
             className="grid lg:grid-cols-2 gap-6"
           >
-            {interests.map((interest, index) => (
+            {interests.map((interest) => (
               <motion.div
                 key={interest.title}
                 variants={itemVariants}

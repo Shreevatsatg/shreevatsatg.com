@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ChevronDown } from 'lucide-react';
+import { ExternalLink, Github} from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -168,7 +168,7 @@ const Projects = () => {
           initial="hidden"
           animate="visible"
         >
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               layout

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Twitter, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Twitter} from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,14 +25,14 @@ const Contact = () => {
     setDisplayEmail(`${user}@${domain}`);
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
@@ -168,7 +168,7 @@ const Contact = () => {
             </motion.h3>
 
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info) => (
                 <motion.a
                   key={info.title}
                   href={info.link}
@@ -195,7 +195,7 @@ const Contact = () => {
                 Follow My Journey
               </motion.h4>
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
@@ -222,7 +222,7 @@ const Contact = () => {
             >
               Send a Message
             </motion.h3>
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
@@ -324,7 +324,7 @@ const Contact = () => {
                   Thank you for your message! I'll get back to you soon.
                 </motion.div>
               )}
-            </div>
+            </form>
           </motion.div>
         </motion.div>
 
