@@ -122,7 +122,7 @@ const Hero = () => {
                 <div className="w-full h-full flex items-center justify-center">
                   <img 
                     src="/profile.JPG" 
-                    alt="Shreevatsa Tg - Computer Science Student" 
+                    alt="Shreevatsa Tg" 
                     className="w-full h-full object-cover rounded-2xl contrast-110 brightness-110" 
                   />
                 </div>
