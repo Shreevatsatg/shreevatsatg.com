@@ -30,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-24 lg:mt-0">
+    <section id="home" className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-26 lg:pt-20">
       {/* Minimal geometric background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Subtle grid pattern */}
@@ -52,9 +52,9 @@ const Hero = () => {
           animate="visible"
           className="grid lg:grid-cols-2 gap-12 items-center"
         >
-          {/* Left side - Content */}
-          <motion.div variants={itemVariants} className="text-center lg:text-left space-y-8">
-            <motion.div variants={itemVariants} className="space-y-1">
+          {/* Left side - Content (Desktop) / Second on Mobile */}
+          <motion.div variants={itemVariants} className="text-center lg:text-left space-y-8 order-2 lg:order-1">
+            <motion.div variants={itemVariants} className="space-y-1 hidden lg:block">
               <span className="inline-block px-4 py-2 bg-slate-800 text-slate-300 text-sm font-medium rounded-full border border-slate-700">
                 Computer Science Student
               </span>
@@ -80,34 +80,34 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 max-w-md mx-auto lg:mx-0"
             >
               <motion.button
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group px-8 py-4 bg-slate-100 text-slate-900 rounded-lg font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-2"
+                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-slate-100 text-slate-900 rounded-lg font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>View My Work</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <span>View Work</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
               
               <motion.button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group px-8 py-4 border border-slate-600 text-slate-200 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 flex items-center justify-center gap-2"
+                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-slate-600 text-slate-200 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Mail size={18} />
-                <span>Get In Touch</span>
+                <Mail size={16} />
+                <span>Contact</span>
               </motion.button>
             </motion.div>
           </motion.div>
 
-          {/* Right side - Profile Photo */}
+          {/* Right side - Profile Photo (Desktop) / First on Mobile */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative">
               {/* Minimal decorative frame */}
@@ -115,7 +115,7 @@ const Hero = () => {
               
               {/* Profile photo container */}
               <motion.div
-                className="relative w-80 h-auto md:w-96 md:h-auto rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl"
+                className="relative w-64 h-auto sm:w-80 sm:h-auto md:w-96 md:h-auto rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               >
@@ -151,16 +151,16 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Minimal scroll indicator */}
+      {/* Minimal scroll indicator - Hidden on mobile, visible on desktop */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center gap-2 hidden lg:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
         <motion.button
           onClick={scrollToAbout}
-          className="p-3 text-slate-500 hover:text-slate-300 transition-colors duration-300 rounded-full hover:bg-slate-800"
+          className="p-3 text-slate-500 hover:text-slate-300 transition-colors duration-300 rounded-full hover:bg-slate-800 "
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           whileHover={{ scale: 1.1 }}
