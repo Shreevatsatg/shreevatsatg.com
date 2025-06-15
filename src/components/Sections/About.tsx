@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Coffee, Heart, Globe, Database, GitBranch, Layers, Figma } from 'lucide-react';
+import { Code, Palette, Coffee, Heart, Globe, Database, GitBranch, Layers, Figma, } from 'lucide-react';
 
 const About = () => {
   const technologies = [
@@ -11,7 +11,8 @@ const About = () => {
     { name: "MongoDB", icon: Database },
     { name: "GraphQL", icon: Layers },
     { name: "Framer Motion", icon: Code },
-    { name: "Figma", icon: Figma }
+    { name: "Figma", icon: Figma },
+    { name: "postman", icon: Code}
   ];
 
   const interests = [
