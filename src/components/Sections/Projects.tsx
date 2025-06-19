@@ -6,8 +6,18 @@ const Projects = () => {
   const [filter, setFilter] = useState('all');
 
   const projects = [
-      {
+    {
       id: 1,
+      title: "Manim-Powered Animation Generator Platform",
+      description: "A full-stack web application that allows users to generate mathematical or educational animations from natural language prompts using the Manim animation engine. The project integrates AI for converting user input to Manim script, processes and compiles animations on the backend using Python, and serves downloadable videos to the frontend.",
+      image: '/project/aithought.webp',
+      tags: ["MongoDB", "Express.js", "React.js", "Node.js"],
+      category: 'web',
+      demo: "",
+      github: "https://github.com/Shreevatsatg/matnim"
+    },
+      {
+      id: 2,
       title: "A Full-stack(MERN) Social Media app with realtime communication",
       description: "A Full-stack(MERN) A social media application that allows users to communicate with each other in real-time. using websockets and video and audio call using webrtc and storing user data in supabase database, it includes features like user authentication, profile management, and real-time chat functionality, frontend deployed on vercel and backend on Render.",
       image: '/project/aithought.webp',
@@ -17,7 +27,7 @@ const Projects = () => {
       github: ""
     },
     {
-      id: 2,
+      id: 3,
       title: "bitcoinwala.ai landing page",
       description: "A landing page for bitcoinwala.ai, created pixel perfect UI/UX as in figma design provided by client as a freelance project, it's a platform that provides AI-powered insights and tools for Bitcoin trading.",
       image: '/project/bitcoinwala.webp',
@@ -27,7 +37,7 @@ const Projects = () => {
       github: ""
     },
     {
-      id: 3,
+      id: 4,
       title: "Weather App",
       description: "A Real-Time weather application using React and Tailwind CSS  deployed on vercel that provides real-time weather information for any location using Weather API.",
       image: '/project/wheatherapp.webp',
@@ -37,7 +47,7 @@ const Projects = () => {
       github: "https://github.com/Shreevatsatg/wheatherapp"
     },
     {
-      id: 4,
+      id: 5,
       title: "Personal Portfolio",
       description: "A responsive portfolio website showcasing my skills and projects, built with React.js and Tailwind CSS. It features a clean design, smooth animations, and is optimized for performance.",
       image: '/project/website.webp',
@@ -46,16 +56,7 @@ const Projects = () => {
       demo: "https://shreevatsatg.com",
       github: "https://github.com/shreevatsatg/shreevatsatg.com"
     },
-    {
-      id: 5,
-      title: "Stone Paper Scissors Game",
-      description: "Simple Stone Paper Scissors Game to practice HTML, CSS and JavaScript.",
-      image: '/project/stonepapperscessor.webp',
-      tags: ["CSS", "HTML", "JavaScript"],
-      category: 'web',
-      demo: "",
-      github: "https://github.com/Shreevatsatg/currencyconverter"
-    },
+    
     
     {
       id: 6,
