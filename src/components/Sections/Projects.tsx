@@ -10,7 +10,7 @@ const Projects = () => {
       id: 1,
       title: "Manim-Powered Animation Generator Platform",
       description: "A full-stack web application that allows users to generate mathematical or educational animations from natural language prompts using the Manim animation engine. The project integrates AI for converting user input to Manim script, processes and compiles animations on the backend using Python, and serves downloadable videos to the frontend.",
-      image: '/project/aithought.webp',
+      image: '/project/matnim.png',
       tags: ["MongoDB", "Express.js", "React.js", "Node.js"],
       category: 'web',
       demo: "",
@@ -18,7 +18,7 @@ const Projects = () => {
     },
       {
       id: 2,
-      title: "A Full-stack(MERN) Social Media app with realtime communication",
+      title: "Social Media app with realtime communication",
       description: "A Full-stack(MERN) A social media application that allows users to communicate with each other in real-time. using websockets and video and audio call using webrtc and storing user data in supabase database, it includes features like user authentication, profile management, and real-time chat functionality, frontend deployed on vercel and backend on Render.",
       image: '/project/aithought.webp',
       tags: ["Node.js", "React.js", "Socket.io", "WebRTC"],
@@ -129,7 +129,7 @@ const Projects = () => {
             className="text-5xl md:text-6xl font-light leading-tight tracking-tight"
           >
             <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3">
-              My Projects
+              Projects
             </span>
           </motion.h2>
           <motion.p
