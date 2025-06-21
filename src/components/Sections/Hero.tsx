@@ -1,9 +1,10 @@
-import { motion } from 'framer-motion';
-import { ChevronDown, Mail, ArrowRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ChevronDown, Mail, ArrowRight } from "lucide-react";
+import TiltedCard from "../components/profilephoto";
 
 const Hero = () => {
   const scrollToAbout = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const containerVariants = {
@@ -12,9 +13,9 @@ const Hero = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.2,
-        staggerChildren: 0.15
-      }
-    }
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const itemVariants = {
@@ -24,22 +25,28 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
-    <section id="home" className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-26 lg:pt-20">
+    <section
+      id="home"
+      className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-26 lg:pt-20"
+    >
       {/* Minimal geometric background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}></div>
-        
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
+
         {/* Minimal accent shapes */}
         <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-slate-700/20 to-slate-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-gray-700/15 to-slate-700/10 rounded-full blur-2xl"></div>
@@ -53,8 +60,14 @@ const Hero = () => {
           className="grid lg:grid-cols-2 gap-12 items-center"
         >
           {/* Left side - Content (Desktop) / Second on Mobile */}
-          <motion.div variants={itemVariants} className="text-center lg:text-left space-y-8 order-2 lg:order-1">
-            <motion.div variants={itemVariants} className="space-y-1 hidden lg:block">
+          <motion.div
+            variants={itemVariants}
+            className="text-center lg:text-left space-y-8 order-2 lg:order-1"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="space-y-1 hidden lg:block"
+            >
               <span className="inline-block px-4 py-2 bg-slate-800 text-slate-300 text-sm font-medium rounded-full border border-slate-700">
                 Computer Science Student
               </span>
@@ -64,18 +77,23 @@ const Hero = () => {
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight"
             >
-              <span className="block text-slate-200  font-extralight">Hello, I'm</span>
+              <span className="block text-slate-200  font-extralight">
+                Hello, I'm
+              </span>
               <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3 ">
                 Shreevatsa Tg
               </span>
             </motion.h1>
-            
+
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed font-light"
             >
-              Passionate about blending <span className="text-slate-200 font-medium">technology</span> and <span className="text-slate-200 font-medium">creativity</span>. 
-              I develop innovative solutions and create digital experiences that matter.
+              Passionate about blending{" "}
+              <span className="text-slate-200 font-medium">technology</span> and{" "}
+              <span className="text-slate-200 font-medium">creativity</span>. I
+              develop innovative solutions and create digital experiences that
+              matter.
             </motion.p>
 
             <motion.div
@@ -83,17 +101,28 @@ const Hero = () => {
               className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 max-w-md mx-auto lg:mx-0"
             >
               <motion.button
-                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .querySelector("#projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-slate-100 text-slate-900 rounded-lg font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>View Work</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </motion.button>
-              
+
               <motion.button
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-slate-600 text-slate-200 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -107,46 +136,21 @@ const Hero = () => {
           {/* Right side - Profile Photo (Desktop) / First on Mobile */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
+            className="flex justify-center lg:justify-end order-1 lg:order-2 "
           >
-            <div className="relative">
-              {/* Minimal decorative frame */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl blur-sm opacity-30"></div>
-              
-              {/* Profile photo container */}
-              <motion.div
-                className="relative w-64 h-auto sm:w-80 sm:h-auto md:w-96 md:h-auto rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img 
-                    src="/profile.jpg" 
-                    alt="Shreevatsa Tg" 
-                    className="w-full h-full object-cover rounded-2xl contrast-110 brightness-110" 
-                  />
-                </div>
-                
-                {/* Subtle overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent rounded-2xl"></div>
-              </motion.div>
-
-              {/* Minimal floating badges */}
-              <motion.div
-                className="absolute -top-3 -left-3 px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-sm font-medium text-slate-200 shadow-lg backdrop-blur-sm"
-                animate={{ y: [-2, 2, -2] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              >
-                Artist
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-3 -right-3 px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-sm font-medium text-slate-200 shadow-lg backdrop-blur-sm"
-                animate={{ y: [2, -2, 2] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-              >
-                Developer
-              </motion.div>
-            </div>
+            <TiltedCard 
+              imageSrc="/profile.jpg"
+              altText="profile photo"
+              captionText="Shreevatsa Tg"
+              containerHeight="450px"
+              containerWidth="400px"
+              imageHeight="450px"
+              imageWidth="400px"
+              rotateAmplitude={12}
+              scaleOnHover={1.2}
+              showMobileWarning={false}
+              showTooltip={true}
+            />
           </motion.div>
         </motion.div>
       </div>

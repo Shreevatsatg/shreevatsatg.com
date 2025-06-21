@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shreevatsatg.com/sitemap.xml
+
+# Directories to exclude
+Disallow: /private/
+Disallow: /admin/
+
+# Crawl-delay to prevent overwhelming the server
+Crawl-delay: 10 
