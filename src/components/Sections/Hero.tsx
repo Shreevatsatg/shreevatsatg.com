@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-26 lg:pt-20"
+      className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-4 pb-28 lg:pb-24"
     >
       {/* Minimal geometric background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -157,7 +157,7 @@ const Hero = () => {
 
       {/* Minimal scroll indicator - Hidden on mobile, visible on desktop */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center gap-2 hidden lg:flex"
+        className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex-col items-center gap-2 hidden lg:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
