@@ -33,18 +33,18 @@ const Projects = () => {
       image: '/project/bitcoinwala.webp',
       tags: ["React.js", "Tailwind CSS", "Framer Motion","Figma"],
       category: 'web',
-      demo: "https://www.bitcoinwala.ai/",
+      demo: "https://crypto-landing-page-rho-nine.vercel.app/",
       github: ""
     },
     {
-      id: 4,
-      title: "Weather App",
-      description: "A Real-Time weather application using React and Tailwind CSS  deployed on vercel that provides real-time weather information for any location using Weather API.",
-      image: '/project/wheatherapp.webp',
-      tags: ["React.js", "OpenWeather API", "Tailwind CSS"],
-      category: 'web',
-      demo: "http://wheatherapp.shreevatsatg.com",
-      github: "https://github.com/Shreevatsatg/wheatherapp"
+      "id": 4,
+       "title": "Workout Tracker",
+       "description": "A comprehensive mobile application for tracking workouts, food intake, and body measurements, built with React Native and Expo. It features user authentication, workout and routine management, food logging with barcode scanning, and measurement tracking.",
+       "image": "/project/icon.png",
+       "tags": ["React Native", "Expo", "Supabase", "TypeScript"],
+       "category": "mobile",
+       "demo": "",
+       "github": "https://github.com/Shreevatsatg/workouttracker"
     },
     {
       id: 5,
