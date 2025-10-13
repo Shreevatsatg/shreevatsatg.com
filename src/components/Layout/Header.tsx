@@ -2,12 +2,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +25,9 @@ const Header = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    e.preventDefault();
+    scrollToSection(href);
   };
 
   return (
@@ -103,7 +100,7 @@ const Header = () => {
               <Link 
                 to={item.href} 
                 key={item.name} 
-                onClick={handleLinkClick} 
+                onClick={(e) => handleLinkClick(e, item.href)} 
                 className="text-left text-xl py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-300 font-medium tracking-wide"
               >
                 {item.name}

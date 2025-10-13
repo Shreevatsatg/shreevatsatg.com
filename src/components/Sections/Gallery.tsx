@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Paintbrush, Image as ImageIcon } from 'lucide-react';
 
-import { artworks, type Artwork } from '../../data/artworks';
+import { artworks } from '../../data/artworks';
 
 interface Category {
   id: string;

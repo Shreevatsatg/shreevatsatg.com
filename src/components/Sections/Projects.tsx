@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github} from 'lucide-react';
 
-import { projects, type Project } from '../../data/projects';
+import { projects } from '../../data/projects';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
