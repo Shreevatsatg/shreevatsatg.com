@@ -40,7 +40,7 @@ const Projects = () => {
       "id": 4,
        "title": "Workout Tracker",
        "description": "A comprehensive mobile application for tracking workouts, food intake, and body measurements, built with React Native and Expo. It features user authentication, workout and routine management, food logging with barcode scanning, and measurement tracking.",
-       "image": "/project/icon.png",
+       "image": "https://via.placeholder.com/400x300.png?text=Workout+Tracker",
        "tags": ["React Native", "Expo", "Supabase", "TypeScript"],
        "category": "mobile",
        "demo": "",
@@ -74,7 +74,8 @@ const Projects = () => {
 
   const categories = [
     { id: 'all', name: 'All Projects' },
-    { id: 'web', name: 'Web Development' }
+    { id: 'web', name: 'Web Development' },
+    { id: 'mobile', name: 'Mobile' }
   ];
 
   const filteredProjects = filter === 'all' 
@@ -183,7 +184,7 @@ const Projects = () => {
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`Screenshot of the ${project.title}`}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 contrast-110 brightness-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -248,32 +249,7 @@ const Projects = () => {
        
       </div>
 
-      <style>{`
-        .metallic-text {
-          background: linear-gradient(135deg, 
-            #e2e8f0 0%, 
-            #f1f5f9 25%, 
-            #ffffff 50%, 
-            #f1f5f9 75%, 
-            #e2e8f0 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-        
-        @media (prefers-reduced-motion: no-preference) {
-          .metallic-text {
-            background-size: 200% 200%;
-            animation: metallicShimmer 4s ease-in-out infinite;
-          }
-        }
-        
-        @keyframes metallicShimmer {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
+
     </section>
   );
 };

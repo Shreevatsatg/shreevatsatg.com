@@ -215,7 +215,7 @@ const Gallery = () => {
               <div className="relative overflow-hidden">
                 <img
                   src={artwork.image}
-                  alt={artwork.title}
+                  alt={`Artwork: ${artwork.title}`}
                   className="w-full h-96 md:h-[24rem] object-cover transition-transform duration-500 group-hover:scale-110 contrast-110 brightness-110"
                   loading="lazy"
                 />
@@ -264,7 +264,7 @@ const Gallery = () => {
                 <div className="relative lg:w-3/5 flex-shrink-0">
                   <img
                     src={selectedArtwork.image}
-                    alt={selectedArtwork.title}
+                    alt={`Enlarged view of ${selectedArtwork.title}`}
                     className="w-full h-64 sm:h-80 lg:h-full object-cover lg:object-contain rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl contrast-110 brightness-110"
                     loading="lazy"
                   />
@@ -307,32 +307,7 @@ const Gallery = () => {
         </AnimatePresence>
       </div>
 
-      <style>{`
-        .metallic-text {
-          background: linear-gradient(135deg, 
-            #e2e8f0 0%, 
-            #f1f5f9 25%, 
-            #ffffff 50%, 
-            #f1f5f9 75%, 
-            #e2e8f0 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-        
-        @media (prefers-reduced-motion: no-preference) {
-          .metallic-text {
-            background-size: 200% 200%;
-            animation: metallicShimmer 4s ease-in-out infinite;
-          }
-        }
-        
-        @keyframes metallicShimmer {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
+
     </section>
   );
 };

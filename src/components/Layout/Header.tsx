@@ -112,35 +112,7 @@ const Header = () => {
         </motion.div>
       )}
 
-      <style>
-        {`
-          .metallic-logo {
-            background: linear-gradient(135deg, 
-              #e2e8f0 0%, 
-              #f1f5f9 25%, 
-              #ffffff 50%, 
-              #f1f5f9 75%, 
-              #e2e8f0 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 200% 200%;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-          }
-          
-          @media (prefers-reduced-motion: no-preference) {
-            .metallic-logo {
-              animation: metallicShimmer 4s ease-in-out infinite;
-            }
-          }
-          
-          @keyframes metallicShimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-          }
-        `}
-      </style>
+
     </motion.header>
   );
 };

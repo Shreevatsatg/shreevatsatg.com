@@ -174,32 +174,7 @@ const Hero = () => {
         <span className="text-xs text-slate-500 font-light">Scroll</span>
       </motion.div>
 
-      <style>{`
-        .metallic-text {
-          background: linear-gradient(135deg, 
-            #e2e8f0 0%, 
-            #f1f5f9 25%, 
-            #ffffff 50%, 
-            #f1f5f9 75%, 
-            #e2e8f0 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-        
-        @media (prefers-reduced-motion: no-preference) {
-          .metallic-text {
-            background-size: 200% 200%;
-            animation: metallicShimmer 4s ease-in-out infinite;
-          }
-        }
-        
-        @keyframes metallicShimmer {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
+
     </section>
   );
 };
