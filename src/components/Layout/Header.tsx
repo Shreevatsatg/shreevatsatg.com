@@ -2,12 +2,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +15,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (selector: string) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false); // Close menu on navigation
+  };
+
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
@@ -24,11 +30,6 @@ const Header = () => {
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
-
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    e.preventDefault();
-    scrollToSection(href);
-  };
 
   return (
     <motion.header
@@ -97,14 +98,13 @@ const Header = () => {
         >
           <div className="flex flex-col space-y-1 p-6">
             {navItems.map((item) => (
-              <Link 
-                to={item.href} 
-                key={item.name} 
-                onClick={(e) => handleLinkClick(e, item.href)} 
+              <motion.button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
                 className="text-left text-xl py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-300 font-medium tracking-wide"
               >
                 {item.name}
-              </Link>
+              </motion.button>
             ))}
           </div>
         </motion.div>
