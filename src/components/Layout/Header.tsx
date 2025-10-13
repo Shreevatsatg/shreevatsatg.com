@@ -1,10 +1,13 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,7 @@ const Header = () => {
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Art Gallery', href: '#gallery' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -88,25 +92,22 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <motion.div
-          className="md:hidden absolute top-full   w-full mt-2 bg-slate-900 backdrop-blur-xl shadow-2xl border border-slate-700/50 rounded-2xl"
+          className="md:hidden absolute top-full w-full mt-2 bg-slate-900 backdrop-blur-xl shadow-2xl border border-slate-700/50 rounded-2xl"
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <div className="flex flex-col space-y-1 p-6">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
+            {navItems.map((item) => (
+              <Link 
+                to={item.href} 
+                key={item.name} 
+                onClick={handleLinkClick} 
                 className="text-left text-xl py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-300 font-medium tracking-wide"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.3 }}
-                whileHover={{ x: 4 }}
               >
                 {item.name}
-              </motion.button>
+              </Link>
             ))}
           </div>
         </motion.div>
