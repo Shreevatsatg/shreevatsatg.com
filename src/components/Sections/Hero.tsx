@@ -78,7 +78,7 @@ const Hero = () => {
               className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight"
             >
               <span className="block text-slate-200  font-extralight">
-                Hello, I'm
+                Hi, I'm
               </span>
               <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3 ">
                 Shreevatsa Tg
