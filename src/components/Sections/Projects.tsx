@@ -41,16 +41,14 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 ">
-      {/* Minimal geometric background */}
+    <section id="projects" className="w-full min-h-screen flex items-center justify-center relative bg-white dark:bg-black">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}></div>
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-slate-700/20 to-slate-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-gray-700/15 to-slate-700/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 bg-neutral-300/20 dark:bg-neutral-700/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-16 w-24 h-24 bg-neutral-300/15 dark:bg-neutral-700/15 rounded-full blur-2xl"></div>
       </div>
 
       <div className="container mx-auto px-8 relative z-10 max-w-6xl">
@@ -64,15 +62,15 @@ const Projects = () => {
             variants={itemVariants}
             className="text-5xl md:text-6xl font-light leading-tight tracking-tight"
           >
-            <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3">
+            <span className="block metallic-text font-medium py-3">
               Projects
             </span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            A collection of my recent work, showcasing my skills in <span className="text-slate-200 font-medium">development</span>, <span className="text-slate-200 font-medium">design</span>, and <span className="text-slate-200 font-medium">problem-solving</span>.
+            A collection of my recent work, showcasing my skills in <span className="text-neutral-900 dark:text-neutral-200 font-medium">development</span>, <span className="text-neutral-900 dark:text-neutral-200 font-medium">design</span>, and <span className="text-neutral-900 dark:text-neutral-200 font-medium">problem-solving</span>.
           </motion.p>
         </motion.div>
 
@@ -89,8 +87,8 @@ const Projects = () => {
               onClick={() => setFilter(category.id)}
               className={`px-6 py-2 rounded-full transition-all duration-300 ${
                 filter === category.id
-                  ? 'bg-slate-100 text-slate-900 font-medium'
-                  : 'border border-slate-600 text-slate-200 hover:bg-slate-800'
+                  ? 'bg-black dark:bg-white text-white dark:text-black font-medium'
+                  : 'border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900'
               }`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -113,7 +111,7 @@ const Projects = () => {
               key={project.id}
               layout
               variants={itemVariants}
-              className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl group flex flex-col transition-all duration-300 hover:shadow-slate-700/20"
+              className="bg-neutral-100 dark:bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-300 dark:border-neutral-700 shadow-2xl group flex flex-col transition-all duration-300 hover:shadow-neutral-300/20 dark:hover:shadow-neutral-700/20"
               whileHover={{ y: -5, scale: 1.01 }}
             >
               <div className="relative overflow-hidden">
@@ -122,14 +120,14 @@ const Projects = () => {
                   alt={`Screenshot of the ${project.title}`}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 contrast-110 brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-medium text-slate-200 mb-2 group-hover:text-slate-100 transition-colors">
+                <h3 className="text-xl font-medium text-neutral-900 dark:text-neutral-200 mb-2 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 mb-4 text-sm flex-1 font-light">
+                <p className="text-neutral-600 dark:text-neutral-400 mb-4 text-sm flex-1 font-light">
                   {project.description}
                 </p>
                 
@@ -138,7 +136,7 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-slate-700 text-xs rounded-full text-slate-300 font-light"
+                      className="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full text-neutral-700 dark:text-neutral-300 font-light"
                     >
                       {tag}
                     </span>
@@ -152,7 +150,7 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 text-slate-900 rounded-lg font-medium hover:bg-white transition-all duration-300 text-sm"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all duration-300 text-sm"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -165,7 +163,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-2 px-4 py-2 border border-slate-600 text-slate-200 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 text-sm ${
+                      className={`flex items-center justify-center gap-2 px-4 py-2 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-200 rounded-lg font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-all duration-300 text-sm ${
                         project.demo ? 'flex-1' : 'w-full'
                       }`}
                       whileHover={{ scale: 1.02 }}

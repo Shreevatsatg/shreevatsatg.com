@@ -26,7 +26,7 @@ const Index = () => {
   }, [location.hash]);
 
   return (
-    <div className="min-h-screen items-center justify-center flex flex-col ">
+    <div className="min-h-screen items-center justify-center flex flex-col bg-white dark:bg-black text-black dark:text-white transition-colors">
       <SEO 
         title="Shreevatsa TG - Full-Stack Developer & Artist"
         description="The personal portfolio of Shreevatsa TG, a passionate computer science student, full-stack developer, and artist, showcasing projects and artwork."

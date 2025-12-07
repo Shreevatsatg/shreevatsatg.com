@@ -28,11 +28,10 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className="w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 ">
+    <section id="blog" className="w-full min-h-screen flex items-center justify-center relative bg-white dark:bg-black">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}></div>
       </div>
@@ -48,13 +47,13 @@ const Blog = () => {
             variants={itemVariants}
             className="text-5xl md:text-6xl font-light leading-tight tracking-tight"
           >
-            <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3">
+            <span className="block metallic-text font-medium py-3">
               Blog
             </span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
             A collection of my thoughts on technology, art, and development.
           </motion.p>

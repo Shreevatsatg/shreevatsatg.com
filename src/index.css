@@ -1,11 +1,48 @@
 @import "tailwindcss";
 
-/* Prevent white flashes on fast scroll or route change */
+@theme {
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-card: #fafafa;
+  --text-primary: #000000;
+  --text-secondary: #404040;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --accent: #171717;
+}
+
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #171717;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --border: #262626;
+  --accent: #fafafa;
+}
+
 html, body {
-  background-color: #0f172a; /* Tailwind's slate-900 */
-  background-image: linear-gradient(to bottom right, #0f172a, #111827); /* from-slate-900 to-gray-900 */
   min-height: 100vh;
-  color-scheme: dark;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #root {
@@ -15,15 +52,30 @@ html, body {
 
 .metallic-text {
   background: linear-gradient(135deg, 
-    #e2e8f0 0%, 
-    #f1f5f9 25%, 
-    #ffffff 50%, 
-    #f1f5f9 75%, 
-    #e2e8f0 100%);
+    #171717 0%, 
+    #262626 25%, 
+    #404040 50%, 
+    #525252 75%, 
+    #737373 100%);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(78, 78, 78, 0.3));
+}
+
+.dark .metallic-text {
+  background: linear-gradient(135deg, 
+    #d4d4d4 0%, 
+    #e5e5e5 25%, 
+    #ffffff 50%, 
+    #f5f5f5 75%, 
+    #e5e5e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(255,255,255,0.3));
 }
 
 @media (prefers-reduced-motion: no-preference) {

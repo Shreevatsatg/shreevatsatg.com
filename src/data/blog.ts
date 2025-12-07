@@ -13,7 +13,7 @@ export const posts: Post[] = [
     summary: 'A comprehensive guide to architecting and implementing production-ready RESTful APIs using the MERN stack, covering authentication, validation, error handling, and best practices.',
     date: '2025-10-15',
     content: `
-      <h2 class="text-2xl font-medium text-slate-100 mb-4">Setting Up the Foundation</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mb-4">Setting Up the Foundation</h2>
       <p class="mb-4">Building a robust API starts with proper project structure. I organize my Express applications using a modular architecture that separates concerns and makes the codebase maintainable as it grows. The typical structure includes routes, controllers, models, middleware, and utilities folders.</p>
       <pre><code class="language-javascript">// server.js - Entry point
 const express = require('express');
@@ -61,7 +61,7 @@ app.use(require('./middleware/errorHandler'));
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(\`Server running on port \${PORT}\`));</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Mongoose Models and Schema Design</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Mongoose Models and Schema Design</h2>
       <p class="mb-4">Effective schema design is crucial for performance and scalability. I use Mongoose's powerful schema features including validation, virtuals, indexes, and middleware hooks:</p>
       <pre><code class="language-javascript">// models/User.js
 const mongoose = require('mongoose');
@@ -108,7 +108,7 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
 
 module.exports = mongoose.model('User', userSchema);</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Authentication & Authorization</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Authentication & Authorization</h2>
       <p class="mb-4">Implementing secure authentication is critical. I use JWT tokens with HTTP-only cookies for web clients and Bearer tokens for mobile apps:</p>
       <pre><code class="language-javascript">// middleware/auth.js
 const jwt = require('jsonwebtoken');
@@ -134,10 +134,10 @@ exports.protect = async (req, res, next) => {
   }
 };</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Advanced Error Handling</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Advanced Error Handling</h2>
       <p class="mb-4">Centralized error handling provides consistent responses and makes debugging easier. This pattern catches all errors and formats them appropriately for the client.</p>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Pagination, Filtering & Sorting</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Pagination, Filtering & Sorting</h2>
       <p class="mb-4">For large datasets, implementing efficient pagination is essential. Create reusable middleware that handles query parameters, filtering, sorting, and pagination automatically.</p>
 
       <p class="mt-6">Building scalable REST APIs with the MERN stack requires attention to security, performance, and code organization. By following these patterns and best practices, you'll create APIs that are maintainable, secure, and production-ready.</p>
@@ -149,13 +149,13 @@ exports.protect = async (req, res, next) => {
     summary: 'An in-depth exploration of building production-ready mobile applications using React Native and Expo, covering navigation, native features, performance optimization, and deployment.',
     date: '2025-10-14',
     content: `
-      <h2 class="text-2xl font-medium text-slate-100 mb-4">Why Expo for React Native Development</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mb-4">Why Expo for React Native Development</h2>
       <p class="mb-4">Expo revolutionizes React Native development by providing a managed workflow that eliminates native code complexity. With Expo, you get instant access to a comprehensive SDK, over-the-air updates, and a streamlined development experience.</p>
       <pre><code class="language-bash">npx create-expo-app@latest my-app --template blank-typescript
 cd my-app
 npx expo start</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Navigation with React Navigation</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Navigation with React Navigation</h2>
       <p class="mb-4">React Navigation is the standard for routing in React Native apps. Here's a complete navigation setup with authentication flow:</p>
       <pre><code class="language-typescript">// navigation/AppNavigator.tsx
 import { NavigationContainer } from '@react-navigation/native';
@@ -200,7 +200,7 @@ export default function AppNavigator() {
   );
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">State Management with Zustand</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">State Management with Zustand</h2>
       <p class="mb-4">For state management, I prefer Zustand for its simplicity and excellent TypeScript support:</p>
       <pre><code class="language-typescript">// store/authStore.ts
 import { create } from 'zustand';
@@ -242,7 +242,7 @@ export const useAuthStore = create<AuthState>()(
   )
 );</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Working with Native Features</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Working with Native Features</h2>
       <p class="mb-4">Expo provides easy access to device features. Here's how to implement camera functionality:</p>
       <pre><code class="language-typescript">// components/CameraComponent.tsx
 import { useState } from 'react';
@@ -296,7 +296,7 @@ export default function CameraComponent() {
   );
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Location Services</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Location Services</h2>
       <p class="mb-4">Implementing location tracking and geofencing with Expo Location:</p>
       <pre><code class="language-typescript">import * as Location from 'expo-location';
 import { useState, useEffect } from 'react';
@@ -327,7 +327,7 @@ export function useLocation() {
   return location;
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Push Notifications</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Push Notifications</h2>
       <p class="mb-4">Setting up push notifications with Expo Notifications:</p>
       <pre><code class="language-typescript">import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
@@ -374,7 +374,7 @@ export async function registerForPushNotifications() {
   return token.data;
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Performance Optimization</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Performance Optimization</h2>
       <p class="mb-4">Optimizing React Native apps for smooth 60fps performance:</p>
       <pre><code class="language-typescript">// Use FlatList for long lists
 import { FlatList, View, Text } from 'react-native';
@@ -406,7 +406,7 @@ const ItemComponent = memo(({ item }) => (
   </View>
 ));</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Building and Deployment</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Building and Deployment</h2>
       <p class="mb-4">Building your app for iOS and Android with EAS Build:</p>
       <pre><code class="language-bash"># Install EAS CLI
 npm install -g eas-cli
@@ -424,7 +424,7 @@ eas submit --platform android
 # OTA Updates
 eas update --branch production --message "Bug fixes"</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">App Configuration</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">App Configuration</h2>
       <p class="mb-4">Essential app.json configuration for production apps:</p>
       <pre><code class="language-json">{
   "expo": {
@@ -469,10 +469,10 @@ eas update --branch production --message "Bug fixes"</code></pre>
     summary: 'Building a secure, production-ready authentication system with JWT tokens, refresh tokens, email verification, password reset, and role-based access control.',
     date: '2025-10-13',
     content: `
-      <h2 class="text-2xl font-medium text-slate-100 mb-4">The Complete Auth Architecture</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mb-4">The Complete Auth Architecture</h2>
       <p class="mb-4">A robust authentication system is the foundation of any secure application. I'll show you how to build a complete auth system with access tokens, refresh tokens, email verification, and password reset functionality.</p>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Backend: User Model with Security Features</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Backend: User Model with Security Features</h2>
       <pre><code class="language-javascript">// models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -582,7 +582,7 @@ userSchema.methods.incLoginAttempts = function() {
 
 module.exports = mongoose.model('User', userSchema);</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">JWT Token Generation and Validation</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">JWT Token Generation and Validation</h2>
       <pre><code class="language-javascript">// utils/tokenService.js
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
@@ -636,7 +636,7 @@ class TokenService {
 
 module.exports = new TokenService();</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Authentication Controller</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Authentication Controller</h2>
       <pre><code class="language-javascript">// controllers/authController.js
 const User = require('../models/User');
 const tokenService = require('../utils/tokenService');
@@ -895,7 +895,7 @@ exports.forgotPassword = async (req, res) => {
   }
 };</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Frontend: React Authentication Context</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Frontend: React Authentication Context</h2>
       <pre><code class="language-typescript">// contexts/AuthContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -1078,7 +1078,7 @@ export const useAuth = () => {
   return context;
 };</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Protected Route Component</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Protected Route Component</h2>
       <pre><code class="language-typescript">// components/ProtectedRoute.tsx
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -1116,14 +1116,14 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     summary: 'Learn how to create resilient mobile applications that work seamlessly offline using React Native, WatermelonDB, and smart data synchronization strategies.',
     date: '2025-10-12',
     content: `
-      <h2 class="text-2xl font-medium text-slate-100 mb-4">Why Offline-First Architecture Matters</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mb-4">Why Offline-First Architecture Matters</h2>
       <p class="mb-4">Mobile users don't always have reliable internet connectivity. Building offline-first apps ensures your users can continue working regardless of network conditions. I'll show you how to implement a robust offline-first architecture using WatermelonDB, a powerful reactive database for React Native.</p>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Setting Up WatermelonDB</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Setting Up WatermelonDB</h2>
       <pre><code class="language-bash">npm install @nozbe/watermelondb @nozbe/with-observables
 npx expo install expo-sqlite</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Database Schema Definition</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Database Schema Definition</h2>
       <pre><code class="language-typescript">// models/schema.ts
 import { appSchema, tableSchema } from '@nozbe/watermelondb';
 
@@ -1166,7 +1166,7 @@ export const schema = appSchema({
   ]
 });</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Model Definitions</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Model Definitions</h2>
       <pre><code class="language-typescript">// models/Post.ts
 import { Model } from '@nozbe/watermelondb';
 import { field, date, readonly, relation, children } from '@nozbe/watermelondb/decorators';
@@ -1207,7 +1207,7 @@ export class Comment extends Model {
   @relation('posts', 'post_id') post!: any;
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Database Configuration</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Database Configuration</h2>
       <pre><code class="language-typescript">// database/index.ts
 import { Database } from '@nozbe/watermelondb';
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
@@ -1232,7 +1232,7 @@ export const database = new Database({
 
 export default database;</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Network Connectivity Detection</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Network Connectivity Detection</h2>
       <pre><code class="language-typescript">// hooks/useNetworkStatus.ts
 import { useState, useEffect } from 'react';
 import NetInfo from '@react-native-community/netinfo';
@@ -1253,7 +1253,7 @@ export const useNetworkStatus = () => {
   return { isConnected, isInternetReachable, isOnline: isConnected && isInternetReachable };
 };</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Data Synchronization Service</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Data Synchronization Service</h2>
       <pre><code class="language-typescript">// services/syncService.ts
 import { database } from '../database';
 import { Q } from '@nozbe/watermelondb';
@@ -1361,7 +1361,7 @@ class SyncService {
 
 export const syncService = new SyncService();</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">React Components with Observables</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">React Components with Observables</h2>
       <pre><code class="language-typescript">// components/PostsList.tsx
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
@@ -1395,7 +1395,7 @@ export default withObservables([], () => ({
   posts: database.get('posts').query(Q.sortBy('created_at', Q.desc)).observe(),
 }))(PostsList);</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Creating and Updating Records</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Creating and Updating Records</h2>
       <pre><code class="language-typescript">// hooks/usePosts.ts
 import { database } from '../database';
 import { useNetworkStatus } from './useNetworkStatus';
@@ -1447,7 +1447,7 @@ export const usePosts = () => {
   return { createPost, updatePost, deletePost };
 };</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Automatic Background Sync</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Automatic Background Sync</h2>
       <pre><code class="language-typescript">// App.tsx - Background sync setup
 import { useEffect } from 'react';
 import { AppState } from 'react-native';
@@ -1489,7 +1489,7 @@ export default function App() {
   return <Navigation />;
 }</code></pre>
 
-      <h2 class="text-2xl font-medium text-slate-100 mt-6 mb-4">Conflict Resolution Strategy</h2>
+      <h2 class="text-2xl font-medium text-neutral-900 dark:text-neutral-100 mt-6 mb-4">Conflict Resolution Strategy</h2>
       <pre><code class="language-typescript">// services/conflictResolver.ts
 export class ConflictResolver {
   // Last-write-wins strategy

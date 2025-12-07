@@ -33,23 +33,15 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className=" w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-4 pb-28 lg:pb-24"
+      className="w-full min-h-screen flex items-center justify-center relative bg-white dark:bg-black pt-4 pb-28 lg:pb-24"
     >
-      {/* Minimal geometric background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-
-        {/* Minimal accent shapes */}
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-slate-700/20 to-slate-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-gray-700/15 to-slate-700/10 rounded-full blur-2xl"></div>
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}></div>
+        <div className="absolute top-20 right-20 w-32 h-32 bg-neutral-300/20 dark:bg-neutral-700/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-16 w-24 h-24 bg-neutral-300/15 dark:bg-neutral-700/15 rounded-full blur-2xl"></div>
       </div>
 
       <div className="container mx-auto px-8 relative z-10 max-w-6xl">
@@ -68,7 +60,7 @@ const Hero = () => {
               variants={itemVariants}
               className="space-y-1 hidden lg:block"
             >
-              <span className="inline-block px-4 py-2 bg-slate-800 text-slate-300 text-sm font-medium rounded-full border border-slate-700">
+              <span className="inline-block px-4 py-2 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-full border border-neutral-300 dark:border-neutral-700">
                 Computer Science Student
               </span>
             </motion.div>
@@ -77,21 +69,21 @@ const Hero = () => {
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight"
             >
-              <span className="block text-slate-200  font-extralight">
+              <span className="block text-neutral-800 dark:text-neutral-200 font-extralight">
                 Hi, I'm
               </span>
-              <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3 ">
+              <span className="block metallic-text font-medium py-3">
                 Shreevatsa Tg
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed font-light"
+              className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed font-light"
             >
               Passionate about blending{" "}
-              <span className="text-slate-200 font-medium">technology</span> and{" "}
-              <span className="text-slate-200 font-medium">creativity</span>. I
+              <span className="text-neutral-900 dark:text-neutral-200 font-medium">technology</span> and{" "}
+              <span className="text-neutral-900 dark:text-neutral-200 font-medium">creativity</span>. I
               develop innovative solutions and create digital experiences that
               matter.
             </motion.p>
@@ -106,7 +98,7 @@ const Hero = () => {
                     .querySelector("#projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-slate-100 text-slate-900 rounded-lg font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -123,7 +115,7 @@ const Hero = () => {
                     .querySelector("#contact")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-slate-600 text-slate-200 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="group px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-200 rounded-lg font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -147,7 +139,7 @@ const Hero = () => {
               imageHeight="450px"
               imageWidth="400px"
               rotateAmplitude={12}
-              scaleOnHover={1.2}
+              scaleOnHover={1}
               showMobileWarning={false}
               showTooltip={true}
             />
@@ -164,14 +156,14 @@ const Hero = () => {
       >
         <motion.button
           onClick={scrollToAbout}
-          className="p-3 text-slate-500 hover:text-slate-300 transition-colors duration-300 rounded-full hover:bg-slate-800 "
+          className="p-3 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300 transition-colors duration-300 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900"
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           whileHover={{ scale: 1.1 }}
         >
           <ChevronDown size={20} />
         </motion.button>
-        <span className="text-xs text-slate-500 font-light">Scroll</span>
+        <span className="text-xs text-neutral-500 font-light">Scroll</span>
       </motion.div>
 
 

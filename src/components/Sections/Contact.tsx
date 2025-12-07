@@ -112,16 +112,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 to-gray-900 pt-8">
-      {/* Minimal geometric background */}
+    <section id="contact" className="w-full min-h-screen flex items-center justify-center relative bg-white dark:bg-black pt-8">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}></div>
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-slate-700/20 to-slate-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-gray-700/15 to-slate-700/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 bg-neutral-300/20 dark:bg-neutral-700/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-16 w-24 h-24 bg-neutral-300/15 dark:bg-neutral-700/15 rounded-full blur-2xl"></div>
       </div>
 
       <div className="container mx-auto px-8 relative z-10 max-w-6xl">
@@ -135,15 +133,15 @@ const Contact = () => {
             variants={itemVariants}
             className="text-5xl md:text-6xl font-light leading-tight tracking-tight"
           >
-            <span className="block bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 bg-clip-text text-transparent font-medium metallic-text py-3">
+            <span className="block metallic-text font-medium py-3">
               Let's Connect
             </span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Have a project in mind or just want to chat about <span className="text-slate-200 font-medium">technology</span> and <span className="text-slate-200 font-medium">art</span>? 
+            Have a project in mind or just want to chat about <span className="text-neutral-900 dark:text-neutral-200 font-medium">technology</span> and <span className="text-neutral-900 dark:text-neutral-200 font-medium">art</span>? 
             I'd love to hear from you and explore how we can create something amazing together.
           </motion.p>
         </motion.div>
@@ -161,7 +159,7 @@ const Contact = () => {
           >
             <motion.h3
               variants={itemVariants}
-              className="text-2xl font-medium text-slate-200"
+              className="text-2xl font-medium text-neutral-900 dark:text-neutral-200"
             >
               Get in Touch
             </motion.h3>
@@ -172,15 +170,15 @@ const Contact = () => {
                   key={info.title}
                   href={info.link}
                   variants={itemVariants}
-                  className="flex items-center gap-4 p-4 bg-slate-800 rounded-2xl border border-slate-700 shadow-2xl group transition-all duration-300 hover:shadow-slate-700/20"
+                  className="flex items-center gap-4 p-4 bg-neutral-100 dark:bg-neutral-900 rounded-2xl border border-neutral-300 dark:border-neutral-700 shadow-2xl group transition-all duration-300 hover:shadow-neutral-300/20 dark:hover:shadow-neutral-700/20"
                   whileHover={{ x: 5, scale: 1.01 }}
                 >
-                  <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-slate-200 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-900 dark:text-neutral-200 group-hover:scale-110 transition-transform">
                     <info.icon size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-slate-200">{info.title}</h4>
-                    <p className="text-slate-400 font-light">{info.value}</p>
+                    <h4 className="font-medium text-neutral-900 dark:text-neutral-200">{info.title}</h4>
+                    <p className="text-neutral-600 dark:text-neutral-400 font-light">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -189,7 +187,7 @@ const Contact = () => {
             <div>
               <motion.h4
                 variants={itemVariants}
-                className="font-medium text-slate-200 mb-4"
+                className="font-medium text-neutral-900 dark:text-neutral-200 mb-4"
               >
                 Follow My Journey
               </motion.h4>
@@ -200,7 +198,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     variants={itemVariants}
-                    className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-slate-200 border border-slate-700 transition-all duration-300"
+                    className="w-12 h-12 bg-neutral-100 dark:bg-neutral-900 rounded-lg flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-200 border border-neutral-300 dark:border-neutral-700 transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -214,18 +212,18 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             variants={itemVariants}
-            className="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl"
+            className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-300 dark:border-neutral-700 shadow-2xl"
           >
             <motion.h3
               variants={itemVariants}
-              className="text-2xl font-medium text-slate-200 mb-6"
+              className="text-2xl font-medium text-neutral-900 dark:text-neutral-200 mb-6"
             >
               Send a Message
             </motion.h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-neutral-900 dark:text-neutral-200 mb-2">
                     Name *
                   </label>
                   <input
@@ -235,12 +233,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-200 focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-300 font-light"
+                    className="w-full px-4 py-3 bg-white dark:bg-black border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-200 focus:ring-2 focus:ring-neutral-500 focus:border-transparent transition-all duration-300 font-light"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-900 dark:text-neutral-200 mb-2">
                     Email *
                   </label>
                   <input
@@ -250,14 +248,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-200 focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-300 font-light"
+                    className="w-full px-4 py-3 bg-white dark:bg-black border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-200 focus:ring-2 focus:ring-neutral-500 focus:border-transparent transition-all duration-300 font-light"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-slate-200 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-neutral-900 dark:text-neutral-200 mb-2">
                   Subject *
                 </label>
                 <input
@@ -267,13 +265,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-200 focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-300 font-light"
+                  className="w-full px-4 py-3 bg-white dark:bg-black border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-200 focus:ring-2 focus:ring-neutral-500 focus:border-transparent transition-all duration-300 font-light"
                   placeholder="What's this about?"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-900 dark:text-neutral-200 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -283,7 +281,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-200 focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-300 resize-none font-light"
+                  className="w-full px-4 py-3 bg-white dark:bg-black border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-200 focus:ring-2 focus:ring-neutral-500 focus:border-transparent transition-all duration-300 resize-none font-light"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
@@ -297,8 +295,8 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-slate-100 text-slate-900 py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 font-medium ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-white'
+                className={`w-full bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 font-medium ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-neutral-800 dark:hover:bg-neutral-100'
                 }`}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
@@ -319,7 +317,7 @@ const Contact = () => {
               {isSubmitted && (
                 <motion.div
                   variants={itemVariants}
-                  className="mt-4 p-4 bg-slate-700/20 text-slate-200 rounded-2xl border border-slate-600/50"
+                  className="mt-4 p-4 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 rounded-2xl border border-neutral-300 dark:border-neutral-700"
                 >
                   Thank you for your message! I'll get back to you soon.
                 </motion.div>

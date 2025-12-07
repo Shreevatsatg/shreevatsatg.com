@@ -28,24 +28,24 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-slate-900 to-gray-900">
+    <div className="min-h-screen w-full flex flex-col bg-white dark:bg-black">
       <SEO title={`${post.title} - Shreevatsa TG`} description={post.summary} />
       <main className="flex-grow">
         <article className="w-full flex items-center justify-center relative py-6 px-4 sm:px-6">
           <div className="container mx-auto relative z-10 max-w-4xl overflow-x-hidden">
             <motion.div initial="hidden" animate="visible" variants={itemVariants} className="break-words">
-              <Link to="/#blog" className="flex items-center gap-2 text-slate-300 font-bold text-xl sm:text-2xl hover:text-white transition-colors duration-300 mb-8">
+              <Link to="/#blog" className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300 font-bold text-xl sm:text-2xl hover:text-black dark:hover:text-white transition-colors duration-300 mb-8">
                 <ArrowLeft size={20} />
                 <span>Back </span>
               </Link>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-slate-100 mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight metallic-text mb-4">
                 {post.title}
               </h1>
-              <p className="text-slate-400 mb-8 font-light">{post.date}</p>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-8 font-light">{post.date}</p>
 
               <div 
-                className="prose prose-invert sm:prose-lg max-w-none text-slate-300 font-light prose-h2:text-slate-100 prose-h2:font-medium prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700 prose-pre:rounded-lg"
+                className="prose dark:prose-invert sm:prose-lg max-w-none text-neutral-800 dark:text-neutral-300 font-light prose-h2:text-neutral-900 dark:prose-h2:text-neutral-100 prose-h2:font-medium prose-pre:bg-neutral-100 dark:prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-300 dark:prose-pre:border-neutral-700 prose-pre:rounded-lg"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
             </motion.div>
