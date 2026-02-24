@@ -63,12 +63,12 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Currency Converter",
-    description: "A currency converter application built with HTML, CSS, and JavaScript and Free API that allows users to convert between different currencies.",
-    image: '/project/currencyconverter.webp',
-    tags: ["CSS", "ExchangeRate API", "JavaScript"],
+    title: "FlowTrace",
+    description: "FlowTrace is a real-time transaction tracking and visualization platform built during a hackathon to detect and analyze suspicious financial flows. It uses graph-based visualization and algorithmic analysis to trace fund movements across multiple nodes, helping users easily identify anomalies and potential fraud through an intuitive dashboard.",
+    image: '/project/flowtrace.png',
+    tags: ["React.js", "Express.j", "Render", "Vercel"],
     category: 'web',
-    demo: "",
-    github: "https://github.com/Shreevatsatg/currencyconverter"
+    demo: "https://flowtrace-navy.vercel.app",
+    github: "https://github.com/Shreevatsatg/FlowTrace"
   },
 ];
