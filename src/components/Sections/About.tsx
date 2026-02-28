@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Coffee, Heart, Globe, Database, GitBranch, Layers, Figma, } from 'lucide-react';
+import { Code, Coffee, Rocket, Globe, Database, GitBranch, Layers, Figma,Network } from 'lucide-react';
 
 const About = () => {
   const technologies = [
@@ -7,7 +7,6 @@ const About = () => {
     { name: "Next.js", icon: Globe },
     { name: "TypeScript", icon: Code },
     { name: "Node.js", icon: GitBranch },
-    { name: "Tailwind CSS", icon: Palette },
     { name: "MongoDB", icon: Database },
     { name: "GraphQL", icon: Layers },
     { name: "Framer Motion", icon: Code },
@@ -17,9 +16,9 @@ const About = () => {
 
   const interests = [
     { icon: Code, title: 'Web Development', description: 'Building responsive and interactive web applications' },
-    { icon: Palette, title: 'Art', description: 'Creating beautiful paintings and drawings' },
-    { icon: Coffee, title: 'Problem Solving', description: 'Tackling complex algorithmic challenges' },
-    { icon: Heart, title: 'Open Source', description: 'Contributing to community-driven projects' },
+    { icon: Network, title: 'Systems Thinking', description: 'Approaching problems by understanding how components interact within a larger system' },
+    { icon: Coffee, title: 'Full-Stack Engineering', description: 'Designing and developing complete web applications from frontend interfaces to backend systems' },
+    { icon: Rocket, title: 'Hackathon Prototyping', description: 'Transforming ideas into functional prototypes under tight deadline' },
   ];
 
   // Duplicate technologies for seamless loop
@@ -78,7 +77,7 @@ const About = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            A passionate computer science student who believes that the intersection of <span className="text-neutral-900 dark:text-neutral-200 font-medium">technology</span> and <span className="text-neutral-900 dark:text-neutral-200 font-medium">art</span> creates the most beautiful and meaningful experiences.
+            I’m a computer science student focused on building real-world systems and interactive web applications.
           </motion.p>
         </motion.div>
 
@@ -88,26 +87,19 @@ const About = () => {
           animate="visible"
           className="grid lg:grid-cols-2 gap-12 items-center mb-16"
         >
-          <motion.div variants={itemVariants} className="space-y-6">
+          <motion.div variants={itemVariants} className="space-y-2">
            
               
               
 
-            <motion.h3 variants={itemVariants} className="text-2xl font-medium text-neutral-900 dark:text-neutral-200">My Journey</motion.h3>
-            <motion.p variants={itemVariants} className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-              Currently pursuing my Computer Science degree, I'm deeply fascinated by the endless possibilities 
-              that emerge when creativity meets code. My journey began with a simple curiosity about how 
-              websites work, which quickly evolved into a passion for creating digital experiences.
+            <motion.p variants={itemVariants} className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
+              I enjoy turning complex ideas into working products — from real-time collaborative tools to AI-powered applications. Most of my learning happens through experimentation, breaking things, and rebuilding them better.
+
+I’m especially interested in scalable architectures, real-time systems, and building platforms that people actually use.
+
+For me, coding isn’t just about writing functions — it’s about engineering complete solutions.
             </motion.p>
-            <motion.p variants={itemVariants} className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-              When I'm not coding, you'll find me with a paintbrush in hand, exploring colors and forms on canvas. 
-              This artistic practice has taught me to see problems from different perspectives and approach 
-              development with a designer's eye.
-            </motion.p>
-            <motion.p variants={itemVariants} className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-              I believe that the best solutions come from understanding both the technical requirements and 
-              the human emotions behind every project.
-            </motion.p>
+            
           </motion.div>
 
           <motion.div

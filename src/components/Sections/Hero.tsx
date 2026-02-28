@@ -81,9 +81,8 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed font-light"
             >
-              Passionate about blending{" "}
-              <span className="text-neutral-900 dark:text-neutral-200 font-medium">technology</span> and{" "}
-              <span className="text-neutral-900 dark:text-neutral-200 font-medium">creativity</span>. I
+              Passionate about{" "}
+              <span className="text-neutral-900 dark:text-neutral-200 font-medium">technology</span>. I
               develop innovative solutions and create digital experiences that
               matter.
             </motion.p>
