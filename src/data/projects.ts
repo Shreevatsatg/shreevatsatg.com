@@ -71,4 +71,14 @@ export const projects: Project[] = [
     demo: "https://flowtrace-navy.vercel.app",
     github: "https://github.com/Shreevatsatg/FlowTrace"
   },
+   {
+    id: 7,
+    title: "HappyBirthday",
+    description: "HappyBirthday is a cross-platform mobile application built using Expo and EAS with a structured development and deployment workflow. The app supports separate development, preview, and production builds, ensuring proper testing, optimization, and version control. It uses Over-The-Air (OTA) updates to push JavaScript and asset changes without rebuilding the app, while production builds are optimized for Play Store submission. The project demonstrates a complete mobile CI/CD pipeline, including environment management, version handling, build automation, and store deployment.",
+    image: '/project/happybirthday.png',
+    tags: ["ReactNative", "Expo", "supabase", "Android"],
+    category: 'mobile',
+    demo: "",
+    github: "https://github.com/Shreevatsatg/happybirthday"
+  },
 ];
