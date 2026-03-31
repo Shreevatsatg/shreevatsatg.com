@@ -81,4 +81,14 @@ export const projects: Project[] = [
     demo: "",
     github: "https://github.com/Shreevatsatg/happybirthday"
   },
+   {
+    id: 8,
+    title: "beyondthescroll",
+    description: "BeyondTheScroll is a modern college event website designed to manage and showcase events with an engaging user experience. The platform features dynamic event listings, responsive UI, and smooth navigation to enhance user interaction. Built with a scalable frontend architecture, it ensures performance optimization and easy content updates. The project highlights practical implementation of web development concepts, including component-based design, responsive layouts, and real-time content handling.",
+    image: '/project/beyondthescroll.png',
+    tags: ["React", "Netlify", "TailwindCSS", "Web"],
+    category: "web",
+    demo: "https://beyondthescroll-mgmeveningcollege.netlify.app/",
+    github: "https://github.com/Shreevatsatg/collegecontest"
+  },
 ];
