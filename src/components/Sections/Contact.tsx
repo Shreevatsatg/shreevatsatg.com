@@ -83,8 +83,8 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Shreevatsatg', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/shreevatsa-t-g-7b6509314/', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://www.instagram.com/shreevatsa_tg', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/shreevatsatg', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/shreevatsatg', label: 'Instagram' },
     { icon: Twitter, href: 'https://x.com/Shreevatsatg', label: 'X' }
   ];
 
